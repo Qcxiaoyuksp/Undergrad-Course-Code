@@ -1,0 +1,19 @@
+OracleParameter[] cmdParms = new OracleParameter[2];
+            cmdParms[0] = new OracleParameter("p0", OracleType.VarChar);
+            cmdParms[0].Value = tb_username.Text;
+            cmdParms[1] = new OracleParameter("p1", OracleType.VarChar);
+            cmdParms[1].Value = tb_pwd.Text;
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from t_user_info where username=:p0 and password=:p1";
+            cmd.Connection = conn;
+            cmd.Parameters.Add(cmdParms[0]);
+            cmd.Parameters.Add(cmdParms[1]);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+
+            //OracleDataAdapter da = new OracleDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);

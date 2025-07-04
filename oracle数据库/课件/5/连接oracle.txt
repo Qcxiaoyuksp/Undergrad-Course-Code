@@ -1,0 +1,71 @@
+c#:
+1.结合DataGradView插件
+2.添加引用System.Data.OracleClient,或者使用Oracle提供的ODP.net;
+
+private void btn_query_Click(object sender, EventArgs e)
+        {
+            string sql = "select * from emp where empno=" + tb_empno.Text;
+            OracleConnection conn = new OracleConnection("Data Source=sjzu;User ID=scott;Password=tiger");
+            conn.Open();
+            OracleDataAdapter da = new OracleDataAdapter(sql, conn);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            
+            dg_emp.DataSource = dt;
+            conn.Close();
+
+        }
+
+
+
+java:
+public class OraclePreparedStatement {
+    public static void mn(String[] args) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+            String user = "scott";
+            String password = "tiger";
+            conn = DriverManager.getConnection(url, user, password);
+            System.out.println("连接Oracle数据库成功！");
+            String sql = "SELECT * FROM emp WHERE deptno = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, 10);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                int empno = rs.getInt("empno");
+                String ename = rs.getString("ename");
+                String job = rs.getString("job");
+                System.out.println(empno + ", " + ename + ", " + job);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}

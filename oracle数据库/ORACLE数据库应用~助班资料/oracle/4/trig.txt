@@ -1,0 +1,6 @@
+create or replace trigger tr_testseq before insert
+on testseq for each row
+
+begin
+    select s_testseq.nextval into :new.pid from dual;
+end;

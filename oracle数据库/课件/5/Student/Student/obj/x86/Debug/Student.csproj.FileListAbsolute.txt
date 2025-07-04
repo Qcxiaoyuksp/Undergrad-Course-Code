@@ -1,0 +1,15 @@
+E:\CSharp\Student\Student\bin\Debug\Student.exe
+E:\CSharp\Student\Student\bin\Debug\Student.pdb
+E:\CSharp\Student\Student\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\CSharp\Student\Student\obj\x86\Debug\Student.Properties.Resources.resources
+E:\CSharp\Student\Student\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+E:\CSharp\Student\Student\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+E:\CSharp\Student\Student\obj\x86\Debug\Student.exe
+E:\CSharp\Student\Student\obj\x86\Debug\Student.pdb
+E:\CSharp\Student\Student\obj\x86\Debug\Student.frmMain.resources
+E:\CSharp\Student\Student\obj\x86\Debug\Student.frmQuery.resources
+E:\CSharp\Student\Student\obj\x86\Debug\Student.frmInsert.resources
+E:\CSharp\Student\Student\obj\x86\Debug\Student.frmEdit.resources
+E:\CSharp\Student\Student\obj\x86\Debug\Student.frmLogin.resources
+E:\CSharp\Student\Student\obj\x86\Debug\GenerateResource-ResGen.read.4.tlog
+E:\CSharp\Student\Student\bin\Debug\Student.exe.config
