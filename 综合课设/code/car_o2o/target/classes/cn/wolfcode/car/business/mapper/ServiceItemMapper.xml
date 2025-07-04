@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wolfcode.car.business.mapper.ServiceItemMapper" >
+  <resultMap id="BaseResultMap" type="cn.wolfcode.car.business.domain.ServiceItem" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="original_price" property="originalPrice" jdbcType="DECIMAL" />
+    <result column="discount_price" property="discountPrice" jdbcType="DECIMAL" />
+    <result column="car_package" property="carPackage" jdbcType="INTEGER" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="service_catalog" property="serviceCatalog" jdbcType="INTEGER" />
+    <result column="audit_status" property="auditStatus" jdbcType="INTEGER" />
+    <result column="sale_status" property="saleStatus" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from bus_service_item
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.wolfcode.car.business.domain.ServiceItem" useGeneratedKeys="true" keyProperty="id" >
+    insert into bus_service_item (name, original_price, discount_price, 
+      car_package, info, create_time, 
+      service_catalog, audit_status, sale_status
+      )
+    values (#{name,jdbcType=VARCHAR}, #{originalPrice,jdbcType=DECIMAL}, #{discountPrice,jdbcType=DECIMAL}, 
+      #{carPackage,jdbcType=INTEGER}, #{info,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{serviceCatalog,jdbcType=INTEGER}, #{auditStatus,jdbcType=INTEGER}, #{saleStatus,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.wolfcode.car.business.domain.ServiceItem" >
+    update bus_service_item
+    set name = #{name,jdbcType=VARCHAR},
+      original_price = #{originalPrice,jdbcType=DECIMAL},
+      discount_price = #{discountPrice,jdbcType=DECIMAL},
+      car_package = #{carPackage,jdbcType=INTEGER},
+      info = #{info,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      service_catalog = #{serviceCatalog,jdbcType=INTEGER},
+      audit_status = #{auditStatus,jdbcType=INTEGER},
+      sale_status = #{saleStatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+<!--  更新方法-->
+  <update id="edit" parameterType="cn.wolfcode.car.business.domain.ServiceItem">
+    update bus_service_item
+    set name = #{name,jdbcType=VARCHAR},
+      original_price = #{originalPrice,jdbcType=DECIMAL},
+      discount_price = #{discountPrice,jdbcType=DECIMAL},
+      info = #{info,jdbcType=VARCHAR},
+      service_catalog = #{serviceCatalog,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="changeSaleStatus">
+    update bus_service_item
+    set
+       sale_status = #{saleStatus}
+    where id = #{id}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, name, original_price, discount_price, car_package, info, create_time, 
+    service_catalog, audit_status, sale_status
+    from bus_service_item
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, original_price, discount_price, car_package, info, create_time, 
+    service_catalog, audit_status, sale_status
+    from bus_service_item
+  </select>
+
+<!--  分页查询-->
+    <select id="selectForList" resultMap="BaseResultMap">
+    select id, name, original_price, discount_price, car_package, info, create_time,
+    service_catalog, audit_status, sale_status
+    from bus_service_item
+    <where>
+      <if test="name != null and name != ''">
+        and name like concat('%',#{name},'%')
+      </if>
+      <if test="carPackage != null">
+        and car_package = #{carPackage}
+      </if>
+      <if test="serviceCatalog != null">
+        and service_catalog = #{serviceCatalog}
+      </if>
+      <if test="auditStatus != null">
+        and audit_Status = #{auditStatus}
+      </if>
+      <if test="saleStatus != null">
+        and sale_Status = #{saleStatus}
+      </if>
+    </where>
+    </select>
+</mapper>

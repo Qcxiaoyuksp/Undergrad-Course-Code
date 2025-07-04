@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wolfcode.car.business.mapper.StatementItemMapper" >
+  <resultMap id="BaseResultMap" type="cn.wolfcode.car.business.domain.StatementItem" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="statement_id" property="statementId" jdbcType="BIGINT" />
+    <result column="item_id" property="itemId" jdbcType="BIGINT" />
+    <result column="item_name" property="itemName" jdbcType="VARCHAR" />
+    <result column="item_price" property="itemPrice" jdbcType="DECIMAL" />
+    <result column="item_quantity" property="itemQuantity" jdbcType="DECIMAL" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from bus_statement_item
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByStatementId">
+        delete from bus_statement_item
+    where statement_id = #{statementId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.wolfcode.car.business.domain.StatementItem" useGeneratedKeys="true" keyProperty="id" >
+    insert into bus_statement_item (statement_id, item_id, item_name, 
+      item_price, item_quantity)
+    values (#{statementId,jdbcType=BIGINT}, #{itemId,jdbcType=BIGINT}, #{itemName,jdbcType=VARCHAR}, 
+      #{itemPrice,jdbcType=DECIMAL}, #{itemQuantity,jdbcType=DECIMAL})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.wolfcode.car.business.domain.StatementItem" >
+    update bus_statement_item
+    set statement_id = #{statementId,jdbcType=BIGINT},
+      item_id = #{itemId,jdbcType=BIGINT},
+      item_name = #{itemName,jdbcType=VARCHAR},
+      item_price = #{itemPrice,jdbcType=DECIMAL},
+      item_quantity = #{itemQuantity,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, statement_id, item_id, item_name, item_price, item_quantity
+    from bus_statement_item
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, statement_id, item_id, item_name, item_price, item_quantity
+    from bus_statement_item
+  </select>
+
+    <select id="selectForList" resultMap="BaseResultMap">
+    select id, statement_id, item_id, item_name, item_price, item_quantity
+    from bus_statement_item
+    where statement_id = #{statementId}
+    </select>
+
+</mapper>

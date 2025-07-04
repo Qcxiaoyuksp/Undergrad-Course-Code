@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="common/include :: header('修改流程定义')" />
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-bpmnInfo-edit" >
+        <div class="form-group">
+            <label class="col-sm-3 control-label">流程类型：</label>
+            <div class="col-sm-8">
+                <select name="bpmnType" class="form-control m-b" th:with="type=${@dict.getType('bus_audit_type')}">
+                    <option th:each="dict : ${type}" th:text="${dict.label}" th:value="${dict.value}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">流程文件：</label>
+            <div class="col-sm-8">
+                <input type="file" name="bpmnFile">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">备注信息：</label>
+            <div class="col-sm-8">
+                <textarea name="info" class="form-control"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<th:block th:include="common/include :: footer" />
+<script th:inline="javascript">
+    var prefix = ctx + "/business/bpmnInfo";
+    function submitHandler() {
+        if ($.validate.form()) {
+            var bpmnFile = $("[name='bpmnFile']")[0].files[0];
+            if(!bpmnFile){
+                $.modal.alertError("请选择需要上传的流程文件");
+                return;
+            }
+            // 封装参数
+            var fd = new FormData();
+            fd.append('bpmnFile',bpmnFile)
+            // 拿到 bpmn_type 进行封装传递
+            fd.append('bpmnType',$("[name='bpmnType']").val())
+            // 拿到 bpmn_label 进行封装传递
+            fd.append('bpmnLabel',$("[name='bpmnType'] option:selected").text())
+            // 拿到 info 信息进行封装传递
+            fd.append('info',$("[name='info']").val())
+            // 使用 ajax 做文件上传
+            $.ajax({
+                url:prefix + "/deploy",
+                type:'post',
+                data:fd,
+                processData: false, // 必须
+                contentType:false,  // 必须
+                success:function (result) {
+                    $.operate.successCallback(result);
+                }
+            })
+        }
+    }
+
+</script>
+</body>
+</html>

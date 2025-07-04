@@ -1,0 +1,3 @@
+（两处数据库 密码修改）
+1. 修改setting中的 MAVEN 地址路径
+2. 修改pop.xml 中mysql的版本

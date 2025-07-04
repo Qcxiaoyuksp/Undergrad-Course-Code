@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="common/include :: header('结算单列表')" />
+</head>
+<body class="gray-bg">
+    <div class="ui-layout-center">
+        <div class="container-div">
+            <div class="row">
+                <div class="col-sm-12 search-collapse">
+                    <div class="col-sm-12" >
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">客户姓名：</label>
+                                <label class="col-sm-6 control-label">[[${statement.customerName}]]</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">联系方式：</label>
+                                <label class="col-sm-6 control-label">[[${statement.customerPhone}]]</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" >
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">车牌号码：</label>
+                                <label class="col-sm-6 control-label">[[${statement.licensePlate}]]</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">汽车类型：</label>
+                                <label class="col-sm-6 control-label">[[${statement.carSeries}]]</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" >
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">服务类型：</label>
+                                <label class="col-sm-6 control-label" th:text="${@dict.getLabel('si_service_catalog',statement.serviceType)}"></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">到店时间：</label>
+                                <label class="col-sm-6 control-label" th:text="${#dates.format(statement.actualArrivalTime,'yyyy-MM-dd HH:mm')}"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" >
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">总消费金额：</label>
+                                <label class="col-sm-6 control-label" id="totalAmount">[[${statement.totalAmount}]]</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">实付价格：</label>
+                                <label class="col-sm-6 control-label" id="actuallyPayMoney">[[${statement.totalAmount-statement.discountAmount}]]</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" >
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">优惠价格：</label>
+                                <input type="number" onchange="updateAmount()" th:value="${statement.discountAmount}" id="discountAmount">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="btn-group-sm" id="toolbar" role="group">
+                    <a class="btn btn-success disabled" id="saveBn" onclick="saveFun()">
+                        <i class="fa fa-plus"></i> 保存
+                    </a>
+                    <a class="btn btn-warning" id="payBtn" onclick="payFun()">
+                        <i class="fa fa-paypal"></i> 支付
+                    </a>
+                </div>
+                <div class="col-sm-12 select-table table-striped">
+                    <table id="statementItemTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-layout-east">
+        <div class="container-div">
+            <div class="row">
+                <div class="col-sm-12 search-collapse">
+                    <form id="post-form">
+                        <div class="select-list">
+                            <ul>
+                                <li>
+                                    名    称：<input type="text" name="name"/>
+                                </li>
+                                <li>
+                                    是否套餐：
+                                    <select name="carPackage" th:with="type=${@dict.getType('si_car_package')}">
+                                        <option value="">所有</option>
+                                        <option th:each="dict : ${type}" th:text="${dict.label}" th:value="${dict.value}"></option>
+                                    </select>
+                                </li>
+                                <li>
+                                    服务分类：
+                                    <select name="serviceCatalog" th:with="type=${@dict.getType('si_service_catalog')}">
+                                        <option value="">所有</option>
+                                        <option th:each="dict : ${type}" th:text="${dict.label}" th:value="${dict.value}"></option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-12 select-table table-striped">
+                    <table id="itemTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+<th:block th:include="common/include :: footer" />
+<th:block th:include="common/include :: layout-latest" />
+<script>
+    $('body').layout({
+        east__size:	'30%',
+    });
+    var statementId = [[${statement.id}]];
+
+    $(function(){
+        initItemTable();
+        initStatementItemTable();
+    });
+    function initItemTable(){
+        var options = {
+            id:'itemTable',
+            url: "/business/serviceItem/query?saleStatus=1",
+            uniqueId:"id",
+            columns: [
+                {
+                    field: 'id',
+                    title: '养修服务单项id',
+                    visible: false
+                },
+                {
+                    field: 'name',
+                    title: '服务名称'
+                },
+                {
+                    field: 'discountPrice',
+                    title: '服务价格'
+                },
+                {
+                    field: 'info',
+                    title: '备注',
+                    formatter: function(value, row, index) {
+                        return $.table.tooltip(value, 0, "open");
+                    }
+                },{
+                    title: '操作',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs" href="javascript:void(0)" ' +
+                            'onclick="addToStatementTableFun(\'' + row.id + '\')"><i class="fa fa-plus"></i></a> ');
+                        return actions.join("");
+                    }
+                }]
+        };
+        $.table.init(options);
+    }
+    function initStatementItemTable(){
+        var options = {
+            id:'statementItemTable',
+            url: "/business/statementItem/query?statementId="+statementId,
+            uniqueId:"itemId",
+            columns: [
+                {
+                    field: 'itemId',
+                    title: '服务单项ID',
+                    visible: false
+                },
+                {
+                    field: 'itemName',
+                    title: '服务名称'
+                },
+                {
+                    field: 'itemPrice',
+                    title: '服务价格'
+                },
+                {
+                    field: 'itemQuantity',
+                    title: '数量'
+                },{
+                    title: '操作',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs" href="javascript:void(0)" ' +
+                            'onclick="addFun(\'' + row.itemId + '\')"><i class="fa fa-plus"></i></a> ');
+                        actions.push('<a class="btn btn-danger btn-xs" href="javascript:void(0)" ' +
+                            'onclick="minusFun(\'' + row.itemId + '\')"><i class="fa fa-minus"></i></a> ');
+                        return actions.join("");
+                    }
+                }]
+        };
+        $.table.init(options);
+    }
+    function addToStatementTableFun(id){
+        var rs=$('#itemTable').bootstrapTable('getRowByUniqueId',id);
+        //判断这条数据是否在statementTable里面,如果不在就插入数据,在就更新数据
+        var row = $('#statementItemTable').bootstrapTable('getRowByUniqueId',id);
+        if(row){
+            //存在这条记录
+            $('#statementItemTable').bootstrapTable('updateByUniqueId',{id:id,row:{itemQuantity:row.itemQuantity+1}});
+        }else{
+            //不存在这条记录
+            $('#statementItemTable').bootstrapTable('append',{
+                itemId:rs.id,
+                itemName:rs.name,
+                itemPrice:rs.discountPrice,
+                itemQuantity:1
+            });
+        }
+        updateAmount();
+    }
+    function addFun(id){
+        var row = $('#statementItemTable').bootstrapTable('getRowByUniqueId',id);
+        $('#statementItemTable').bootstrapTable('updateByUniqueId',{id:id,row:{itemQuantity:row.itemQuantity+1}});
+        updateAmount();
+    }
+    function minusFun(id){
+        var row = $('#statementItemTable').bootstrapTable('getRowByUniqueId',id);
+        if(row.itemQuantity>1){
+            $('#statementItemTable').bootstrapTable('updateByUniqueId',{id:id,row:{itemQuantity:row.itemQuantity-1}});
+        }else{
+            $('#statementItemTable').bootstrapTable('removeByUniqueId',id);
+        }
+        updateAmount();
+    }
+    function updateAmount(){
+        var data= $('#statementItemTable').bootstrapTable('getData',true);
+        var totalAmount = 0;
+        $.each(data,function(index,ele){
+            totalAmount += ele.itemPrice*ele.itemQuantity;
+        });
+        $("#totalAmount").html(totalAmount);
+        var discountAmount = $("#discountAmount").val();
+        if(!discountAmount){
+            discountAmount = 0;
+        }
+        if(discountAmount<0){
+            $("#discountAmount").val(0);
+            discountAmount = 0;
+        }
+        if(discountAmount>totalAmount){
+            alert("输入优惠价格有误");
+
+            $("#discountAmount").val(0);
+            discountAmount = 0;
+        }
+        $("#actuallyPayMoney").html(totalAmount-discountAmount);
+        $("#saveBn").removeClass("disabled");
+    }
+    function saveFun(){
+        var datas= $('#statementItemTable').bootstrapTable('getData',true);
+        $.each(datas,function(index,ele){
+            ele.statementId = statementId;
+        });
+        //携带额外的数据
+        datas.push({itemPrice:$("#discountAmount").val(),statementId:statementId});
+        var config = {
+            url: "/business/statementItem/saveItems",
+            type: 'post',
+            dataType: 'json',
+            contentType:"application/json",
+            data: JSON.stringify(datas),
+            success: function(result) {
+                $("#saveBn").addClass("disabled");
+                $.operate.ajaxSuccess(result);
+            }
+        };
+        $.ajax(config)
+    }
+function payFun(){
+   $.modal.confirm("是否要支付",function(){
+       $.get("/business/statementItem/pay?statementId="+statementId,function(result){
+           if(result.code==web_status.SUCCESS){
+               $.modal.confirm(result.msg,function(){
+                   $.modal.closeTab();
+               });
+           }else{
+               $.modal.alertError(result.msg);
+           }
+       })
+   });
+}
+</script>
+</body>
+</html>

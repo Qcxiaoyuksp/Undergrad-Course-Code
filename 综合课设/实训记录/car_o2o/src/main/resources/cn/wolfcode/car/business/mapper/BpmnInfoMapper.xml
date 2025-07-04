@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wolfcode.car.business.mapper.BpmnInfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.wolfcode.car.business.domain.BpmnInfo" >
+    <id column="id" property="id" />
+    <result column="bpmn_label" property="bpmnLabel" />
+    <result column="bpmn_type" property="bpmnType" />
+    <result column="process_definition_key" property="processDefinitionKey" />
+    <result column="deploy_time" property="deployTime" />
+    <result column="version" property="version" />
+    <result column="info" property="info" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" >
+    delete from bus_bpmn_info
+    where id = #{id}
+  </delete>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" >
+    insert into bus_bpmn_info (bpmn_label, bpmn_type, process_definition_key, deploy_time, version, 
+      info)
+    values (#{bpmnLabel}, #{bpmnType}, #{processDefinitionKey}, #{deployTime}, #{version}, 
+      #{info})
+  </insert>
+  <update id="updateByPrimaryKey" >
+    update bus_bpmn_info
+    set bpmn_label = #{bpmnLabel},
+      bpmn_type = #{bpmnType},
+      process_definition_key = #{processDefinitionKey},
+      deploy_time = #{deployTime},
+      version = #{version},
+      info = #{info}
+    where id = #{id}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+    select id, bpmn_label, bpmn_type, process_definition_key, deploy_time, version, info
+    from bus_bpmn_info
+    where id = #{id}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, bpmn_label, bpmn_type, process_definition_key, deploy_time, version, info
+    from bus_bpmn_info
+  </select>
+    <select id="selectForList" resultMap="BaseResultMap">
+      select id, bpmn_label, bpmn_type, process_definition_key, deploy_time, version, info
+      from bus_bpmn_info
+      <where>
+        <if test="beginTime != null">
+          and deploy_time &gt;= #{beginTime}
+        </if>
+        <if test="endTime != null">
+          and deploy_time &lt;= #{endTime}
+        </if>
+        <if test="auditType != null and auditType != ''">
+          and bpmn_type = #{auditType}
+        </if>
+      </where>
+    </select>
+    <select id="getByBpmnType" resultMap="BaseResultMap">
+      select id, bpmn_label, bpmn_type, process_definition_key, deploy_time, version, info
+      from bus_bpmn_info
+      where bpmn_type = #{auditType}
+      order by version desc
+      limit 1
+    </select>
+</mapper>

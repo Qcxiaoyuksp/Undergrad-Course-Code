@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wolfcode.car.business.mapper.AppointmentMapper" >
+  <resultMap id="BaseResultMap" type="cn.wolfcode.car.business.domain.Appointment" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
+    <result column="customer_phone" property="customerPhone" jdbcType="VARCHAR" />
+    <result column="appointment_time" property="appointmentTime" jdbcType="TIMESTAMP" />
+    <result column="actual_arrival_time" property="actualArrivalTime" jdbcType="TIMESTAMP" />
+    <result column="license_plate" property="licensePlate" jdbcType="VARCHAR" />
+    <result column="car_series" property="carSeries" jdbcType="VARCHAR" />
+    <result column="service_type" property="serviceType" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from bus_appointment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+
+  <insert id="insert" parameterType="cn.wolfcode.car.business.domain.Appointment" useGeneratedKeys="true" keyProperty="id" >
+    insert into bus_appointment (customer_name, customer_phone, appointment_time, 
+      actual_arrival_time, license_plate, car_series, 
+      service_type, create_time, info, 
+      status)
+    values (#{customerName,jdbcType=VARCHAR}, #{customerPhone,jdbcType=VARCHAR}, #{appointmentTime,jdbcType=TIMESTAMP}, 
+      #{actualArrivalTime,jdbcType=TIMESTAMP}, #{licensePlate,jdbcType=VARCHAR}, #{carSeries,jdbcType=VARCHAR}, 
+      #{serviceType,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{info,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+
+<!--  去掉创建时间以及到达时间-->
+  <update id="updateByPrimaryKey" parameterType="cn.wolfcode.car.business.domain.Appointment" >
+    update bus_appointment
+    set customer_name = #{customerName,jdbcType=VARCHAR},
+      customer_phone = #{customerPhone,jdbcType=VARCHAR},
+      appointment_time = #{appointmentTime,jdbcType=TIMESTAMP},
+      license_plate = #{licensePlate,jdbcType=VARCHAR},
+      car_series = #{carSeries,jdbcType=VARCHAR},
+      service_type = #{serviceType,jdbcType=INTEGER},
+      info = #{info,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+<!--  修改状态-->
+  <update id="changeStatusById">
+    update bus_appointment
+    set status = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="changeArrivalTime">
+    update bus_appointment
+    set actual_arrival_time = #{date,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, customer_name, customer_phone, appointment_time, actual_arrival_time, 
+    license_plate, car_series, service_type, create_time, info, status
+    from bus_appointment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, customer_name, customer_phone, appointment_time, actual_arrival_time, 
+    license_plate, car_series, service_type, create_time, info, status
+    from bus_appointment
+  </select>
+
+<!--  分页查询养修预约-->
+    <select id="selectForList" resultMap="BaseResultMap">
+    select id, customer_name, customer_phone, appointment_time, actual_arrival_time,
+    license_plate, car_series, service_type, create_time, info, status
+    from bus_appointment
+    </select>
+</mapper>

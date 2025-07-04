@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="common/include :: header('流程定义列表')" />
+</head>
+<body class="gray-bg">
+<div class="container-div">
+    <div class="row">
+        <div class="col-sm-12 search-collapse">
+            <form id="formId">
+                <div class="select-list">
+                    <ul>
+                        <li class="select-time">
+                            <label>部署时间：</label>
+                            <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="beginTime"/>
+                            <span>-</span>
+                            <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="endTime"/>
+                        </li>
+                        <li>
+                            审核类型：
+                            <select name="auditType" th:with="type=${@dict.getType('bus_audit_type')}">
+                                <option value="">所有</option>
+                                <option th:each="dict : ${type}" th:text="${dict.label}" th:value="${dict.value}"></option>
+                            </select>
+                        </li>
+                        <li>
+                            <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                            <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+        <div class="btn-group-sm" id="toolbar" role="group">
+            <a class="btn btn-success" onclick="deployMentlHandler()" shiro:hasPermission="business:serviceItem:add">
+                <i class="fa fa-plus"></i> 流程文件部署
+            </a>
+        </div>
+        <div class="col-sm-12 select-table table-striped">
+            <table id="bootstrap-table"></table>
+        </div>
+    </div>
+</div>
+<th:block th:include="common/include :: footer" />
+<th:block th:include="common/include :: jasny-bootstrap" />
+<script th:inline="javascript">
+    var prefix = ctx + "/business/bpmnInfo";
+    var auditTypeDatas = [[${@dict.getType('bus_audit_type')}]];
+    $(function() {
+        var options = {
+            url: prefix + "/query",
+            modalName: "流程定义",
+            columns: [{
+                checkbox: true
+            },
+                {
+                    field: 'id',
+                    title: 'id',
+                    visible: false
+                },
+                {
+                    field: 'bpmnType',
+                    title: '审核类型',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(auditTypeDatas, value);
+                    }
+                },
+                {
+                    field: 'processDefinitionKey',
+                    title: '流程定义Key'
+                },
+                {
+                    field: 'version',
+                    title: '版本号'
+                },
+                {
+                    field: 'info',
+                    title: '描述信息',
+                    formatter: function(value, row, index) {
+                        return $.table.tooltip(value, 5);;
+                    }
+                },
+                {
+                    field: 'deployTime',
+                    title: '部署时间'
+                },
+                {
+                    field: 'resourceName',
+                    title: '流程文件',
+                    formatter:function(value, row, index) {
+                        var url = prefix+"/readResource?id="+row.id+"&type=xml";
+                        return '<a class="btn btn-info btn-xs " href="' + url + '" target="_blank"><i class="fa fa-search"></i></a> ';
+                    }
+                },
+                {
+                    field: 'diagramResourceName',
+                    title: '流程图',
+                    formatter:function(value, row, index) {
+                        var url = prefix+"/readResource?id="+row.id+"&type=png";
+                        return '<a class="btn btn-info btn-xs " href="' + url + '" target="_blank"><i class="fa fa-search"></i></a> ';
+                    }
+                },
+                {
+                    field: 'opertion',
+                    title: '操作',
+                    formatter:function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-danger btn-xs "  href="javascript:void(0)" ' +
+                            'onclick="deleteHandler(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a>');
+
+                        return actions.join('');
+                    }
+                }
+
+            ]
+        };
+        $.table.init(options);
+    });
+    function deployMentlHandler(){
+        $.modal.open("流程定义部署",prefix+"/deployPage");
+    }
+    function deleteHandler(id){
+        $.modal.confirm("确定需要删除该流程定义吗?",function(){
+            $.operate.get(prefix+"/delete?id="+id);
+        });
+    }
+</script>
+</body>
+</html>

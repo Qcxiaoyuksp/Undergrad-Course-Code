@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "system.car",
+      "type": "cn.wolfcode.car.common.config.SystemConfig",
+      "sourceType": "cn.wolfcode.car.common.config.SystemConfig"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

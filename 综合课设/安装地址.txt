@@ -1,0 +1,8 @@
+C:\Program Files\Java\jdk1.8.0_131
+E:\Program Files\nodejs
+D:\Program Files\MySQL\MySQL Server 8.0	mysql	账号：root	密码：root
+E:\Program Files\PremiumSoft\Navicat Premium 16
+E:\IntelliJ IDEA 2023.2.4
+E:\ideaProject
+E:\apache-maven-3.8.1
+E:\repository

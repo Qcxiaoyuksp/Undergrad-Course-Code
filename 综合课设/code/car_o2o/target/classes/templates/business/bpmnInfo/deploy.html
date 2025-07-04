@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="common/include :: header('修改流程定义')" />
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-bpmnInfo-edit" >
+        <div class="form-group">
+            <label class="col-sm-3 control-label">流程类型：</label>
+            <div class="col-sm-8">
+                <select name="bpmnType" class="form-control m-b" th:with="type=${@dict.getType('bus_audit_type')}">
+                    <option th:each="dict : ${type}" th:text="${dict.label}" th:value="${dict.value}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">流程文件：</label>
+            <div class="col-sm-8">
+                <input type="file" name="bpmnFile">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">备注信息：</label>
+            <div class="col-sm-8">
+                <textarea name="info" class="form-control"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<th:block th:include="common/include :: footer" />
+<script th:inline="javascript">
+    var prefix = ctx + "/business/bpmnInfo";
+    function submitHandler() {
+        if ($.validate.form()) {
+            var file = $("[name='bpmnFile']")[0].files[0];
+            if(!file){
+                $.modal.alertError("请选择需要上传的流程文件");
+                return;
+            }
+            var fd = new FormData();
+            fd.append("file",file);
+            fd.append("bpmnType",$("[name='bpmnType']").val());
+            fd.append("bpmnLabel",$("[name='bpmnType'] option:selected").text());
+            fd.append("info",$("[name='info']").val());
+            $.ajax({
+                url:prefix+'/deploy',
+                method:'post',
+                // 数据不需要编码
+                contentType: false,
+                // 数据对象不需要转换成键值对格式
+                processData: false,
+                data:fd,
+                success:function(result){
+                    $.operate.successCallback(result);
+                }
+            });
+        }
+    }
+
+</script>
+</body>
+</html>
