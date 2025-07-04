@@ -1,0 +1,400 @@
+<html>
+	<head>
+		<title>潇湘JSP多文件上传组件</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+	<meta http-equiv="expires" content="fri,30 dec 1999 00:00:00 gmt">
+	<meta name="author" content="fredwebs@sina.com">
+	<link rel='stylesheet' href='style.css' type='text/css'>
+	</head>
+	<body bgcolor="#999999" style="margin:0;">
+		<table border="0" cellspacing="0" cellpadding="0" width="778" height="100%" align=center style="border-right:1 solid black;border-left:1 solid black;">
+			<tr><td valign=top bgcolor="#D6EAFF">
+
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td background="image/top_bg.gif" style="padding-left:39">
+							<img src="image/title.gif" border=0></td>
+					</tr>
+					<tr><td height="11" bgcolor="#ffffff"></td></tr>
+					<tr>
+						<td style="padding-top:20;">
+							<div ><img src="image/interface_title.gif" border=0></div>
+							<div class=content style="margin:20;">
+								<ul>
+									<li><a href="#upBean" class=interface_title>upBean</a>
+									<li><a href="#files" class=interface_title>files</a>
+									<li><a href="#file" class=interface_title>file</a>
+									<li><a href="#Request" class=interface_title>Request</a>
+								</ul>
+							</div>
+							<BR>
+							<div class=code_content style="margin:20;">
+								<B><·> <FONT COLOR="#990000"><a name="upBean">xiaoxiang.fileUpload.upBean</a></FONT>:</B>
+									<ul>
+									<li><B>upBean</B>
+									<BR>类构造器。
+									<ul>
+									<li>语法：.upBean()
+									<li>返回:xiaoxiang.fileUpload..upBean的一个实例
+									<li>例子：<br>
+									命令行：xiaoxiang.fileUPload.upBean myUpbean=new xiaoxiang.fileUPload.upBean();<br>
+									javabean:&lt;jsp:useBean id=&quot;myUpload&quot; scope=&quot;page&quot; class=&quot;xiaoxiang.fileUpload.upBean&quot; /&gt;
+									</ul>
+
+
+									<li><B>getFiles</B>
+									<BR>返回本组件自定义的files类,此类包含了所有上传文件的文件数据。
+									<ul>
+									<li>语法：.getFiles()
+									<li>返回:xiaoxiang.fileUpload.files的一个实例
+									<li>例子：xiaoxiang.fileUPload.files myfiles=myUpload.getFiles();
+									</ul>
+
+									<li><B>getRealPath</B>
+									<BR>得到文件保存的默认路径。
+									<ul>
+									<li>语法：.getRealPath()
+									<li>返回：String
+									<li>例子：String realPath=myUpload.getRealPath();
+									</ul>
+
+
+
+									<li><B>getRequest</B>
+									<BR>返回本组件自定义的Request类
+										<ul>
+										<li>语法：.getRequest()
+										<li>返回:xiaoxiang.fileUpload.Request
+										<li>例子：out.print(myUpload.getRequest().getParameter("fileName"));
+									</ul>
+
+
+									<li><B>initialize</B><BR>初始化Bean
+									<ul>
+									<li>语法：.initialize(pageContext)
+									<li>没有返回值
+									<li>例子：myUpBean.initialize(pageContext);
+									</ul>
+
+									<li><B>setAllowedExtList</B>
+									<BR>设置允许上传的文件后缀名
+									<ul>
+									<li>语法：.setAllowedExtList(String)
+									<li>没有返回值
+									<li>例子：myUpload.setAllowedExtList("gif,jpg");
+									</ul>
+
+
+									<li><B>setAllowedFileTypeList</B>
+									<BR>设置允许上传的文件类型
+									<ul>
+									<li>语法：.setAllowedFileTypeList(String)
+									<li>没有返回值
+									<li>例子：myUpload.setAllowedFileTypeList("gif,pjpeg");
+									<li>常用的文件类型：
+										<ul>
+											<li>Gif格式图片:gif
+											<li>jpg格式文件:pjpeg
+											<li>word文件:msword
+											<li>html文件:html
+											<li>txt文件:plain
+
+										</ul>
+										更详细的表:reference_fileType.asp
+									</ul>
+
+									<li><B>setIsCover</B>
+									<BR>设置上传文件时是否覆盖服务器上的同名文件
+									<ul>
+									<li>语法：.setIsCover(boolean)
+									<li>没有返回值
+									<li>例子：myUpload.setIsCover(false);
+									</ul>
+
+
+									<li><B>setMaxFileSize</B>
+									<BR>设置每次上传的文件中最大的文件的大小
+									<ul>
+									<li>语法：.setMaxFileSize(int)
+									<li>没有返回值
+									<li>例子：myUpload.setMaxFileSize(100000);
+									</ul>
+
+
+									<li><B>setRealPath</B>
+									<BR>设定文件保存的默认路径。
+									<ul>
+									<li>语法：.setRealPath(String)
+									<li>没有返回值
+									<li>例子：myUpload.setRealPath(application.getRealPath(File.separator+"fileUpload"));
+									</ul>
+
+									<li><B>setTotalMaxFileSize</B>
+									<BR>设置每次允许上传的所有文件的大小
+									<ul>
+									<li>语法：.setTotalMaxFileSize(int)
+									<li>没有返回值
+									<li>例子：myUpload.setTotalMaxFileSize(1000000);
+									</ul>
+
+									<li><B>upload</B>
+									<BR>将文件和其他页面参数上传到服务器，并将数据存入特定的数据结构。
+									<ul>
+									<li>语法：.upload()
+									<li>没有返回值
+									<li>例子：myUpload.upload();
+									</ul>
+
+								</ul></div>
+
+							<div class=content style="margin:20;">
+								<B><·> <FONT COLOR="#990000"><a name="files">xiaoxiang.fileUpload.files</a></FONT>:</B>
+									<ul>
+										<li><B>getCount</B>
+										<BR>得到上传文件的数目。
+										<ul>
+											<li>语法：.getCount()
+											<li>返回：int
+											<li>例子：int fileCount=myFiles.getCount();
+										</ul>
+
+										<li><B>getFile</B>
+										<BR>得到本组件自定义的文件对象,参数是文件在文件数组中的位置。
+										<ul>
+											<li>语法：.getFile(int)
+											<li>返回：xiaoxiang.fileUpload.file
+											<li>例子：myFiles.getFile(i).setName("myName");
+										</ul>
+
+
+										<li><B>getSize</B>
+										<BR>返回上传的文件总字节数
+										<ul>
+										<li>语法：.getSize()
+										<li>返回：int
+										<li>例子：out.print(myfiles.getSize());
+										</ul>
+									</ul>
+								</div>
+
+								<div class=content style="margin:20;">
+									<B><·> <FONT COLOR="#990000"><a name="file">xiaoxiang.fileUpload.file</a></FONT>:</B>
+										<ul>
+										<li><B>getExtName</B>
+										<BR>得到本文件的文件后缀名。
+										<ul>
+											<li>语法：.getExtName()
+											<li>返回：String
+											<li>例子：String sourExtName=myFiles.getFile(i).getExtName();;
+										</ul>
+
+
+										<li><B>getName</B>
+										<BR>得到本文件的文件名。
+										<ul>
+											<li>语法：.getName()
+											<li>返回：String
+											<li>例子：String sourName=myFiles.getFile(i).getName();;
+										</ul>
+
+										<li><B>getNumber</B>
+										<BR>得到本文件在文件数组中的位置。
+										<ul>
+											<li>语法：.getNumber()
+											<li>返回：int
+											<li>例子：out.print(myfiles.getNumber());
+										</ul>
+
+										<li><B>getSize</B>
+										<BR>得到本文件的文件大小。
+										<ul>
+											<li>语法：.getSize()
+											<li>返回：long
+											<li>例子：out.print(myFiles.getFile(i).getName()+"("+(myFiles.getFile(i).getSize()/1000+1)+"kb)");
+										</ul>
+
+
+
+
+										<li><B>getSubTypeMIME</B>
+										<BR>得到本文件的文件类型。
+										<ul>
+											<li>语法：.getSubTypeMIME()
+											<li>返回：String
+											<li>例子：out.print(myFiles.getFile(i).getSubTypeMIME());
+										</ul>
+
+										<li><B>saveAs</B>
+										<BR>按照默认路径将本文件写入服务器。
+										<ul>
+											<li>语法：.saveAs()
+											<li>不返回值
+											<li>例子：myFiles.getFile(i).saveAs();
+										</ul>
+
+										<li><B>saveAs</B>
+										<BR>按照参数设定的路径将本文件写入服务器。
+										<ul>
+											<li>语法：.saveAs(String)
+											<li>不返回值
+											<li>例子：myFiles.getFile(i).saveAs(setRealPath);
+										</ul>
+
+										<li><B>setName</B>
+										<BR>设定本文件的文件名。
+										<ul>
+											<li>语法：.setName(String)
+											<li>不返回值
+											<li>例子：myFiles.getFile(i).setName(myName);;
+										</ul>
+									</ul>
+								</div>
+								<div class=content style="margin:20;">
+									<B><·> <FONT COLOR="#990000"><a name="Request">xiaoxiang.fileUpload.Request</a></font>:</B>
+									<ul>
+									<li><B>getParameter</B><BR>返回一个Request的参数的值
+									<ul>
+									<li>语法：.getParameter(String)
+
+									<li>返回:String
+									<li>例子：out.println(myUpload.getRequest().getParameter("myParameter"));
+									</ul>
+
+									<li><B>getParameterNames</B>
+									<BR>返回Request中的所有参量的变量名
+									<ul>
+									<li>语法：.getParameterNames()
+									<li>返回：java.util.Enumeration
+									<li>例子：java.util.Enumeration e = myUpload.getRequest().getParameterNames();
+									</ul>
+
+
+									<li><B>getParameterValues</B>
+									<BR>如果Request的参量的值是字符串数组，就可以用这个方法得到
+									<ul>
+									<li>语法：.getParameterValues(String)
+									<li>返回：字符串数组
+									<li>例子：String[] values=myUpload.getRequest().getParameterValues(key);
+									</ul>
+								</ul></div>
+
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="11" bgcolor="#ffffff"></td>
+			<td width="132" >
+													<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+						<tr>
+							<td height="115"><a href="http://www.xiaoxiang.net/jspupload/download/xiaoxiang.fileUpload.2.0.zip"><img src="image/top_right.gif" border=0></a></td>
+						</tr>
+						<tr>
+							<td class=h></td>
+						</tr>
+						<tr>
+							<td bgcolor="#0F447D" style="padding-top:7;padding-left:7;">
+								<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+									<tr>
+										<td height="1" width="7" ><img src="image/menu_top.gif" border=0></td>
+									</tr>
+									<tr>
+										<td valign=top>
+
+
+											<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+												<tr>
+													<td width="7" bgcolor="#38699E" height="227"></td>
+													<td width="7"></td>
+													<td >
+
+
+														<!-- menu table  -->
+														<table border="0" cellspacing="0" cellpadding="0" width="100%">
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="index.html" class=menu>返回主页</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="install.html" class=menu>安装指南</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="interface.html" class=menu>接口祥解</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="download.html" class=menu>相关下载</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="http://www.xiaoxiang.net/forum/article/Subject_article_list.asp?subject_id=3" class=menu target="_blank">交流论坛</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td ><img src="image/pic.gif" border=0></td>
+															</tr>
+														</table>
+
+
+
+
+													</td>
+												</tr>
+												<tr>
+													<td height="7"><img src="image/menu_bottom.gif" border=0></td>
+													<td colspan=2></td>
+												</tr>
+												<tr>
+													<td width="7" bgcolor="#38699E"></td>
+													<td width="7"></td>
+													<td class=link>
+														All made by:
+														<div class=link_logo><a href="http://www.xiaoxiang.net" target="_blank"><img src="image/xiaoxiang.gif" border=0></a></div>
+														<br>
+														Some links:
+
+														<div class=link_logo><a href="http://www.demeng.net" target="_blank"><img src="image/demeng.gif" border=0></a></div>
+													
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+							</td>
+						</tr>
+						<tr>
+							<td class=h colspan=3></td>
+						</tr>
+			<tr>
+				<td class=bottom colspan=3>All rights reserved by <a href="http://www.xiaoxiang.net"><font  color="white">xiaoxiang.net</font></a></td>
+			</tr>
+		</table>
+	</body>
+</html>

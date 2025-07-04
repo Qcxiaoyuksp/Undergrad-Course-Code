@@ -1,0 +1,12 @@
+CITE.fav_csdnstylebykimi {
+	PADDING-BOTTOM: 0px; FONT-STYLE: normal; MARGIN: 0px 0px 0px 5px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: inline; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+CITE.fav_csdnstylebykimi A {
+	PADDING-BOTTOM: 1px; PADDING-LEFT: 10px; PADDING-RIGHT: 25px; FONT: 12px Tahoma, sans-serif; BACKGROUND: url(http://blog.csdn.net/images/share-add.gif) no-repeat 0px 0px; PADDING-TOP: 0px
+}
+* + HTML CITE.fav_csdnstylebykimi A {
+	PADDING-BOTTOM: 0px !important; PADDING-LEFT: 10px !important; PADDING-RIGHT: 25px !important; PADDING-TOP: 2px !important
+}
+CITE.fav_csdnstylebykimi A:hover {
+	BACKGROUND: url(http://blog.csdn.net/images/share-add.gif) no-repeat 0px 100%; COLOR: #fff; CLEAR: both; TEXT-DECORATION: none
+}

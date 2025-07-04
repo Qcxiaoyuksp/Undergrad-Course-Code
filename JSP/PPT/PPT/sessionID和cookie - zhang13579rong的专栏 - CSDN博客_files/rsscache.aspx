@@ -1,0 +1,1 @@
+document.write('<li><a onclick="LogClickCount(this,224);" href="http://topic.csdn.net/u/20110217/14/2983b4af-f453-4766-a399-65733805808c.html" target="_blank">第三届中国云计算大会 7.5折票价抢购中！ </a></li>')

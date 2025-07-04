@@ -1,0 +1,41 @@
+<html><head><title>潇湘JSP多文件上传组件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="expires" content="fri,30 dec 1999 00:00:00 gmt">
+<meta name="author" content="fredwebs@sina.com">
+<link rel='stylesheet' href='style.css' type='text/css'>
+</head>
+<body bgcolor="#999999" style="margin:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="778" height="100%" align=center style="border-right:1 solid black;border-left:1 solid black;">
+<tr><td valign=top bgcolor="#D6EAFF">
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr><td background="image/top_bg.gif" style="padding-left:39"><img src="image/title.gif" border=0></td></tr>
+<tr><td height="11" bgcolor="#ffffff"></td></tr>
+<tr><td style="padding-top:20;">
+<div ><img src="image/example_title.gif" border=0></div>
+
+<div style="width:98%;padding:3em;"><font color="#F98300"><b>场景:</b></font><br>您需要用户只能上传"gif/jpg"图片,文件上传后按你的命名方式命名:"myname_number.ext",并且你不允许出现图片同名覆盖的现象.</div>
+
+
+<form METHOD="POST" ACTION="example1_do.jsp" NAME="PW" ENCTYPE="multipart/form-data">
+<table border="0" cellspacing="1" cellpadding="5" width="500" align=center bgcolor="#3A6EA5">
+<th style="color:white" colspan=2>潇湘JSP上传组件示例(1)</th>
+<tr bgcolor="#ffffff"><td bgcolor="#C4DFFB">文件一</td><td bgcolor="#E9F4FF"><input TYPE="file" name="FILE1"></td></tr>
+<tr bgcolor="#ffffff"><td  bgcolor="#C4DFFB">文件二</td><td bgcolor="#E9F4FF"><input TYPE="file" name="FILE2"></td></tr>
+<tr bgcolor="#ffffff"><td  bgcolor="#C4DFFB">文件名</td><td bgcolor="#E9F4FF"><input TYPE="text" name="fileName"></td></tr>
+<tr bgcolor="#ffffff"><td  bgcolor="#C4DFFB">文件密码</td><td bgcolor="#E9F4FF"><input TYPE="password" name="pwd"></td></tr>
+<tr bgcolor="#ffffff"><td  bgcolor="#C4DFFB">文件描述</td><td bgcolor="#E9F4FF"><TEXTAREA NAME="description" ROWS="5" COLS="19"></TEXTAREA></td></tr>
+<tr bgcolor="#ffffff"><td  bgcolor="#C4DFFB">文件包括</td><td bgcolor="#E9F4FF"><INPUT TYPE="checkbox" NAME="fileContent" value="考试科目">考试科目<BR>
+<INPUT TYPE="checkbox" NAME="fileContent" value="考生姓名">考生姓名<BR>
+<INPUT TYPE="checkbox" NAME="fileContent"value="考试成绩">考试成绩</td></tr>
+<tr bgcolor="#ffffff"><td  bgcolor="#C4DFFB">文件类型</td><td bgcolor="#E9F4FF"><INPUT TYPE="radio" NAME="fileType" value="dos">dos<BR>
+<INPUT TYPE="radio" NAME="fileType" value="txt">txt<BR>
+<INPUT TYPE="radio" NAME="fileType"value="wps">wps</td></tr>
+<tr bgcolor="#ffffff"><td  bgcolor="#C4DFFB"></td><td bgcolor="#E9F4FF"><input TYPE="submit" value="确定上传"></td></tr>
+</table>
+</form>
+</table><BR><BR><BR>
+<div style="text-indent:2em;height:30">本组件由<FONT  COLOR="#990000">潇湘工作室</FONT>(<A HREF="http://xiaoxiang.net" target="_blank">www.xiaoxiang.net</A>)开发，可免费在网上传播使用.</div>
+</td><td width="11" bgcolor="#ffffff"></td><td width="132" background="image/right_bg.gif"></td></tr>
+</table>
+</body></html>

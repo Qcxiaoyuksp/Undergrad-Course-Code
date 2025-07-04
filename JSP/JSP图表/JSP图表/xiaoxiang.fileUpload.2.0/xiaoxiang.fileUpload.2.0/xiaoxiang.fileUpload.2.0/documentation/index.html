@@ -1,0 +1,170 @@
+<html>	
+	<head>
+		<title>潇湘JSP多文件上传组件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta http-equiv="expires" content="fri,30 dec 1999 00:00:00 gmt">
+		<meta name="author" content="fredwebs@sina.com">
+		<link rel='stylesheet' href='style.css' type='text/css'>
+	</head>
+	<body bgcolor="#999999" style="margin:0;">
+		<table border="0" cellspacing="0" cellpadding="0" width="778" height="100%" align=center style="border-right:1 solid black;border-left:1 solid black;">
+			<tr>
+				<td valign=top bgcolor="#D6EAFF">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tr>
+							<td background="image/top_bg.gif" style="padding-left:39">
+								<img src="../image/title.gif" border=0></td>
+						</tr>
+						<tr>
+							<td height="11" bgcolor="#ffffff"></td>
+						</tr>
+						<tr>
+							<td style="padding-top:20;">
+								<div ><img src="../image/v2.gif" border=0></div>
+								<div class=content style="margin:20;">
+									经过将近半年的时间，使用<span class=out>xiaoxiang.fileUpload</span>的程序员们不断增多，他们对本组件提出了许多新的要求。总结了他们的要求，最近花了一个星期的时间将本组件升级到2.0。2.0的功能比1.0强大多了，对用户提供更多更实用的接口。现将本组件的基本功能列于下：
+
+									<ul>
+										<li>一次上传多个文件。
+										<li>允许得到上传的文件的原文件名，并可以将文件改名存入服务器。
+										<li>允许设定每次上传文件的总大小，和单个文件的文件大小。
+										<li>可以设定只被允许文件后缀名列表。
+										<li>可以设定只被允许的文件类型列表。（注：从文件格式分析，比只分析后缀名更加准确。）
+										<li>可以设定是否覆盖服务器上同名文件。
+										<li>可以将所有文件上传到一个文件夹，也可以程序员的需求将文件分类存入不同文件夹。
+									</ul>
+
+									在这半年一来，本组件得到了众多网友的帮助，他们不多对组件提出非常好的改良意见，有的网友还提出了解决办法，在这里，我表示忠心的感谢。新组件出来后,还希望各位程序员们多多支持，有需求尽管提，我会在下一个版本增加的，
+									<span class=out>如果发现BUG，也千万要在论坛里告诉我啊。</span>
+									
+
+								</div>
+								<BR>
+
+							<div ><img src="../image/menu_3.gif" border=0></div>
+							<div class=content style="margin:20;">
+								本组件是<A HREF="http://www.xiaoxiang.net/studio">潇湘工作室</A>开发，可以自由传播的绿色软件。任何人可在学习、商业应用中使用本组件。<BR>本组件的介绍性文字与图片版权收回。<BR>官方网站：<A HREF="http://www.xiaoxiang.net/jspupload">http://www.xiaoxiang.net/jspupload</A><BR>
+								免费下载：<A HREF="http://www.xiaoxiang.net/jspupload/download/xiaoxiang.fileUpload.2.0.zip">http://www.xiaoxiang.net/jspupload/download/xiaoxiang.fileUpload.2.0.zip</A><BR>
+								组件咨询：<A HREF="http://www.xiaoxiang.net/forum/article/Subject_article_list.asp?subject_id=3">http://www.xiaoxiang.net/forum/article/Subject_article_list.asp?subject_id=3</A><BR>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td width="11" bgcolor="#ffffff"></td>
+				<td width="132" >
+					<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+						<tr>
+							<td height="115"><a href="http://www.xiaoxiang.net/jspupload/download/xiaoxiang.fileUpload.2.0.zip"><img src="image/top_right.gif" border=0></a></td>
+						</tr>
+						<tr>
+							<td class=h></td>
+						</tr>
+						<tr>
+							<td bgcolor="#0F447D" style="padding-top:7;padding-left:7;">
+								<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+									<tr>
+										<td height="1" width="7" ><img src="image/menu_top.gif" border=0></td>
+									</tr>
+									<tr>
+										<td valign=top>
+
+
+														<!-- menu table  -->
+											<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+												<tr>
+													<td width="7" bgcolor="#38699E" height="227"></td>
+													<td width="7"></td>
+													<td >
+
+
+														<!-- menu table  -->
+														<table border="0" cellspacing="0" cellpadding="0" width="100%">
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="index.html" class=menu>返回主页</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="install.html" class=menu>安装指南</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="interface.html" class=menu>接口祥解</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="download.html" class=menu>相关下载</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="http://www.xiaoxiang.net/forum/article/Subject_article_list.asp?subject_id=3" class=menu target="_blank">交流论坛</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td ><img src="image/pic.gif" border=0></td>
+															</tr>
+														</table>
+
+
+
+
+													</td>
+												</tr>
+												<tr>
+													<td height="7"><img src="image/menu_bottom.gif" border=0></td>
+													<td colspan=2></td>
+												</tr>
+												<tr>
+													<td width="7" bgcolor="#38699E"></td>
+													<td width="7"></td>
+													<td class=link>
+														All made by:
+														<div class=link_logo><a href="http://www.xiaoxiang.net" target="_blank"><img src="image/xiaoxiang.gif" border=0></a></div>
+														<br>
+														Some links:
+
+														<div class=link_logo><a href="http://www.demeng.net" target="_blank"><img src="image/demeng.gif" border=0></a></div>
+													
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class=h colspan=3></td>
+			</tr>
+						<tr>
+				<td class=bottom colspan=3>All rights reserved by <a href="http://www.xiaoxiang.net"><font  color="white">xiaoxiang.net</font></a></td>
+			</tr>
+		</table>
+	</body>
+</html>

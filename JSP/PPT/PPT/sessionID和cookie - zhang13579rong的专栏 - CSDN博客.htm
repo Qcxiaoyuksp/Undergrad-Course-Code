@@ -1,0 +1,710 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0067)http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>sessionID和cookie - zhang13579rong的专栏 - CSDN博客</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT type=text/javascript>
+        try { document.domain = "csdn.net"; } catch (ex) { }
+    </SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/jquery.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/jquery.highlighter.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/highlighter.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/common.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/AreaCounter.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/feedback.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/relatedarticle.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/google_service.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+    GS_googleAddAdSenseService("ca-pub-1076724771190722");
+    GS_googleEnableAllServices();
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+    GA_googleAddSlot("ca-pub-1076724771190722", "blog_postpage_72890");
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+    GA_googleFetchAds();
+</SCRIPT>
+<LINK rel=stylesheet type=text/css 
+href="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/marvin2_1.css" 
+media=all><LINK rel=stylesheet type=text/css 
+href="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/csdn_favbykimi.css" 
+media=all><LINK rel="Shortcut Icon" 
+href="http://profile.csdn.net/zhang13579rong/picture/1.ico"><LINK title=RSS 
+rel=alternate type=application/rss+xml 
+href="http://feeds.feedsky.com/csdn.net/zhang13579rong">
+<META name=GENERATOR content="MSHTML 8.00.7600.16722"></HEAD>
+<BODY id=defaultuser>
+<DIV id=csdnblog_allwrap>
+<DIV id=csdnblog_midwrap>
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/pub_topnav_2011.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/AreaCounter(1).js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+    // 页面加载完毕，脚本开始执行
+    $(document).ready(function() {
+        ChangeUserState();
+        $("#notice").find("a").click(HideNoticeInfo);
+    });
+    
+    var userName = getCookie("UserName");
+    var isGuest = !userName || userName == "Guest";
+    var delay = 20 * 60 * 1000;
+    var timer = 0;
+
+    function ChangeUserState() {        
+        clearInterval(timer);
+        if (isGuest) {
+            HideNoticeInfo();
+        }
+        else {
+            RefreshNoticeInfo();
+            timer = setInterval( RefreshNoticeInfo, delay);
+        }
+    }
+    
+    var apiUrl = "/!handler/NoticeHandler.ashx?jsoncallback=?";
+    function RefreshNoticeInfo() {
+        $.getJSON(apiUrl + "&_t=" + Math.random(), function(result) {
+            if (result.noticeNum) {
+                newNoticeCount = result.noticeNum;
+                if (newNoticeCount <= 0) {
+                    $("#notice").hide();
+                }
+                else {
+                    $("#noticeCount").text(newNoticeCount);
+                    $("#notice").show();
+                }
+            }
+        });
+    }
+    
+    function HideNoticeInfo() {
+        $("#notice").hide();
+    }
+</SCRIPT>
+
+<DIV id=csdnblog_header>
+<H1><A href="http://blog.csdn.net/zhang13579rong">zhang13579rong的专栏</A></H1>
+<H2></H2>
+<UL id=personalnav>
+  <LI style="DISPLAY: none" id=notice><SPAN class=newnotice><A class=red 
+  onclick=LogClickCount(this,216); href="http://hi.csdn.net/space-notice.html" 
+  target=_blank><SPAN id=noticeCount></SPAN>条新通知</A></SPAN></LI>
+  <LI style="DISPLAY: none"><A id=a_login 
+  href="http://passport.csdn.net/UserLogin.aspx">登录</A></LI>
+  <LI style="DISPLAY: none"><A id=a_register 
+  href="http://passport.csdn.net/CSDNUserRegister.aspx" 
+target=_blank>注册</A></LI>
+  <LI style="DISPLAY: none"><A id=a_welcome href="http://hi.csdn.net/" 
+  target=_blank>欢迎</A></LI>
+  <LI style="DISPLAY: none"><A id=a_exit 
+  href="http://writeblog.csdn.net/Signout.aspx">退出</A></LI>
+  <LI style="DISPLAY: none"><A id=a_myblog 
+  href="http://blog.csdn.net/">我的博客</A></LI>
+  <LI style="DISPLAY: none"><A id=a_configure 
+  href="http://writeblog.csdn.net/configure.aspx" target=_blank>配置</A></LI>
+  <LI style="DISPLAY: none"><A id=a_postedit 
+  href="http://writeblog.csdn.net/PostEdit.aspx" target=_blank>写文章</A></LI>
+  <LI style="DISPLAY: none"><A id=a_postlist 
+  href="http://writeblog.csdn.net/PostList.aspx" target=_blank>文章管理</A></LI>
+  <LI><A id=a_bloghome href="http://blog.csdn.net/" 
+target=_blank>博客首页</A></LI></UL>
+<UL id=blogsearchsty>
+  <LI><INPUT id=inputSearch class=bolgsearch type=text></LI>
+  <LI class=selectsty><SELECT id=Search_ddlSearchScope 
+  name=Search:ddlSearchScope> <OPTION selected value=all>全站</OPTION> <OPTION 
+    value=zhang13579rong>当前博客</OPTION></SELECT> </LI>
+  <LI><INPUT id=buttonSearch class=bolggobtn value=搜索 type=button></LI></UL>
+<UL id=menu>
+  <LI><A href="http://hi.csdn.net/zhang13579rong" target=_blank>空间</A></LI>
+  <LI><A class=on href="http://blog.csdn.net/zhang13579rong">博客</A></LI>
+  <LI><A href="http://hi.csdn.net/!s/friend/list/zhang13579rong" 
+  target=_blank>好友</A></LI>
+  <LI><A href="http://hi.csdn.net/!s/album/list/zhang13579rong" 
+  target=_blank>相册</A></LI>
+  <LI><A class=last href="http://hi.csdn.net/!s/wall/to/zhang13579rong" 
+  target=_blank>留言</A></LI></UL></DIV>
+<SCRIPT type=text/javascript>
+    var CurrentUserName = 'zhang13579rong';
+</SCRIPT>
+
+<DIV id=csdnblog_sidebar>
+<DIV class=gutter>
+<DIV class=aboutauthor>
+<DL>
+  <DT>用户操作</DT>
+  <DD class=middle><A href="http://hi.csdn.net/!s/wall/to/zhang13579rong" 
+  target=_blank>[留言]</A>&nbsp; <A 
+  href="http://hi.csdn.net/!s/msg/to/zhang13579rong" 
+  target=_blank>[发消息]</A>&nbsp; <A 
+  href="http://hi.csdn.net/!s/friend/add/zhang13579rong" 
+  target=_blank>[加为好友]</A>&nbsp; </DD><SPAN id=userInfo></SPAN><SPAN 
+  id=SubscriptionList>
+  <DT>订阅我的博客</DT>
+  <DD><A href="http://feeds.feedsky.com/csdn.net/zhang13579rong"><IMG border=0 
+  alt=XML聚合 
+  src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/gif.gif"> 
+  </A>&nbsp;&nbsp; <A href="http://feeds.feedsky.com/csdn.net/zhang13579rong" 
+  target=_blank><IMG border=0 alt=FeedSky 
+  src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/feedsky.gif"> 
+  </A></DD>
+  <DD><A 
+  href="http://www.xianguo.com/subscribe.php?url=http://feeds.feedsky.com/csdn.net/zhang13579rong" 
+  target=_blank><IMG border=0 alt=订阅到鲜果 
+  src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rss_xianguo.jpg"> 
+  </A></DD>
+  <DD><A 
+  href="http://fusion.google.com/add?feedurl=http://feeds.feedsky.com/csdn.net/zhang13579rong" 
+  target=_blank><IMG border=0 alt=订阅到Google 
+  src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rss_google.gif"> 
+  </A></DD>
+  <DD><A 
+  href="http://www.zhuaxia.com/add_channel.php?url=http://feeds.feedsky.com/csdn.net/zhang13579rong" 
+  target=_blank><IMG border=0 alt=订阅到抓虾 
+  src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rss_zhuaxia.gif"> 
+  </A></DD></SPAN>
+  <DT><SPAN style="DISPLAY: none" class=floatright><A class=a_edit 
+  href="http://writeblog.csdn.net/configure.aspx" 
+  target=_blank>[编辑]</A></SPAN>zhang13579rong的公告 </DT>
+  <DD></DD>
+  <DT><SPAN style="DISPLAY: none" class=floatright><A class=a_edit 
+  href="http://writeblog.csdn.net/EditCategories.aspx?catID=1" 
+  target=_blank>[编辑]</A></SPAN>文章分类</DT>
+  <DD>
+  <DIV class=publiclist_sidebar>
+  <UL>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/category/624718.aspx/rss"><IMG 
+    alt=(RSS) 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rss.gif"></A><A 
+    href="http://blog.csdn.net/zhang13579rong/category/624718.aspx">JAVA技术</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/category/624716.aspx/rss"><IMG 
+    alt=(RSS) 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rss.gif"></A><A 
+    href="http://blog.csdn.net/zhang13579rong/category/624716.aspx">web技术</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/category/653380.aspx/rss"><IMG 
+    alt=(RSS) 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rss.gif"></A><A 
+    href="http://blog.csdn.net/zhang13579rong/category/653380.aspx">软件工程</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/category/624720.aspx/rss"><IMG 
+    alt=(RSS) 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rss.gif"></A><A 
+    href="http://blog.csdn.net/zhang13579rong/category/624720.aspx">生活点滴</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/category/624717.aspx/rss"><IMG 
+    alt=(RSS) 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rss.gif"></A><A 
+    href="http://blog.csdn.net/zhang13579rong/category/624717.aspx">数据库技术</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/category/655559.aspx/rss"><IMG 
+    alt=(RSS) 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rss.gif"></A><A 
+    href="http://blog.csdn.net/zhang13579rong/category/655559.aspx">移动开发与*nix</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/category/624719.aspx/rss"><IMG 
+    alt=(RSS) 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rss.gif"></A><A 
+    href="http://blog.csdn.net/zhang13579rong/category/624719.aspx">与自己对话</A></LI></UL></DIV></DD>
+  <DT>存档</DT>
+  <DD>
+  <DIV class=publiclist_sidebar>
+  <UL>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/12.aspx">2010年12月(4)</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/11.aspx">2010年11月(10)</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/07.aspx">2010年07月(3)</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06.aspx">2010年06月(6)</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/04.aspx">2010年04月(1)</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/03.aspx">2010年03月(1)</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/02.aspx">2010年02月(36)</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/01.aspx">2010年01月(1)</A></LI>
+    <LI><A 
+    href="http://blog.csdn.net/zhang13579rong/archive/2009/11.aspx">2009年11月(11)</A></LI></UL></DIV></DD></DL></DIV></DIV></DIV>
+<STYLE type=text/css>.chal {
+	FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+.chal .conts SPAN.adv {
+	TEXT-ALIGN: right; PADDING-BOTTOM: 1px; LINE-HEIGHT: 18px; PADDING-LEFT: 0px; WIDTH: 300px; PADDING-RIGHT: 10px; FLOAT: right; HEIGHT: auto; FONT-WEIGHT: bold; PADDING-TOP: 5px
+}
+.chal .conts SPAN.adv IMG {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 300px; PADDING-RIGHT: 0px; HEIGHT: 60px; PADDING-TOP: 3px
+}
+.chal .conts {
+	BORDER-BOTTOM: #ccc 1px solid; TEXT-ALIGN: left; BORDER-LEFT: #ccc 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: auto; PADDING-RIGHT: 0px; CLEAR: both; OVERFLOW: hidden; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid; PADDING-TOP: 0px
+}
+.chal .conts #ann #annbody {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: auto; PADDING-RIGHT: 0px; MARGIN-BOTTOM: 5px; HEIGHT: 18px; CLEAR: both; OVERFLOW: hidden; BORDER-TOP: #aacbee 1px dashed; PADDING-TOP: 0px
+}
+.chal .conts #ann #annbodylis {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px 10px; PADDING-LEFT: 0px; WIDTH: auto; PADDING-RIGHT: 0px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+.chal .conts #ann #annbodylis LI {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; LINE-HEIGHT: 150%; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; FLOAT: left; COLOR: #004797; PADDING-TOP: 0px
+}
+.chal .conts #ann #annbodylis LI A {
+	COLOR: #f00
+}
+.chal .conts #ann #annbodylis LI.cen {
+	TEXT-ALIGN: center
+}
+.chal .conts #ann #annbodylis LI.rig {
+	TEXT-ALIGN: right
+}
+.default_contents H4.notice {
+	BACKGROUND: url(http://c.csdn.net/bbs/f/i/l/pic04.gif) #ffffdd no-repeat 4px 10px
+}
+.commentnew DL DD.recruit {
+	BORDER-BOTTOM: #c1ae9e 1px solid; TEXT-ALIGN: left; BORDER-LEFT: #c1ae9e 1px solid; PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; WIDTH: 200px; PADDING-RIGHT: 1px; DISPLAY: inline; FLOAT: left; MARGIN-LEFT: 15px; BORDER-TOP: #c1ae9e 1px solid; BORDER-RIGHT: #c1ae9e 1px solid; PADDING-TOP: 1px
+}
+.commentnew DL DD.recruit H5 {
+	LINE-HEIGHT: 24px; PADDING-LEFT: 10px; BACKGROUND: #e0dbd3; HEIGHT: 24px; COLOR: #47381c; FONT-SIZE: 12px
+}
+.commentnew DL DD.recruit UL {
+	PADDING-BOTTOM: 0px; MARGIN: 10px 5px; PADDING-LEFT: 0px; WIDTH: auto; PADDING-RIGHT: 0px; FLOAT: none; HEIGHT: 252px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+.commentnew DL DD.recruit UL LI {
+	LIST-STYLE-TYPE: none; PADDING-LEFT: 12px; MARGIN-BOTTOM: 6px; BACKGROUND: url(http://c.csdn.net/www/images/blog/dot_2.gif) no-repeat left 7px; HEIGHT: 36px; MARGIN-LEFT: 5px; OVERFLOW: hidden; LIST-STYLE-IMAGE: none
+}
+.commentnew DL DD UL {
+	PADDING-BOTTOM: 10px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 474px; PADDING-RIGHT: 0px; FLOAT: left; PADDING-TOP: 0px
+}
+.commentnew DL DD UL LI.left {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; MARGIN: 0px 0px 0px 12px; PADDING-LEFT: 0px; WIDTH: 70px; PADDING-RIGHT: 0px; DISPLAY: inline; FLOAT: left; PADDING-TOP: 0px
+}
+* + HTML .commentnew DL DD UL LI.left {
+	LINE-HEIGHT: 20px
+}
+.commentnew DL DD UL LI.lefttop {
+	PADDING-BOTTOM: 5px; MARGIN: 0px 0px 0px 12px; PADDING-LEFT: 0px; WIDTH: 70px; PADDING-RIGHT: 0px; DISPLAY: inline; FLOAT: left; PADDING-TOP: 5px
+}
+.commentnew DL DD UL LI.right {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 380px; PADDING-RIGHT: 12px; DISPLAY: inline; FLOAT: left; PADDING-TOP: 0px
+}
+.commentnew DL DD UL LI.right IMG.brow {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; FLOAT: left; PADDING-TOP: 0px
+}
+.commentnew DL DD UL LI.right .textarea {
+	BORDER-BOTTOM: #c3c3c3 1px solid; BORDER-LEFT: #c3c3c3 1px solid; PADDING-BOTTOM: 3px; MARGIN: 0px; PADDING-LEFT: 3px; WIDTH: 378px; PADDING-RIGHT: 3px; FLOAT: left; HEIGHT: 150px; VERTICAL-ALIGN: top; BORDER-TOP: #c3c3c3 1px solid; BORDER-RIGHT: #c3c3c3 1px solid; PADDING-TOP: 3px
+}
+.commentnew DL DD UL LI.right .input {
+	BORDER-BOTTOM: #c3c3c3 1px solid; BORDER-LEFT: #c3c3c3 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; MARGIN: 0px; PADDING-LEFT: 2px; WIDTH: 120px; PADDING-RIGHT: 2px; FLOAT: left; HEIGHT: 18px; VERTICAL-ALIGN: middle; BORDER-TOP: #c3c3c3 1px solid; BORDER-RIGHT: #c3c3c3 1px solid; PADDING-TOP: 0px
+}
+.commentnew DL DD UL LI.right SPAN.left {
+	TEXT-ALIGN: left; WIDTH: auto; FLOAT: left
+}
+.commentnew DL DD UL LI.right SPAN.right {
+	TEXT-ALIGN: right; WIDTH: 100px; FLOAT: right
+}
+.commentnew DL DD UL LI.right SPAN A {
+	COLOR: #f00
+}
+.commentnew DL DD UL LI.right SPAN A.red:link {
+	COLOR: #f00
+}
+A.red:visited {
+	COLOR: #f00
+}
+A.red:hover {
+	COLOR: #f00
+}
+A.red:active {
+	COLOR: #f00
+}
+.commentnew DL DD UL LI.right EM {
+	COLOR: #466bbb
+}
+.commentnew DL DD UL LI.right A IMG.btn {
+	PADDING-BOTTOM: 3px; PADDING-LEFT: 0px; WIDTH: 68px; PADDING-RIGHT: 0px; HEIGHT: 21px; PADDING-TOP: 0px
+}
+.commentnew DL DD UL LI.right .checkbox {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; VERTICAL-ALIGN: middle; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+</STYLE>
+
+<DIV id=csdnblog_content>
+<DIV class=gutter>
+<DIV style="DISPLAY: none" id=chal class="chal default_contents">
+<H4 style="HEIGHT: 20px" class="conts notice"><SPAN 
+style="MARGIN: 2px 0px 0px; FLOAT: left; FONT-WEIGHT: bold">公告：</SPAN> 
+<DIV style="WIDTH: 500px; FLOAT: left" id=ann>
+<DIV style="BORDER-TOP: 0px" id=annbody>
+<UL id=annbodylis>
+  <SCRIPT type=text/javascript 
+  src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rsscache.aspx"></SCRIPT>
+</UL></DIV></DIV><SPAN><A href="http://forum.csdn.net/SList/blogSupport" 
+target=_blank>[意见反馈]</A><A href="http://blog.csdn.net/blogdevteam" 
+target=_blank>[官方博客]</A></SPAN> </H4></DIV>
+<DIV class=default_contents>
+<DIV class=user_article>
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/feedbackcount.js"></SCRIPT>
+
+<H1 class=title_txt><IMG border=0 alt=转载 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/turnship.gif" 
+width=15 height=15>&nbsp; sessionID和cookie <CITE class=fav_csdnstylebykimi><A 
+class=fav_csdnstylebykimi title=收藏到我的网摘中，并分享给我的朋友 
+href="javascript:d=document;t=d.selection?(d.selection.type!='None'?d.selection.createRange().text:''):(d.getSelection?d.getSelection():'');void(saveit=window.open('http://wz.csdn.net/storeit.aspx?t='+escape(d.title)+'&amp;u='+escape(d.location.href)+'&amp;c='+escape(t),'saveit','scrollbars=no,width=590,height=300,left=75,top=20,status=no,resizable=yes'));saveit.focus();">收藏</A> 
+</CITE></H1>
+<DIV class=blogstory>
+<SCRIPT type=text/javascript>
+						document.body.oncopy = function () {
+							if (window.clipboardData) {
+								setTimeout(function () {
+									var text = clipboardData.getData("text");
+									if (text && text.length > 300) {
+										text = text + "\r\n\n本文来自CSDN博客，转载请标明出处：" + location.href;
+										clipboardData.setData("text", text);
+									}
+								}, 100);
+							}
+						}
+					</SCRIPT>
+
+<SCRIPT type=text/javascript>						function StorePage() { d = document; t = d.selection ? (d.selection.type != 'None' ? d.selection.createRange().text : '') : (d.getSelection ? d.getSelection() : ''); void (keyit = window.open('http://www.365key.com/storeit.aspx?t=' + escape(d.title) + '&u=' + escape(d.location.href) + '&c=' + escape(t), 'keyit', 'scrollbars=no,width=475,height=575,left=75,top=20,status=no,resizable=yes')); keyit.focus(); }</SCRIPT>
+
+<P>一、cookie机制和session机制的区别<BR>*************************************************************************************<BR>具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。<BR>同时我们也看到，由于才服务器端保持状态的方案在客户端也需要保存一个标识，所以session<BR>机制可能需要借助于cookie机制来达到保存标识的目的，但实际上还有其他选择<BR>*************************************************************************************<BR><BR>二、会话cookie和持久cookie的区别<BR>*************************************************************************************<BR>如果不设置过期时间，则表示这个cookie生命周期为浏览器会话期间，只要关闭浏览器窗口，cookie就消失了。这种生命期为浏览会话期的cookie被称为会话cookie。会话cookie一般不保存在硬盘上而是保存在内存里。<BR>　　如果设置了过期时间，浏览器就会把cookie保存到硬盘上，关闭后再次打开浏览器，这些cookie依然有效直到超过设定的过期时间。<BR>　　存储在硬盘上的cookie可以在不同的浏览器进程间共享，比如两个IE窗口。而对于保存在内存的cookie，不同的浏览器有不同的处理方式。<BR>*************************************************************************************<BR><BR>三、如何利用实现自动登录<BR>*************************************************************************************<BR>　　当用户在某个网站注册后，就会收到一个惟一用户ID的cookie。客户后来重新连接时，这个<BR>用户ID会自动返回，服务器对它进行检查，确定它是否为注册用户且选择了自动登录，从而使用户务需给出明确的用户名和密码，就可以访问服务器上的资源。<BR>*************************************************************************************<BR><BR>四、如何根据用户的爱好定制站点<BR>*************************************************************************************<BR>　　网站可以使用cookie记录用户的意愿。对于简单的设置，网站可以直接将页面的设置存储在cookie中完成定制。然而对于更复杂的定制，网站只需仅将一个惟一的标识符发送给用户，由服务器端的数据库存储每个标识符对应的页面设置。<BR>*************************************************************************************<BR><BR>五、cookie的发送<BR>*************************************************************************************<BR>1.创建Cookie对象<BR>2.设置最大时效<BR>3.将Cookie放入到HTTP响应报头<BR>如果你创建了一个cookie，并将他发送到浏览器，默认情况下它是一个会话级别的cookie:存储在浏览器的内存中，用户退出浏览器之后被删除。如果你希望浏览器将该cookie存储在磁盘上，则<BR>需要使用maxAge，并给出一个以秒为单位的时间。将最大时效设为0则是命令浏览器删除该cookie。<BR>发送cookie需要使用HttpServletResponse的addCookie方法，将cookie插入到一个Set-Cookie　HTTP请求报头中。由于这个方法并不修改任何之前指定的Set-Cookie报头，而是创建新的报头，因此我们将这个方法称为是addCookie，而非setCookie。同样要记住响应报头必须在任何文档内容发送到客户端之前设置。<BR><BR>六、cookie的读取<BR>*************************************************************************************<BR>1.调用request.getCookie<BR>要获取有浏览器发送来的cookie，需要调用HttpServletRequest的getCookies方法，这个调用返回Cookie对象的数组，对应由HTTP请求中Cookie报头输入的值。<BR>2.对数组进行循环，调用每个cookie的getName方法，直到找到感兴趣的cookie为止<BR>　cookie与你的主机(域)相关，而非你的servlet或JSP页面。因而，尽管你的servlet可能只发送了单个cookie，你也可能会得到许多不相关的cookie。<BR>例如：<BR>　　String&nbsp;cookieName&nbsp;=&nbsp;“userID”;<BR>&nbsp;&nbsp;&nbsp;&nbsp;Cookie&nbsp;cookies[]&nbsp;=&nbsp;request.getCookies();<BR>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(cookies!=null){<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i=0;i&lt;cookies.length;i++){<BR>&nbsp;&nbsp;&nbsp;&nbsp;Cookie&nbsp;cookie&nbsp;=&nbsp;cookies[i];<BR>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(cookieName.equals(cookie.getName())){<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doSomethingWith(cookie.getValue());<BR>}<BR>}<BR>}<BR>*************************************************************************************<BR><BR>七、如何使用cookie检测初访者<BR>*************************************************************************************<BR>A.调用HttpServletRequest.getCookies()获取Cookie数组<BR>B.在循环中检索指定名字的cookie是否存在以及对应的值是否正确<BR>C.如果是则退出循环并设置区别标识<BR>D.根据区别标识判断用户是否为初访者从而进行不同的操作<BR>*************************************************************************************<BR><BR>八、使用cookie检测初访者的常见错误<BR>*************************************************************************************<BR>不能仅仅因为cookie数组中不存在在特定的数据项就认为用户是个初访者。如果cookie数组为null，客户可能是一个初访者，也可能是由于用户将cookie删除或禁用造成的结果。<BR>但是，如果数组非null,也不过是显示客户曾经到过你的网站或域，并不能说明他们曾经访问过你的servlet。其它servlet、JSP页面以及非Java&nbsp;Web应用都可以设置cookie，依据路径的设置，其中的任何cookie都有可能返回给用户的浏览器。<BR>正确的做法是判断cookie数组是否为空且是否存在指定的Cookie对象且值正确。<BR>*************************************************************************************<BR><BR>九、使用cookie属性的注意问题<BR>*************************************************************************************<BR>　　属性是从服务器发送到浏览器的报头的一部分；但它们不属于由浏览器返回给服务器的报头。　<BR>　　因此除了名称和值之外，cookie属性只适用于从服务器输出到客户端的cookie；服务器端来自于浏览器的cookie并没有设置这些属性。　<BR>　　因而不要期望通过request.getCookies得到的cookie中可以使用这个属性。这意味着，你不能仅仅通过设置cookie的最大时效，发出它，在随后的输入数组中查找适当的cookie,读取它的值，修改它并将它存回Cookie，从而实现不断改变的cookie值。<BR>*************************************************************************************<BR><BR>十、如何使用cookie记录各个用户的访问计数<BR>*************************************************************************************<BR>1.获取cookie数组中专门用于统计用户访问次数的cookie的值<BR>2.将值转换成int型<BR>3.将值加1并用原来的名称重新创建一个Cookie对象<BR>4.重新设置最大时效<BR>5.将新的cookie输出<BR>*************************************************************************************<BR><BR>十一、session在不同环境下的不同含义<BR>*************************************************************************************<BR>session，中文经常翻译为会话，其本来的含义是指有始有终的一系列动作/消息，比如打电话是从拿起电话拨号到挂断电话这中间的一系列过程可以称之为一个session。<BR>然而当session一词与网络协议相关联时，它又往往隐含了“面向连接”和/或“保持状态”这样两个含义。<BR>　　session在Web开发环境下的语义又有了新的扩展，它的含义是指一类用来在客户端与服务器端之间保持状态的解决方案。有时候Session也用来指这种解决方案的存储结构。<BR>*************************************************************************************<BR><BR>十二、session的机制<BR>*************************************************************************************<BR>　　session机制是一种服务器端的机制，服务器使用一种类似于散列表的结构(也可能就是使用散列表)来保存信息。<BR>但程序需要为某个客户端的请求创建一个session的时候，服务器首先检查这个客户端的请求里是否包含了一个session标识－称为session&nbsp;id,如果已经包含一个session&nbsp;id则说明以前已经为此客户创建过session，服务器就按照session&nbsp;id把这个session检索出来使用(如果检索不到，可能会新建一个，这种情况可能出现在服务端已经删除了该用户对应的session对象，但用户人为地在请求的URL后面附加上一个JSESSION的参数)。<BR>如果客户请求不包含session&nbsp;id，则为此客户创建一个session并且生成一个与此session相关联的session&nbsp;id，这个session&nbsp;id将在本次响应中返回给客户端保存。<BR>*************************************************************************************<BR><BR>十三、保存session&nbsp;id的几种方式<BR>*************************************************************************************<BR>A．保存session&nbsp;id的方式可以采用cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发送给服务器。<BR>B．由于cookie可以被人为的禁止，必须有其它的机制以便在cookie被禁止时仍然能够把session&nbsp;id传递回服务器，经常采用的一种技术叫做URL重写，就是把session&nbsp;id附加在URL路径的后面，附加的方式也有两种，一种是作为URL路径的附加信息，另一种是作为查询字符串附加在URL后面。网络在整个交互过程中始终保持状态，就必须在每个客户端可能请求的路径后面都包含这个session&nbsp;id。<BR>C．另一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session&nbsp;id传递回服务器。<BR>*************************************************************************************<BR><BR>十四、session什么时候被创建<BR>*************************************************************************************<BR>一个常见的错误是以为session在有客户端访问时就被创建，然而事实是直到某server端程序(如Servlet)调用HttpServletRequest.getSession(true)这样的语句时才会被创建。<BR>*************************************************************************************<BR><BR>十五、session何时被删除<BR>*************************************************************************************<BR>session在下列情况下被删除：<BR>A．程序调用HttpSession.invalidate()<BR>B．距离上一次收到客户端发送的session&nbsp;id时间间隔超过了session的最大有效时间<BR>C．服务器进程被停止<BR><BR>再次注意关闭浏览器只会使存储在客户端浏览器内存中的session&nbsp;cookie失效，不会使服务器端的session对象失效。<BR>*************************************************************************************<BR><BR>十六、URL重写有什么缺点<BR>*************************************************************************************<BR>　　　对所有的URL使用URL重写，包括超链接，form的action，和重定向的URL。每个引用你的站点的URL，以及那些返回给用户的URL(即使通过间接手段，比如服务器重定向中的Location字段)都要添加额外的信息。<BR>　　　这意味着在你的站点上不能有任何静态的HTML页面(至少静态页面中不能有任何链接到站点动态页面的链接)。因此，每个页面都必须使用servlet或JSP动态生成。即使所有的页面都动态生成，如果用户离开了会话并通过书签或链接再次回来，会话的信息都会丢失，因为存储下来的链接含有错误的标识信息－该URL后面的SESSION&nbsp;ID已经过期了。　　<BR>*************************************************************************************<BR><BR>十七、使用隐藏的表单域有什么缺点<BR>*************************************************************************************<BR>&nbsp;&nbsp;&nbsp;&nbsp;仅当每个页面都是有表单提交而动态生成时，才能使用这种方法。单击常规的&lt;A&nbsp;HREF..&gt;超文本链接并不产生表单提交，因此隐藏的表单域不能支持通常的会话跟踪，只能用于一系列特定的操作中，比如在线商店的结账过程<BR>*************************************************************************************<BR><BR>十八、会话跟踪的基本步骤<BR>*************************************************************************************<BR>1．访问与当前请求相关的会话对象<BR>2．查找与会话相关的信息<BR>3．存储会话信息<BR>4．废弃会话数据<BR>*************************************************************************************<BR><BR>十九、getSession()/getSession(true)、getSession(false)的区别<BR>*************************************************************************************<BR>getSession()/getSession(true)：当session存在时返回该session，否则新建一个session并返回该对象<BR>getSession(false)：当session存在时返回该session，否则不会新建session，返回null<BR>*************************************************************************************<BR><BR>二十、如何将信息于会话关联起来<BR>*************************************************************************************<BR>　　setAttribute会替换任何之前设定的值；如果想要在不提供任何代替的情况下移除某个值，则应使用removeAttribute。这个方法会触发所有实现了HttpSessionBindingListener接口的值的valueUnbound<BR>方法。<BR>*************************************************************************************<BR><BR>二十一、会话属性的类型有什么限制吗<BR>*************************************************************************************<BR>通常会话属性的类型只要是Object就可以了。除了null或基本类型，如int,double,boolean。<BR>如果要使用基本类型的值作为属性，必须将其转换为相应的封装类对象<BR>*************************************************************************************<BR><BR>二十二、如何废弃会话数据<BR>*************************************************************************************<BR>A．只移除自己编写的servlet创建的数据：<BR>&nbsp;&nbsp;&nbsp;调用removeAttribute(“key”)将指定键关联的值废弃<BR>B．删除整个会话(在当前Web应用中)：<BR>&nbsp;&nbsp;&nbsp;调用invalidate，将整个会话废弃掉。这样做会丢失该用户的所有会话数据，而非仅仅由我们<BR>servlet或JSP页面创建的会话数据<BR>C．将用户从系统中注销并删除所有属于他(或她)的会话<BR>&nbsp;&nbsp;&nbsp;调用logOut，将客户从Web服务器中注销，同时废弃所有与该用户相关联的会话(每个Web应用至多一个)。这个操作有可能影响到服务器上多个不同的Web应用<BR>*************************************************************************************<BR><BR>二十三、使用isNew来判断用户是否为新旧用户的错误做法<BR>*************************************************************************************<BR>public&nbsp;boolean&nbsp;isNew()方法如果会话尚未和客户程序(浏览器)发生任何联系，则这个方法返回true，这一般是因为会话是新建的，不是由输入的客户请求所引起的。<BR>但如果isNew返回false，只不过是说明他之前曾经访问该Web应用，并不代表他们曾访问过我们的servlet或JSP页面。<BR>因为session是与用户相关的，在用户之前访问的每一个页面都有可能创建了会话。因此isNew为false只能说用户之前访问过该Web应用，session可以是当前页面创建，也可能是由用户之前访问过的页面创建的。<BR>正确的做法是判断某个session中是否存在某个特定的key且其value是否正确<BR>*************************************************************************************<BR><BR>二十四、Cookie的过期和Session的超时有什么区别<BR>*************************************************************************************<BR>会话的超时由服务器来维护，它不同于Cookie的失效日期。首先，会话一般基于驻留内存的cookie<BR>不是持续性的cookie，因而也就没有截至日期。即使截取到JSESSIONID&nbsp;cookie，并为它设定一个失效日期发送出去。浏览器会话和服务器会话也会截然不同。<BR>*************************************************************************************<BR><BR>二十五、session&nbsp;cookie和session对象的生命周期是一样的吗<BR>*************************************************************************************<BR>当用户关闭了浏览器虽然session&nbsp;cookie已经消失，但session对象仍然保存在服务器端<BR>*************************************************************************************<BR><BR>二十六、是否只要关闭浏览器，session就消失了<BR>*************************************************************************************<BR>程序一般都是在用户做log&nbsp;off的时候发个指令去删除session，然而浏览器从来不会主动在关闭之前通知服务器它将要被关闭，因此服务器根本不会有机会知道浏览器已经关闭。服务器会一直保留这个会话对象直到它处于非活动状态超过设定的间隔为止。<BR>之所以会有这种错误的认识，是因为大部分session机制都使用会话cookie来保存session&nbsp;id，而关闭浏览器后这个session&nbsp;id就消失了，再次连接到服务器时也就无法找到原来的session。<BR>如果服务器设置的cookie被保存到硬盘上，或者使用某种手段改写浏览器发出的HTTP请求报头，把原来的session&nbsp;id发送到服务器，则再次打开浏览器仍然能够找到原来的session。<BR>恰恰是由于关闭浏览器不会导致session被删除，迫使服务器为session设置了一个失效时间，当距离客户上一次使用session的时间超过了这个失效时间时，服务器就可以认为客户端已经停止了活动，才会把session删除以节省存储空间。<BR>　　由此我们可以得出如下结论：<BR>　　关闭浏览器，只会是浏览器端内存里的session&nbsp;cookie消失，但不会使保存在服务器端的session对象消失，同样也不会使已经保存到硬盘上的持久化cookie消失。<BR>*************************************************************************************<BR><BR>二十七、打开两个浏览器窗口访问应用程序会使用同一个session还是不同的session<BR>*************************************************************************************<BR>通常session&nbsp;cookie是不能跨窗口使用的，当你新开了一个浏览器窗口进入相同页面时，系统会赋予你一个新的session&nbsp;id，这样我们信息共享的目的就达不到了。<BR>此时我们可以先把session&nbsp;id保存在persistent&nbsp;cookie中(通过设置session的最大有效时间)，然后在新窗口中读出来，就可以得到上一个窗口的session&nbsp;id了，这样通过session&nbsp;cookie和persistent&nbsp;cookie的结合我们就可以实现了跨窗口的会话跟踪。<BR>*************************************************************************************<BR><BR>二十八、如何使用会话显示每个客户的访问次数<BR>*************************************************************************************<BR>由于客户的访问次数是一个整型的变量，但session的属性类型中不能使用int，double，boolean等基本类型的变量，所以我们要用到这些基本类型的封装类型对象作为session对象中属性的值<BR>　　但像Integer是一种不可修改(Immutable)的数据结构：构建后就不能更改。这意味着每个请求都必须创建新的Integer对象，之后使用setAttribute来代替之前存在的老的属性的值。例如：<BR>HttpSession&nbsp;session&nbsp;=&nbsp;request.getSession();<BR>SomeImmutalbeClass&nbsp;value&nbsp;=&nbsp;(SomeImmutableClass)session.getAttribute(“SomeIdentifier”);<BR>if&nbsp;(value=&nbsp;=null){<BR>&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;new&nbsp;SomeImmutableClass(…);　//&nbsp;新创建一个不可更改对象<BR>}else{<BR>&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;new&nbsp;SomeImmutableClass(calculatedFrom(value));&nbsp;//&nbsp;对value重新计算后创建新的对象<BR>}<BR>session.setAttribute(“someIdentifier”,value);&nbsp;//&nbsp;使用新创建的对象覆盖原来的老的对象<BR>*************************************************************************************<BR><BR>二十九、如何使用会话累计用户的数据<BR>*************************************************************************************<BR>使用可变的数据结构，比如数组、List、Map或含有可写字段的应用程序专有的数据结构。通过这种方式，除非首次分配对象，否则不需要调用setAttribute。例如<BR><BR>HttpSession&nbsp;session&nbsp;=&nbsp;request.getSession();<BR>SomeMutableClass&nbsp;value&nbsp;=&nbsp;(SomeMutableClass)session.getAttribute(“someIdentifier”);<BR>if(value&nbsp;=&nbsp;=&nbsp;null){<BR>&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;new&nbsp;SomeMutableClass(…);<BR>&nbsp;&nbsp;&nbsp;&nbsp;session.setAttribute(“someIdentifier”,value);<BR>}else{<BR>&nbsp;&nbsp;&nbsp;&nbsp;value.updateInternalAttribute(…);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;如果已经存在该对象则更新其属性而不需重新设置属性<BR>}<BR>*************************************************************************************<BR><BR>三十、不可更改对象和可更改对象在会话数据更新时的不同处理<BR>*************************************************************************************<BR>不可更改对象因为一旦创建之后就不能更改，所以每次要修改会话中属性的值的时候，都需要<BR>调用setAttribute(“someIdentifier”,newValue)来代替原有的属性的值，否则属性的值不会被更新<BR>可更改对象因为其自身一般提供了修改自身属性的方法，所以每次要修改会话中属性的值的时<BR>候，只要调用该可更改对象的相关修改自身属性的方法就可以了。这意味着我们就不需要调<BR>用setAttribute方法了<BR>*************************************************************************************</P>
+<P class="right articalinfo">发表于 @ 2010年06月25日　18:48:00&nbsp;| <A id=a_comment 
+title=评论 
+href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#FeedBack">评论( 
+<SPAN id=FeedbackCount_5694758>loading...</SPAN>
+<SCRIPT type=text/javascript>
+								AddFeedbackCountStack("5694758")
+							</SCRIPT>
+ ) </A>| <SPAN style="DISPLAY: none"><A class=a_edit title=编辑 
+href="http://writeblog.csdn.net/PostEdit.aspx?entryId=5694758">编辑</A>|</SPAN> <A 
+href="mailto:webmaster@csdn.net?subject=Article%20Report!!!&amp;body=Author:zhang13579rong%0D%0AURL:http://blog.csdn.net/ArticleContent.aspx?UserName=zhang13579rong&amp;Entryid=5694758">举报</A>| 
+<CITE class=fav_csdnstylebykimi><A class=fav_csdnstylebykimi 
+title=收藏到我的网摘中，并分享给我的朋友 
+href="javascript:d=document;t=d.selection?(d.selection.type!='None'?d.selection.createRange().text:''):(d.getSelection?d.getSelection():'');void(saveit=window.open('http://wz.csdn.net/storeit.aspx?t='+escape(d.title)+'&amp;u='+escape(d.location.href)+'&amp;c='+escape(t),'saveit','scrollbars=no,width=590,height=300,left=75,top=20,status=no,resizable=yes'));saveit.focus();">收藏</A> 
+</CITE></P><SPAN id=Post.ascx_ViewPost_PreviousAndNextEntriesDown>
+<H3 class=pagego><A 
+href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694750.aspx">旧一篇:java的Float精度</A>&nbsp;|&nbsp;<A 
+href="http://blog.csdn.net/zhang13579rong/archive/2010/06/29/5701088.aspx">新一篇:Flex 
+Builder3的注册码，学习来用</A></H3></SPAN>
+<DIV style="TEXT-ALIGN: left"><!-- ca-pub-1076724771190722/blog_postpage_72890
+						<script type='text/javascript'>
+							GA_googleFillSlot("blog_postpage_72890");
+						</script> --><!-- GOOGLE广告显示不出来，换成BAIDU -->
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/s.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>BAIDU_CLB_singleFillSlot("117306");</SCRIPT>
+</DIV>
+<DIV class=mutualitys>
+<DL>
+  <DT><SPAN><A onclick=LogClickCount(this,215) href="http://blog.csdn.net/" 
+  target=_blank>查看最新精华文章 请访问博客首页</A></SPAN>相关文章</DT></DL></DIV></DIV></DIV><A 
+name=FeedBack></A>
+<SCRIPT type=text/javascript>
+				var CurrentEntryId = '5694758';
+				var CurArticleTitle = 'sessionID和cookie';
+				var AllowComment = 'True';
+				var AllowAnonymousComment = /^true$/i.test('False');
+			</SCRIPT>
+
+<DIV id=commentslist class=commentslist></DIV>
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/CsdnDialog.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+				function ChangeIdentifyingCode() {
+					var url = $('#imgValidationCode').attr('src');
+					if (!(/&d=[\d\.]+$/).test(url)) url += "&d=1";
+					url = url.replace(/&d=[\d\.]+$/, "&d=" + Math.random());
+					$('#imgValidationCode').attr('src', url);
+				}
+
+				function OpenLoginDialog() {
+					element = document.getElementById("loginBtn");
+					var position = absolutePoint(element);
+
+					var dialogTop = position.y - 400;
+					var dialogLeft = position.x - 220;
+					var dialogWidth = 435;
+					var dialogHeight = 420;
+
+					showWindow({ url: 'http://passport.csdn.net/UserLogin.aspx?show=replyLogin&from=http%3a%2f%2fblog.csdn.net%2f!tools%2fLoginSussess.aspx'
+						, title: '登录'
+						, top: dialogTop
+						, left: dialogLeft
+						, width: dialogWidth
+						, height: dialogHeight
+					});
+				}
+
+				function closeDialog(needRefresh) {
+					closeWindow();
+					if (needRefresh) {
+						var url = location.href;
+						if ((/\?/g).test(url))
+							url = url.replace(/\?.*$/g, ("?" + Math.random()).replace(/\./g, ""));
+						else url += ("?" + Math.random()).replace(/\./g, "");
+						location.href = url;
+					}
+					$("#SubmitFeedback").unbind("click");
+					$("#SubmitFeedback").bind("click", PostContent);
+				}
+
+				function absolutePoint(element) {
+					var result = { x: element.offsetLeft, y: element.offsetTop };
+					element = element.offsetParent;
+					while (element) {
+						result.x += element.offsetLeft;
+						result.y += element.offsetTop;
+						element = element.offsetParent;
+					}
+					return result;
+				}
+
+				function startmarquee(lh, speed, delay, index) {
+					var t;
+					var p = false;
+					var o = document.getElementById("marqueebox" + index);
+					o.innerHTML += o.innerHTML;
+					o.onmouseover = function () { p = true }
+					o.onmouseout = function () { p = false }
+					o.scrollTop = 0;
+					function start() {
+						t = setInterval(scrolling, speed);
+						if (!p) o.scrollTop += 2;
+					}
+					function scrolling() {
+						if (o.scrollTop % lh != 0) {
+							o.scrollTop += 2;
+							if (o.scrollTop >= o.scrollHeight / 2) o.scrollTop = 0;
+						} else {
+							clearInterval(t);
+							setTimeout(start, delay);
+						}
+					}
+					setTimeout(start, delay);
+				}
+
+				function addEventHandler(target, type, func) {
+					if (target.addEventListener)
+						target.addEventListener(type, func, false);
+					else if (target.attachEvent)
+						target.attachEvent("on" + type, func);
+					else target["on" + type] = func;
+				}
+
+				addEventHandler(window, "load", function () {
+					startmarquee(42, 50, 3000, 0);
+				});
+			</SCRIPT>
+
+<DIV class=commentnew>
+<DL>
+  <DT>
+  <UL>
+    <LI class=left>发表评论</LI>
+    <SCRIPT type=text/javascript 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/RandomColumnContentJS.aspx"></SCRIPT>
+  </UL></DT>
+  <DD>
+  <UL>
+    <LI class=lefttop>表 情：</LI>
+    <LI class=right><A onclick="return false;" 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#"><IMG 
+    class=brow title=顶 alt=顶 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/e01.gif"></A> 
+    <A onclick="return false;" 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#"><IMG 
+    class=brow title=砸 alt=砸 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/e02.gif"></A> 
+    <A onclick="return false;" 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#"><IMG 
+    class=brow title=棒 alt=棒 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/e03.gif"></A> 
+    <A onclick="return false;" 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#"><IMG 
+    class=brow title=大笑 alt=大笑 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/e04.gif"></A> 
+    <A onclick="return false;" 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#"><IMG 
+    class=brow title=愤怒 alt=愤怒 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/e05.gif"></A> 
+    <A onclick="return false;" 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#"><IMG 
+    class=brow title=大哭 alt=大哭 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/e06.gif"></A> 
+    <A onclick="return false;" 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#"><IMG 
+    class=brow title=疑问 alt=疑问 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/e07.gif"></A> 
+    <A onclick="return false;" 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#"><IMG 
+    class=brow title=汗 alt=汗 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/e08.gif"></A> 
+    <A onclick="return false;" 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#"><IMG 
+    class=brow title=呕吐 alt=呕吐 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/e09.gif"></A> 
+    <A onclick="return false;" 
+    href="http://blog.csdn.net/zhang13579rong/archive/2010/06/25/5694758.aspx#"><IMG 
+    class=brow title=送花 alt=送花 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/e10.gif"></A> 
+    </LI></UL>
+  <UL>
+    <LI class=left>评论内容：</LI>
+    <LI class=right><TEXTAREA onkeydown="if(event.ctrlKey &amp;&amp; event.keyCode==13){return $('#SubmitFeedback').click();}" id=content class=textarea></TEXTAREA> 
+    </LI></UL>
+  <DIV>
+  <UL>
+    <LI class=left>用 户 名：</LI>
+    <LI class=right><SPAN style="DISPLAY: none" id=loginTips class=right><A 
+    id=loginBtn class=red onclick="OpenLoginDialog(this);return false;" 
+    href="javascript:void(0);">登录</A> <A class=red 
+    href="http://passport.csdn.net/CSDNUserRegister.aspx" target=_blank>注册</A> 
+    </SPAN><SPAN style="DISPLAY: none" class=right><INPUT id=anonymous 
+    class=checkbox type=checkbox>匿名评论 </SPAN><SPAN id=commentUser 
+    class=left></SPAN></LI></UL></DIV>
+  <UL style="DISPLAY: none">
+    <LI class=left>验 证 码：</LI>
+    <LI class=right><INPUT id=code class=input type=text> <A 
+    href="javascript:ChangeIdentifyingCode()"><IMG 
+    style="VERTICAL-ALIGN: middle" id=imgValidationCode alt=验证码 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/AntiBotImage.htm"></A> 
+    <A href="javascript:ChangeIdentifyingCode()">重新获得验证码</A> </LI></UL>
+  <UL>
+    <LI class=left></LI>
+    <LI class=right><INPUT id=SubmitFeedback class=submitbtn value=发表评论 type=button> 
+    </LI></UL></DD>
+  <DD id=recommended class=recruit>
+  <H5>热门招聘职位</H5>
+  <UL id=marqueebox0>
+    <SCRIPT type=text/javascript 
+    src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/rsscache(1).aspx"></SCRIPT>
+  </UL></DD></DL></DIV>
+<SCRIPT type=text/javascript>
+	function addEventHandler(target, type, func) {
+		if (target.addEventListener)
+			target.addEventListener(type, func, false);
+		else if (target.attachEvent)
+			target.attachEvent("on" + type, func);
+		else target["on" + type] = func;
+	}
+	addEventHandler(window, "load", function () {
+		({
+			anndelay: 5000,
+			annst: 0,
+			annstop: 0,
+			annrowcount: 0,
+			anncount: 0,
+			annrows: [],
+			annstatus: 0,
+			announcementScroll: function () {
+				var self = this;
+				var annlis = self.annbody.getElementsByTagName("li");
+				if (self.annstop) {
+					self.annst = setTimeout(function () { self.announcementScroll(); }, self.anndelay);
+					return;
+				}
+				if (!self.annst) {
+					var lasttop = -1;
+					for (var i = 0; i < annlis.length; i++) {
+
+						if (lasttop != annlis[i].offsetTop) {
+							if (lasttop == -1) {
+								lasttop = 0;
+							}
+							self.annrows[self.annrowcount] = annlis[i].offsetTop - lasttop;
+							self.annrowcount++;
+						}
+						lasttop = annlis[i].offsetTop;
+					}
+
+					if (self.annrows.length == 1) {
+						self.ann.onmouseover = self.ann.onmouseout = null;
+					} else {
+						self.annrows[self.annrowcount] = self.annrows[1];
+						self.annbodylis.innerHTML += self.annbodylis.innerHTML;
+						self.annst = setTimeout(function () { self.announcementScroll(); }, self.anndelay);
+					}
+					self.annrowcount = 1;
+					return;
+				}
+
+				if (self.annrowcount >= self.annrows.length) {
+					self.annbody.scrollTop = 0;
+					self.annrowcount = 1;
+					self.annst = setTimeout(function () { self.announcementScroll(); }, self.anndelay);
+				} else {
+					self.anncount = 0;
+					self.announcementScrollnext(self.annrows[self.annrowcount]);
+				}
+			},
+			announcementScrollnext: function (time) {
+				var self = this;
+				self.annbody.scrollTop++;
+				self.anncount++;
+				if (self.anncount != time) {
+					self.annst = setTimeout(function () {
+						self.announcementScrollnext(time);
+					}, 10);
+				} else {
+					self.annrowcount++;
+					self.annst = setTimeout(function () { self.announcementScroll(); }, self.anndelay);
+				}
+			},
+			play: function () {
+				var self = this;
+				self.annbody = document.getElementById('annbody');
+				if (!self.annbody) return;
+				self.ann = document.getElementById('ann');
+				self.annbodylis = document.getElementById('annbodylis');
+				self.chal = document.getElementById('chal');
+				if (!self.annbodylis.getElementsByTagName("li").length) return;
+				self.chal.style.display = "";
+				self.ann.onmouseover = function () { this.annstop = 1; };
+				self.ann.onmouseout = function () { this.annstop = 0; };
+				self.announcementScroll();
+			}
+		}).play();
+	});
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+	LoadFeedbackCount();
+	document.write("<img src='http://counter.csdn.net/pv.aspx?id=24' border=0 width=0 height=0>");
+</SCRIPT>
+</DIV></DIV></DIV>
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/publib_footer.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/counter.js"></SCRIPT>
+</DIV></DIV><IMG 
+src="sessionID和cookie%20-%20zhang13579rong的专栏%20-%20CSDN博客_files/count.aspx" 
+width=0 height=0> </BODY></HTML>

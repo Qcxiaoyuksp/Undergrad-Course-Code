@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+/* 表格内容居中显示 */
+th ,td {
+	text-align: center;
+}

@@ -1,0 +1,177 @@
+<html>
+	<head>
+		<title>潇湘JSP多文件上传组件</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+	<meta http-equiv="expires" content="fri,30 dec 1999 00:00:00 gmt">
+	<meta name="author" content="fredwebs@sina.com">
+	<link rel='stylesheet' href='style.css' type='text/css'>
+	</head>
+	<body bgcolor="#999999" style="margin:0;">
+		<table border="0" cellspacing="0" cellpadding="0" width="778" height="100%" align=center style="border-right:1 solid black;border-left:1 solid black;">
+			<tr><td valign=top bgcolor="#D6EAFF">
+
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td background="image/top_bg.gif" style="padding-left:39">
+							<img src="image/title.gif" border=0></td>
+					</tr>
+					<tr><td height="11" bgcolor="#ffffff"></td></tr>
+					<tr>
+						<td style="padding-top:20;">
+							<div ><img src="image/setup_title.gif" border=0></div>
+							<div class=content style="margin:20;">
+							<B><·> 系统环境要求：</B><BR>
+							<ol>
+							<li>JDK 1.22或者更高的JDK版本。
+							<li>JSP服务器：TOMCAT1.40或者更高版本、RESIN1.1或者更高版本。
+							</ol></div>
+							<div class=content style="margin:20;">
+							<B><·> 组件安装详细步骤：</B>
+							<p style="text-indent:2em;">前提：你在做一个PROJECT，需要制作文件上传。
+							<ul>
+							<li>将本组件下载到本地，解压缩，得到一个名字为“xiaoxiang”的文件夹。
+							<li>将此文件夹复制到你的PROJECT的/WEB-INF/classes内。
+							<li>重新启动你的JSP服务器。
+
+							</ul></div>
+
+							<div class=content style="margin:20;">
+							<B><·> 组件的使用：</B>
+							<p style="text-indent:2em;">组件安装完毕之后，就可以直接使用了。使用本组件需要两个文件配合，一个是文件上传表单，一个服务器端脚本。
+							<ul>
+							<li>在表单文件中建立一个表单，表单中有数个文件控件和其他控件(upload_form.htm)：<BR>
+							&lt;form METHOD=&quot;POST&quot; ACTION=&quot;upload.jsp&quot; NAME=&quot;PW&quot; ENCTYPE=&quot;multipart/form-data&quot;&gt;<BR>
+							&lt;input TYPE=&quot;file&quot; name=&quot;FILE1&quot;&gt;<BR>
+							&lt;input TYPE=&quot;file&quot; name=&quot;FILE1&quot;&gt;<BR>
+							&lt;input TYPE=&quot;file&quot; name=&quot;FILE1&quot;&gt;<BR>
+							&lt;input TYPE=&quot;text&quot; name=&quot;fileName&quot;&gt;<BR>
+							&lt;form&gt;
+
+							<li>在服务器端脚本中使用组件(upload_do.jsp)：<BR>
+
+								&lt;%<br>	//初始化工作<br>	myUpload.initialize(pageContext);<br>	<br>	//设定允许的文件后缀名<br>	myUpload.setAllowedExtList(&quot;gif,jpg&quot;);<br><br>	//设定允许上传的文件类型<br>	//gif:gif<br>	//jpg:pjpeg<br>	//text:plain<br>	//html:html<br>	//doc:msword<br>	myUpload.setAllowedFileTypeList(&quot;gif,pjpeg&quot;);<br><br>	//设定是否允许覆盖服务器上的同名文件<br>	myUpload.setIsCover(false);<br>	<br>	//设定允许上传文件的总大小<br>	//myUpload.setTotalMaxFileSize(1000000);<br><br>	//设定单个文件大小的限制<br>	//myUpload.setMaxFileSize(100000);<br><br>	String[] sourceName={&quot;&quot;,&quot;&quot;};		//文件的原始文件名数组<br>	String myName=new String(&quot;&quot;);	<br>	<br>	//设定上传的物理路径<br>	myUpload.setRealPath(application.getRealPath(File.separator &#43;&quot;example&quot; &#43;File.separator &#43;&quot;e1_uploadFiles&quot;));<br><br>	try<br>	{<br>			//将所有数据导入组件的数据结构中<br>			myUpload.upload();<br>	}<br>	catch(Exception e){throw e;}<br><br>	//得到所有上传的文件<br>	files myFiles=myUpload.getFiles();<br><br><br>	//将文件保存到服务器<br>	try<br>		{<br><br>			for(int i=0;i&lt;myFiles.getCount();i &#43; &#43;)<br>			{<br>				myName=&quot;myName&quot;;<br>				myName=myName &#43;&quot;_&quot; &#43;i &#43;&quot;.&quot; &#43;myFiles.getFile(i).getExtName();<br>				sourceName[i]=myFiles.getFile(i).getName();<br>				myFiles.getFile(i).setName(myName);<br>				//有两种保存方法，一种是保存在myUpload.setRealPath()的设定路径中，使用saveAs()，一种是另外保存到其他文件夹,使用.saveAs(String realPath)<br>				myFiles.getFile(i).saveAs();<br>			}<br>		}<br>	catch (Exception e) {throw e;}<br><br>%&gt;<br><br>
+
+								<a href="http://www.xiaoxiang.net/jspupload/download/example.zip">详细使用情况请您参考这两个例子。</a>
+							</ul>
+
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="11" bgcolor="#ffffff"></td>
+			<td width="132" >
+													<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+						<tr>
+							<td height="115"><a href="http://www.xiaoxiang.net/jspupload/download/xiaoxiang.fileUpload.2.0.zip"><img src="image/top_right.gif" border=0></a></td>
+						</tr>
+						<tr>
+							<td class=h></td>
+						</tr>
+						<tr>
+							<td bgcolor="#0F447D" style="padding-top:7;padding-left:7;">
+								<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+									<tr>
+										<td height="1" width="7" ><img src="image/menu_top.gif" border=0></td>
+									</tr>
+									<tr>
+										<td valign=top>
+
+
+														<!-- menu table  -->
+											<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+												<tr>
+													<td width="7" bgcolor="#38699E" height="227"></td>
+													<td width="7"></td>
+													<td >
+
+
+														<!-- menu table  -->
+														<table border="0" cellspacing="0" cellpadding="0" width="100%">
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="index.html" class=menu>返回主页</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="install.html" class=menu>安装指南</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="interface.html" class=menu>接口祥解</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="download.html" class=menu>相关下载</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td height="22" bgcolor="#D8D8D8" class=menu>
+																	<img src="image/menu_head.gif" border=0 align=absmiddle>&nbsp;&nbsp;<a href="http://www.xiaoxiang.net/forum/article/Subject_article_list.asp?subject_id=3" class=menu target="_blank">交流论坛</a>
+																</td>
+															</tr>
+															<tr>
+																<td height="6"></td>
+															</tr>
+															<tr>
+																<td ><img src="image/pic.gif" border=0></td>
+															</tr>
+														</table>
+
+
+
+
+													</td>
+												</tr>
+												<tr>
+													<td height="7"><img src="image/menu_bottom.gif" border=0></td>
+													<td colspan=2></td>
+												</tr>
+												<tr>
+													<td width="7" bgcolor="#38699E"></td>
+													<td width="7"></td>
+													<td class=link>
+														All made by:
+														<div class=link_logo><a href="http://www.xiaoxiang.net" target="_blank"><img src="image/xiaoxiang.gif" border=0></a></div>
+														<br>
+														Some links:
+
+														<div class=link_logo><a href="http://www.demeng.net" target="_blank"><img src="image/demeng.gif" border=0></a></div>
+													
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+							</td>
+						</tr>
+						<tr>
+							<td class=h colspan=3></td>
+						</tr>
+			<tr>
+				<td class=bottom colspan=3>All rights reserved by <a href="http://www.xiaoxiang.net"><font  color="white">xiaoxiang.net</font></a></td>
+			</tr>
+		</table>
+	</body>
+</html>

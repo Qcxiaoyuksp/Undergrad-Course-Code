@@ -1,0 +1,110 @@
+body
+	{
+		font-size:8pt;
+		font-family:"verdana";
+		color:#0A3461;
+	}
+
+td
+	{
+		font-size:8pt;
+		font-family:"verdana";
+		color:#0A3461;
+	}
+
+td.menu
+	{
+		padding-left:9;
+		padding-top:3;
+	}
+
+td.h
+	{
+		height:11;
+		background:white;
+	}
+
+td.bottom
+	{
+		height:29;
+		background:#7A7A7A;
+		text-align:right;
+		padding-right:1em;
+		color:white;
+	}
+
+td.link
+	{
+		background:#0A3461;
+		padding-top:1em;
+		padding-left:1em;
+		color:white;
+		padding-bottom:2em;
+		vertical-align:top;
+	}
+
+
+a
+	{
+		color:#990000;
+		text-decoration:none;
+		text-decoration:underline:
+	}
+a:hover
+	{
+		color:#666666;
+		text-decoration:none;
+	}
+
+
+a.interface_title
+	{
+		color:#990000;
+		font-size:12pt;
+		font-weight:bold;
+		text-decoration:none;
+	}
+a:hover
+	{
+		color:#666666;
+		text-decoration:none;
+	}
+
+a.menu
+	{
+		color:#0A3461;
+		text-decoration:none;
+	}
+a.menu:hover
+	{
+		color:#990000;
+		text-decoration:none;
+	}
+
+div.link_logo
+	{
+		height:39;
+		padding-top:5;
+	}
+
+ul
+	{
+		padding-bottom:1em;
+	}
+
+.out
+	{
+		color:#990000;
+		font-weight:bold;
+	}
+.content
+	{
+		text-align:justify;
+		text-justify:distribute;
+		line-height:210%;
+	}
+
+.code_content
+	{
+		line-height:210%;
+	}

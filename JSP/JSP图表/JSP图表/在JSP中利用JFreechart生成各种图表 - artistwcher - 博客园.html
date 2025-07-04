@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cnblogs.com/wcher/p/8931707.html -->
+<html lang="zh-cn" style="--olcb-folder-code-block-max-height:80vh; --cnb-code-bg:rgb(245, 245, 245); --cnb-code-font-size:12px; --cnb-code-color:rgb(68, 68, 68);"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <meta name="description" content="一个java新手编写web网页时遇到一个问题，就是取出数据库里的某个表的内容并将其生成柱状图或者折线图，这突然就比较迷茫，不知应该怎样完成，但静下心来想了想思路，首先我应该知道要生成图表有哪些路可寻，通过上网发现了大神总结的心得如下（原文）： https://blog.csdn.net/happyl">
+    <meta property="og:description" content="一个java新手编写web网页时遇到一个问题，就是取出数据库里的某个表的内容并将其生成柱状图或者折线图，这突然就比较迷茫，不知应该怎样完成，但静下心来想了想思路，首先我应该知道要生成图表有哪些路可寻，通过上网发现了大神总结的心得如下（原文）： https://blog.csdn.net/happyl">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="https://common.cnblogs.com/favicon.svg" type="image/svg+xml">
+    
+    <style>#home :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([highlighted]):not([class*="brush:"]) code:not(.hljs), :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([highlighted]):not([class*="brush:"]) code:not(.hljs) {background: rgb(245, 245, 245);
+        padding: 12px;
+        border: 1px solid rgb(204, 204, 204);
+        border-radius: 3px;
+        border-color: transparent;
+        color: rgb(68, 68, 68);
+        font-family: "Courier New", sans-serif;
+        font-size: 12px</style><link rel="stylesheet" href="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/blog-common.min.css">
+    
+
+    <link id="MainCss" rel="stylesheet" href="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/bundle-fighting.min.css">
+        <link id="highlighter-theme-cnblogs" type="text/css" rel="stylesheet" href="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/cnblogs.css">
+    
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/bundle-fighting-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/wcher/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/wcher/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/wcher/wlwmanifest.xml">
+    <script>
+        var currentBlogId = 302776;
+        var currentBlogApp = 'wcher';
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'fighting';
+        var visitorUserId = '';
+        var hasCustomScript = false;
+        window.cb_enable_mathjax = false;
+        window.mathEngine = 0;
+        window.codeHighlightEngine = 1;
+        window.enableCodeLineNumber = false;
+        window.codeHighlightTheme = 'cnblogs';
+        window.darkModeCodeHighlightTheme = 'vs2015';
+        window.isDarkCodeHighlightTheme = false;
+        window.isDarkModeCodeHighlightThemeDark = true;
+        window.isDisableCodeHighlighter = false;
+        window.enableCodeThemeTypeFollowSystem = false;
+        window.enableMacStyleCodeBlock = false;
+    </script>
+        <script>
+            window.currentPostId = 8931707;
+            window.currentPostDateAdded = '2018-04-24 16:56';
+        </script>
+    <script src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/jquery-2.2.0.min.js"></script>
+    <script src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/blog-common.min.js"></script><style>.medium-zoom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 300ms;
+  will-change: opacity;
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+  cursor: pointer;
+  cursor: zoom-out;
+  opacity: 1;
+}
+
+.medium-zoom-image {
+  cursor: pointer;
+  cursor: zoom-in;
+  /*
+    The `transition` is marked as "!important" for the animation to happen
+    even though it's overriden by another inline `transition` style attribute.
+
+    This is problematic with frameworks that generate inline styles on their
+    images (e.g. Gatsby).
+
+    See https://github.com/francoischalifour/medium-zoom/issues/110
+   */
+  transition: transform 300ms cubic-bezier(0.2, 0, 0.2, 1) !important;
+}
+
+.medium-zoom-image--hidden {
+  visibility: hidden;
+}
+
+.medium-zoom-image--opened {
+  position: relative;
+  cursor: pointer;
+  cursor: zoom-out;
+  will-change: transform;
+}
+</style><script id="hljs-script" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/highlight.min.js" type="text/javascript" async=""></script>
+    
+
+    
+<meta property="og:image" content="https://common.cnblogs.com/logo_square.png"><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/f.txt" async=""></script><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
+<body class="skin-fighting has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a href="https://www.cnblogs.com/cmt/p/17520031.html" onclick="countCreativeClicks(&#39;C0-博客园&#39;)" target="_blank" rel="nofollow">
+            <div class="bannerbar forpc" style="background-size: contain;background-color:#1600f2;margin-left: -60px">
+                <img src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/35695-20231202120816588-519700597.png" onload="countCreativeImpressions(&#39;C0-博客园&#39;)">
+                
+                <span id="c0_impression" style="display:none"></span>
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile bannerbar-text-mobile formobile">
+                <a href="https://www.cnblogs.com/cmt/p/17520031.html" onclick="countCreativeClicks(&#39;M2-博客园&#39;)" rel="nofollow">
+                    <img src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/35695-20231123220526514-2040708602.png" alt="" onload="countCreativeImpressionsOnMobile(&#39;M2-博客园&#39;)">
+                    <span id="m2_impression" style="display:none"></span>
+                </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding">
+                    <a href="https://www.cnblogs.com/" title="开发者的网上家园" role="banner">
+                        <img src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/logo.svg" alt="博客园Logo">
+                    </a>
+                </li>
+                <li><a href="https://cnblogs.vip/">会员</a></li>
+                <li>
+                    <a href="https://news.cnblogs.com/" onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-news&#39;)">新闻</a>
+                </li>
+                <li>
+                    <a href="https://q.cnblogs.com/" onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-q&#39;)">博问</a>
+                </li>                              
+                <li>
+                    <a href="https://ing.cnblogs.com/" onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-ing&#39;)">闪存</a>
+                </li>
+                <li>
+                    <a href="https://edu.cnblogs.com/" onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-edu&#39;)">班级</a>
+                </li>
+                <li>
+                    <a href="https://ai.hanghang.com/page/4649915" target="_blank">AI培训</a>
+                </li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search dropdown" action="https://zzk.cnblogs.com/s" method="get" role="search">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="search" tabindex="3" autocomplete="off">
+                        <button id="zzk_search_button" onclick="window.navbarSearchManager.triggerActiveOption()">
+                            <img id="search_icon" class="focus-hidden" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/search.svg" alt="搜索">
+                            <img class="hidden focus-visible" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/enter.svg" alt="搜索">
+                        </button>
+                        <ul id="navbar_search_options" class="dropdown-menu quick-search-menu">
+                            <li tabindex="0" class="active" onclick="zzkSearch(event, document.getElementById(&#39;zzk_search_input&#39;).value)">
+                                <div class="keyword-wrapper">
+                                    <img src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/search.svg" alt="搜索">
+                                    <div class="keyword"></div>
+                                </div>
+                                <span class="search-area">所有博客</span>
+                            </li>
+                                    <li tabindex="1" onclick="zzkBlogSearch(event, &#39;wcher&#39;, document.getElementById(&#39;zzk_search_input&#39;).value)">
+                                        <div class="keyword-wrapper">
+                                            <img src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/search.svg" alt="搜索">
+                                            <div class="keyword"></div>
+                                        </div>
+                                        <span class="search-area">当前博客</span>
+                                    </li>
+                        </ul>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔" style="display: none;">
+                        <img id="new_post_icon" class="navbar-icon" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/newpost.svg" alt="写随笔">
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客" style="display: none;">
+                        <img id="myblog_icon" class="navbar-icon" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/myblog.svg" alt="我的博客">
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息" style="display: none;">
+                        <img id="msg_icon" class="navbar-icon" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/message.svg" alt="短消息">
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <a id="navbar_lite_mode_indicator" data-current-page="blog" style="display: none" href="javascript:void(0)" alt="简洁模式" title="简洁模式启用，您在访问他人博客时会使用简洁款皮肤展示">
+                        <img class="navbar-icon" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/lite-mode-on.svg" alt="简洁模式">
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown" style="display: none;">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/avatar-default.svg" alt="用户头像">
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/lite-mode-check.svg" class="hide" style="display: none;"><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup" style="display: inline;">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()" style="display: inline;">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+
+    
+<!--done-->
+<center>
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a href="https://www.cnblogs.com/wcher/"><img id="blogLogo" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/logo.gif" alt=""></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/wcher/">artistwcher</a>
+</h1>
+<h2></h2>		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+    <li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+    <li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/wcher/">
+首页</a>
+</li>
+    <li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+    <li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/artistwcher">
+联系</a></li>
+    <li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/wcher/rss/">
+订阅</a>
+        <!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+    <li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 11&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 0&nbsp; </span>
+<span id="stats-total-view-count">阅读 - 
+<span title="总阅读数: 20710">
+20710</span></span>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div class="clear"></div>
+	<div id="topicList">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class="postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/wcher/p/8931707.html">
+    <span role="heading" aria-level="2">在JSP中利用JFreechart生成各种图表</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html" deep="7">
+<p>　　一个java新手编写web网页时遇到一个问题，就是取出数据库里的某个表的内容并将其生成柱状图或者折线图，这突然就比较迷茫，不知应该怎样完成，但静下心来想了想思路，首先我应该知道要生成图表有哪些路可寻，通过上网发现了大神总结的心得如下（原文）：</p>
+<p>https://blog.csdn.net/happylee6688/article/details/26960729</p>
+<ul>
+<li>ChartDirector</li>
+</ul>
+<div>　　ChartDirector 是一款商业的图表库，有多种语言的版本，支持的版本有有.NET，ASP/COM/VB，JSP/Java，CodeFusion，PHP，Perl，Ruby，C++等。ChartDirector图表工具尤其适合用于Web及嵌入式应用程序开发。使用它做的图表非常的精细漂亮，虽然是商业图表，但其收费并不算贵，当然，如果你不想花钱购买，它也提供了免费版本，但在生成的图表上会出现logo信息。不过，网上还是有很多的破解方法的，很简单。</div>
+<div>　　ChartDirector 插件使用方便，快捷，灵活，功能强大，交互性强。在Web服务器以及嵌入式应用程序开发中，它是一种非常理想的工具，拥有丰富的图表图形组件库。支持多种图表样式，如圆形图表（饼形图），圆环图，柱形图（条形图），直线图，曲线图，梯形线图，趋势线图，曲线拟合图，线间色图，区域图，泡沫图等等。采用多线程结构，特别应用于具有高性能要求的服务器端应用程序开发，拥有基于API（应用编程接口）的对象，允许用户控制和定制图表细节，从而设计出用户满意的图表。</div>
+<div>　　ChartDirector 对中文的支持也是很不错的，出现的问题很容易解决，网上都有解决方案。此外，ChartDirector&nbsp;提供的源码中，jsp的demo也是比较简单的，你只需要改一下数据，马上就可以呈现出你想要的效果。而且还备有英文的文档，文档中提供了源代码的说明，对于开发人来说还是很方便的。就我个人来说，我还是很喜欢这一款插件的，图形种类繁多，样式漂亮，而且上手也很简单。</div>
+<div>
+<ul>
+<li>JScharts&nbsp;</li>
+</ul>
+<div>　　JScharts 是一个用来在浏览器上直接绘制图表的JavaScript工具包。支持柱状图，圆饼图以及简单的曲线图。直接将这个库插入网页，然后从 XML 文件或 JavaScript 数组变量调用数据。</div>
+<div>JSCharts 的特点是，它不需要任何服务端的插件和模块，是纯JavaScript组件，它是一款商业软件，但提供了免费的版本（含有水印）。如要删除水印，需要一个域密钥。正常情况下，JScharts是不支持中文的，不过在网上找到一个解决方案，可以试一下，<a href="http://hi.baidu.com/duduppp/item/7e60083581275387c2cf29bd" target="_blank" rel="noopener">点击这里</a>&nbsp;。</div>
+<div>
+<ul>
+<li>JFreeChart</li>
+</ul>
+<div>　　JFreeChart 是一个开源的Java项目，它主要用来开发各种各样的图表，这些图表包括，饼形图、柱状图（普通柱状图以及堆栈柱状图）、线图、区域图、分布图、混合图、甘特图以及一些仪表盘等等。在这些不同样式的图表上可以满足目前商业系统的要求。</div>
+<div>　　JFreeChart是一种基于Java语言的图表开发技术，可以用于Servlet、JSP、Applet、Java Application 环境中，通过JDBC可动态显示任何数据库数据，结合ltext可以输出至PDF文件。JFreeChart 画出来的图形不够精细，看起来有些模糊，图表的文字边缘、颜色和颜色的分界也比较模糊。JFreeChart 对中文的支持不是很好，虽然有字体的解决办法，但仍然存在问题。它使用的默认字体显示出来的中文会很模糊，你可能需要修改源代码。</div>
+<div>&nbsp;</div>
+<div>　　对比这三款Java图表插件，ChartDirector&nbsp;提供的图形样式是最多的，也是最漂亮的，毕竟是商业软件，对于另外两种还是有一些优势的。虽然免费版本的图表会有logo信息，不过对于这个网上有解决方案，可以去掉logo。对开发人员来说，ChartDirector&nbsp;提供了很多的Demo和文档，足够开发人员学习和使用了。
+<div>　　JScharts 也提供了一些日常常用的图形样式，包括柱状图、饼形图等等。而且它提供的样式也还是不错的。虽然JScharts 不需要任何服务端的插件和模块，但是对Web前端的JavaScript有一定的要求，不了解JavaScript的开发者是没办法使用的。当然，如果了解JavaScript的话，使用JScharts开发图表还是很简单的。
+<div>　　JFreeChart 也提供了一些日常常用的图形样式，只不过它只支持java语言，在易用性方面还是很简单的。样式方面也还是可以的。虽然JFreeChart的文档要收费，但好在国内还有很多人在使用JFreeChart，网上可以找到很多相关的使用教程。JFreeChart的缺陷就是只适合生成图片，而且文字、图片都不是特别清晰，还需要进行一些调整。////////</div>
+<div>　　因为是java开发web 所以决定学习JFreeChart ，步骤：</div>
+<div>一：Jfreechart下载，下载地址：<a href="http://sourceforge.net/projects/jfreechart/files/" target="_blank" rel="noopener">http://sourceforge.net/projects/jfreechart/files/</a>&nbsp;下载 jfreechart-1.0.19.zip ， 解压后从lib文件下找出jfreechart.jar和jcommon.jar这俩个来复制（其它干什么的不清楚）粘贴到WEB-INF\lib下即可</div>
+<div>二：编写代码</div>
+<div>
+<p>&lt;%@ page pageEncoding="UTF-8"<br data-filtered="filtered">	contentType="text/html; charset=UTF-8"%&gt;<br data-filtered="filtered">&lt;%@ page import="java.awt.Color,  <br data-filtered="filtered">                org.jfree.chart.ChartFactory,  <br data-filtered="filtered">                org.jfree.chart.JFreeChart,  <br data-filtered="filtered">                org.jfree.chart.plot.PlotOrientation,  <br data-filtered="filtered">                org.jfree.chart.servlet.ServletUtilities,  <br data-filtered="filtered">                org.jfree.data.category.CategoryDataset,  <br data-filtered="filtered">                org.jfree.data.general.*,  <br data-filtered="filtered">                org.jfree.chart.plot.CategoryPlot,  <br data-filtered="filtered">                org.jfree.chart.axis.CategoryAxis,  <br data-filtered="filtered">                org.jfree.chart.axis.ValueAxis,  <br data-filtered="filtered">                org.jfree.chart.renderer.category.BarRenderer3D,  <br data-filtered="filtered">                org.jfree.chart.urls.StandardCategoryURLGenerator,  <br data-filtered="filtered">                org.jfree.chart.*,  <br data-filtered="filtered">                org.jfree.chart.entity.*,  <br data-filtered="filtered">                org.jfree.chart.labels.*,  <br data-filtered="filtered">                org.jfree.chart.axis.CategoryLabelPositions,  <br data-filtered="filtered">                java.awt.Font,  <br data-filtered="filtered">                java.awt.GradientPaint,  <br data-filtered="filtered">                org.jfree.ui.TextAnchor,  <br data-filtered="filtered">                org.jfree.chart.axis.NumberAxis,  <br data-filtered="filtered">                org.jfree.chart.axis.NumberTickUnit                  <br data-filtered="filtered">                "%&gt; <br data-filtered="filtered">&lt;%@ page import="org.jfree.data.general.DefaultPieDataset"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.data.category.CategoryDataset" %&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.data.category.DefaultCategoryDataset" %&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.JFreeChart"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.plot.PiePlot"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.ChartRenderingInfo"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.servlet.ServletUtilities"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.urls.StandardPieURLGenerator"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.entity.StandardEntityCollection"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.encoders.SunPNGEncoderAdapter"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.StandardChartTheme"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.ChartFactory"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.plot.CategoryPlot"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.plot.PlotOrientation"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.axis.CategoryAxis"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.renderer.category.BarRenderer"%&gt;  <br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.labels.StandardCategoryItemLabelGenerator"%&gt;  <br data-filtered="filtered">&lt;%@ page import="java.awt.Font"%&gt;  <br data-filtered="filtered">&lt;%@ page import="java.awt.Color"%&gt;  <br data-filtered="filtered">&lt;%@ page import="java.sql.*"%&gt;<br data-filtered="filtered">&lt;%@ page import="java.util.*"%&gt;<br data-filtered="filtered">&lt;%@ page import="java.awt.*"%&gt;<br data-filtered="filtered">&lt;%@ page import="java.io.*"%&gt;<br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.axis.CategoryAxis3D"%&gt;<br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.axis.CategoryLabelPositions"%&gt;<br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.axis.CategoryAxis3D"%&gt;<br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.axis.NumberAxis3D"%&gt;<br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.axis.NumberTickUnit"%&gt;<br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.renderer.category.BarRenderer3D"%&gt;<br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.renderer.category.BarRenderer3D" %&gt;<br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.renderer.category.LineAndShapeRenderer" %&gt;<br data-filtered="filtered">&lt;%@ page import="org.jfree.data.category.DefaultCategoryDataset" %&gt;<br data-filtered="filtered">&lt;%@ page import="org.jfree.chart.plot.DatasetRenderingOrder" %&gt;</p>
+<p>//PS：一个新手就尽可能的导入类，以防出错.....</p>
+<p>//饼状图代码如下：</p>
+<p>&lt;html&gt;<br data-filtered="filtered">&lt;body&gt;<br data-filtered="filtered">    &lt;%<br data-filtered="filtered">        //实例化核心类对象<br data-filtered="filtered">        DefaultPieDataset dataset=new DefaultPieDataset();<br data-filtered="filtered">        //设置图表值，可为多个<br data-filtered="filtered">        dataset.setValue("paid",45);<br data-filtered="filtered">        dataset.setValue("Unpaid",25);<br data-filtered="filtered">        //根据JFreeChart提供的工厂类org.jfree.chart.ChartFactory创建饼状图<br data-filtered="filtered">        JFreeChart chart=ChartFactory.createPieChart3D("Student payment form",dataset,true,false,false);</p>
+<p>//生成图形存入session,得到存入session的图形名称</p>
+<p>        String filename=ServletUtilities.saveChartAsPNG(chart,500,400,session);</p>
+<p>//在页面中通过img展示生成的图形，通过jfreechart的servlet输出图形<br data-filtered="filtered">        String graphURL=request.getContextPath()+"/DisplayChart?filename="+filename;<br data-filtered="filtered">     %&gt;<br data-filtered="filtered">    &lt;img src="&lt;%=graphURL %&gt;" &gt;<br data-filtered="filtered">&lt;/body&gt;<br data-filtered="filtered">&lt;/html&gt;</p>
+<p>&nbsp;</p>
+<p>以上输出图表的方法是用JFreeChart的serverlet进行输出，所以要配置web.xml文件，如下：（如果图表不显示，多半是web.xml没有配置）</p>
+<p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br data-filtered="filtered">&lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1"&gt;<br data-filtered="filtered">  &lt;display-name&gt;ceshi&lt;/display-name&gt;<br data-filtered="filtered">  &lt;welcome-file-list&gt;<br data-filtered="filtered">    &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;<br data-filtered="filtered">    &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;<br data-filtered="filtered">    &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;<br data-filtered="filtered">    &lt;welcome-file&gt;default.html&lt;/welcome-file&gt;<br data-filtered="filtered">    &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;<br data-filtered="filtered">    &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;<br data-filtered="filtered">  &lt;/welcome-file-list&gt;<br data-filtered="filtered">  <br data-filtered="filtered">  &lt;servlet&gt;<br data-filtered="filtered">    &lt;servlet-name&gt;DisplayChart&lt;/servlet-name&gt;<br data-filtered="filtered">    &lt;servlet-class&gt;org.jfree.chart.servlet.DisplayChart&lt;/servlet-class&gt;<br data-filtered="filtered">  &lt;/servlet&gt;</p>
+<p>  &lt;servlet-mapping&gt;<br data-filtered="filtered">    &lt;servlet-name&gt;DisplayChart&lt;/servlet-name&gt;<br data-filtered="filtered">    &lt;url-pattern&gt;/DisplayChart&lt;/url-pattern&gt;<br data-filtered="filtered">  &lt;/servlet-mapping&gt;<br data-filtered="filtered">&lt;/web-app&gt;</p>
+<p>&nbsp;</p>
+<p>事实上，图表输出是有俩种方式，另一种是通过一个函数输出：（柱状图为例）</p>
+<p>//第一步，构造一个Dataset ：填充要统计的数据<br data-filtered="filtered">		DefaultCategoryDataset mDataset = new DefaultCategoryDataset();  <br data-filtered="filtered">    	mDataset.addValue(2000, "清华大学", "本科生");  //数据一般从数据库得出，用个for循环即可<br data-filtered="filtered">   	 	mDataset.addValue(1500, "清华大学", "研究生");  <br data-filtered="filtered">    	mDataset.addValue(1000, "清华大学", "博士生");  <br data-filtered="filtered">    	mDataset.addValue(900, "清华大学", "讲师");  <br data-filtered="filtered">   	 	mDataset.addValue(800, "清华大学", "副教授");  <br data-filtered="filtered">    	mDataset.addValue(300, "清华大学", "教授");  <br data-filtered="filtered">    	mDataset.addValue(600, "清华大学", "行政人员");  <br data-filtered="filtered">    	mDataset.addValue(400, "清华大学", "管理人员");<br data-filtered="filtered">        //第二步，生成图形,ChartFactory.createBarChart3D来生成柱状图   <br data-filtered="filtered">       	JFreeChart mChart = ChartFactory.createBarChart3D(  <br data-filtered="filtered">                "学校人员分布图",   // 图形名称<br data-filtered="filtered">                "类型",   // 分类名称，为横坐标名称<br data-filtered="filtered">                "数量",  // 值名称，为纵坐标名称<br data-filtered="filtered">                mDataset,   // 数据集合<br data-filtered="filtered">                PlotOrientation.VERTICAL, // 垂直显示  <br data-filtered="filtered">                true,   // 是否显示图例<br data-filtered="filtered">                true,// 是否使用工具提示<br data-filtered="filtered">                false);// 是否使用url<br data-filtered="filtered">        <br data-filtered="filtered">        //第三，显示,有俩种方法：流式输出与URL（上面已经讲了）输出<br data-filtered="filtered">        response.setContentType("image/png");<br data-filtered="filtered">//流式输出<br data-filtered="filtered">        ChartUtilities.writeChartAsPNG(response.getOutputStream(),mChart,800,500);</p>
+<p>//////////////////////////////////////////////////////</p>
+<p>按理说，图表核心输出就已经学会了，但从上文得知，JFreeChart是不支持中文，会出现乱码，如果图表中的参数用英文，上面代码足以应付</p>
+<p>如果想输出中文而且还不显示乱码，那必须要自己再配置，如下：</p>
+<p>// 配置字体<br data-filtered="filtered">        Font xfont = new Font("宋体", Font.PLAIN, 12);// X轴<br data-filtered="filtered">        Font yfont = new Font("宋体", Font.PLAIN, 12);// Y轴<br data-filtered="filtered">        Font kfont = new Font("宋体", Font.PLAIN, 12);// 底部<br data-filtered="filtered">        Font titleFont = new Font("宋体", Font.BOLD, 25); // 图片标题<br data-filtered="filtered">        // 图形的绘制结构对象,对于饼图不适用<br data-filtered="filtered">        CategoryPlot plot = mChart.getCategoryPlot();<br data-filtered="filtered">        <br data-filtered="filtered">        // X 轴<br data-filtered="filtered">        CategoryAxis domainAxis = plot.getDomainAxis();<br data-filtered="filtered">        domainAxis.setLabelFont(xfont);// 轴标题<br data-filtered="filtered">        domainAxis.setTickLabelFont(xfont);// 轴数值<br data-filtered="filtered">        domainAxis.setTickLabelPaint(Color.BLACK); // 字体颜色</p>
+<p>        // Y 轴<br data-filtered="filtered">        ValueAxis rangeAxis = plot.getRangeAxis();<br data-filtered="filtered">        rangeAxis.setLabelFont(yfont);<br data-filtered="filtered">        rangeAxis.setLabelPaint(Color.BLACK); // 字体颜色<br data-filtered="filtered">        rangeAxis.setTickLabelFont(yfont);</p>
+<p>这样就解决乱码了，上边的代码适用柱状图，设置字体，&nbsp;<br data-filtered="filtered">对于折线图、饼图设置字体 的代码不太一样，需要单独对不同类型的图形设置字体，但都非常类似。</p>
+<p>&nbsp;</p>
+<p>用户的一般需求上面的一些思路就足以，但有时想输出一些综合的图表，比如柱状图与折线图一起输出，甚至是柱状图与很多折线图一起输出，</p>
+<p>网上也有很多例子，顺带着上面的思想也可以学习折线图。</p>
+<p>综合图参考链接：</p>
+<p>http://blog.sina.com.cn/s/blog_906e353d0101241e.html</p>
+<p>https://blog.csdn.net/sb_jb/article/details/77867614?fps=1&amp;locationNum=2</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="blog_post_info_block" role="contentinfo">
+
+
+<div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/wcher/category/1199445.html" target="_blank">java web</a>
+</div>
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(8931707,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;b4dbefca-5d6f-e611-9fc1-ac853d9f53cc&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareManager.wechatShare()"><img src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/wcher/" target="_blank"><img src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/20180329104134.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/wcher/">artistwcher</a>
+            <br>
+            <a href="https://home.cnblogs.com/u/wcher/followers/">粉丝 - <span class="follower-count">1</span></a>
+            <a href="https://home.cnblogs.com/u/wcher/followees/">关注 - <span class="following-count">6</span></a><br>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow" class="follow-tip">
+                <a href="javascript:void(0);" onclick="follow(&#39;b4dbefca-5d6f-e611-9fc1-ac853d9f53cc&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(8931707,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(8931707,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+        <div id="vip_tip"><a class="tip" href="https://cnblogs.vip/" target="_blank">升级成为会员</a></div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script>
+</div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a href="https://www.cnblogs.com/wcher/p/8900560.html" class="p_n_p_prefix">« </a> 上一篇：    <a href="https://www.cnblogs.com/wcher/p/8900560.html" data-featured-image="" title="发布于 2018-04-21 12:23">eclipse里部署的tomcat启动超时的解决</a>
+
+</div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date" data-last-update-days="2055.7156822049965" data-date-created="BlogServer.Application.Dto.BlogPost.BlogPostDto" data-date-updated="2018-04-24 16:56" aria-expanded="false">2018-04-24 16:56</span>&nbsp;
+<a href="https://www.cnblogs.com/wcher/">artistwcher</a>&nbsp;
+阅读(<span id="post_view_count">1828</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8931707" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8931707);return false;">收藏</a>&nbsp;
+<a href="javascript:void(0)" onclick="reportManager.report({ currentUserId: &#39;&#39;, targetType: &#39;blogPost&#39;, targetId: &#39;8931707&#39;, targetLink: &#39;https://www.cnblogs.com/wcher/p/8931707.html&#39;, title: &#39;在JSP中利用JFreechart生成各种图表&#39; })">举报</a>
+</div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script>
+    var cb_entryId = 8931707, cb_entryCreatedDate = '2018-04-24 16:56', cb_postType = 1, cb_postTitle = '在JSP中利用JFreechart生成各种图表';
+    var allowComments = true, cb_blogId = 302776, cb_blogApp = 'wcher', cb_blogUserGuid = 'b4dbefca-5d6f-e611-9fc1-ac853d9f53cc';
+    mermaidRender.render()
+    markdown_highlight()
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");    
+</script>
+<a id="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav">
+            <a class="comment-nav-left" href="https://www.cnblogs.com/cmt/p/17520031.html" target="_blank">会员救园</a>
+        <div class="comment-nav-right">
+            <span id="span_refresh_tips"></span><a href="https://www.cnblogs.com/wcher/p/8931707.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/wcher/p/8931707.html#top">返回顶部</a>
+        </div>
+    </div>
+    <div id="comment_form_container"><div class="login_tips">
+    登录后才能查看或发表评论，立即 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return account.login(&#39;!comments&#39;);">登录</a> 或者
+    <a href="https://www.cnblogs.com/">逛逛</a> 博客园首页
+</div>
+</div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+        <div id="cnblogs_ch"><a href="https://www.cnblogs.com/cmt/p/17520031.html" target="_blank" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ad&#39;, &#39;event_label&#39;: &#39;T2-会员救园&#39;})">【推荐】会员救园：园子走出困境的唯一希望，到年底有多少会员</a><br><a href="https://click.aliyun.com/m/1000384995/" target="_blank" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ad&#39;, &#39;event_label&#39;: &#39;T2-阿里云&#39;})">【推荐】阿里云热销爆款云服务器，新老同享一口价99元/年</a><br></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+            <div id="div-gpt-ad-1592365906576-0" style="width: 300px; height: 250px;" data-google-query-id="CJui-qLkg4MDFcwMewcdaQoK9g"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" name="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" role="region" aria-label="Advertisement" tabindex="0" style="border: 0px; vertical-align: bottom;" data-load-complete="true" data-google-container-id="1" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/saved_resource.html"></iframe></div></div>
+    </div>
+    <div id="under_post_card1"><div class="under-post-card">
+<b>编辑推荐：</b>
+<br>
+
+· <a href="https://www.cnblogs.com/gonggy/p/17873522.html" target="_blank">记一次奇怪的文件句柄泄露问题</a>
+    <br>
+· <a href="https://www.cnblogs.com/tangyanzhi1111/p/17876898.html" target="_blank">.NET8 极致性能优化 AOT</a>
+    <br>
+· <a href="https://www.cnblogs.com/wlovet/p/17875887.html" target="_blank">优化接口设计的思路系列：接口防抖的一些方式</a>
+    <br>
+· <a href="https://www.cnblogs.com/strick/p/17393644.html" target="_blank">带团队后的日常思考（十三）</a>
+    <br>
+· <a href="https://www.cnblogs.com/hobbybear/p/17875341.html" target="_blank">一次 elasticsearch 查询瞬间超时案例分析</a>
+    <br>
+</div></div>
+    <div id="under_post_card2"><div class="itnews under-post-card">
+    <b>阅读排行：</b>
+    <br>
+ ·          <a href="https://www.cnblogs.com/chengxy-nds/p/17887130.html" target="_blank">公司敏感数据被上传Github，吓得我赶紧改提交记录</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/bossma/p/17889457.html" target="_blank">博客园又崩了，这个锅要不要阿里云背？</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/SunSpring/p/17879703.html" target="_blank">.net 温故知新【15】：Asp.Net Core WebAPI  配置</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/broadm/p/17884873.html" target="_blank">基于DotNetty实现自动发布 - 自动检测代码变化</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/kyguo1997/p/17884479.html" target="_blank">Windows服务器，通过Nginx部署VUE+Django前后端分离项目</a>
+        <br>
+</div></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+        var commentManager = new blogCommentManager();
+        commentManager.renderComments(0);
+        fixPostBody();
+        window.footnoteTipManager.generateFootnoteTips();
+
+            window.tocManager.displayDisableTocTips = false;
+            window.tocManager.generateToc();
+            
+                setTimeout(function() { countViews(cb_blogId, cb_entryId); }, 50);
+            
+            deliverT2();
+            deliverC1C2();
+            loadNewsAndKb();
+            
+                LoadPostCategoriesTags(cb_blogId, cb_entryId);
+            
+            LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+            GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+            loadOptUnderPost();
+            GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+                </script>
+</div>
+
+	</div><!--end: topicList 文章列表容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+    <h3 class="catListTitle">公告</h3>
+<div id="blog-news">    
+    <div id="sidebar_news_content">
+<div id="profile_block">
+    昵称：
+    <a href="https://home.cnblogs.com/u/wcher/">
+        artistwcher
+    </a>
+    <br>
+    园龄：
+    <a href="https://home.cnblogs.com/u/wcher/" title="入园时间：2016-08-31">
+        7年3个月
+    </a>
+    <br>
+    粉丝：
+    <a class="follower-count" href="https://home.cnblogs.com/u/wcher/followers/">
+        1
+    </a>
+    <br>
+    关注：
+    <a class="folowing-count" href="https://home.cnblogs.com/u/wcher/followees/">
+        6
+    </a>
+    <div id="p_b_follow" class="follow-tip">
+<a href="javascript:void(0)" onclick="follow(&#39;b4dbefca-5d6f-e611-9fc1-ac853d9f53cc&#39;)">+加关注</a></div>
+    <script>getFollowStatus('b4dbefca-5d6f-e611-9fc1-ac853d9f53cc');</script>
+</div>
+</div>
+</div>
+<script>loadBlogNews();</script> 
+</div>
+<div id="sidebar_c3"></div>
+			<div id="calendar"><div id="blog-calendar" style="">
+
+<table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" border="0">
+    <tbody>
+        <tr>
+            <td colspan="7">
+                <table class="CalTitle" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2023/11/10&#39;); return false;">&lt;</a>
+                            </td>
+                            <td align="center">2023年12月</td>
+                            <td align="right" class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2024/01/10&#39;); return false;">&gt;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    <tr>
+        <th class="CalDayHeader" align="center" abbr="日" scope="col">日</th>
+        <th class="CalDayHeader" align="center" abbr="一" scope="col">一</th>
+        <th class="CalDayHeader" align="center" abbr="二" scope="col">二</th>
+        <th class="CalDayHeader" align="center" abbr="三" scope="col">三</th>
+        <th class="CalDayHeader" align="center" abbr="四" scope="col">四</th>
+        <th class="CalDayHeader" align="center" abbr="五" scope="col">五</th>
+        <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
+    </tr>
+            <tr>
+                            <td class="CalOtherMonthDay" align="center">26</td>
+                            <td class="CalOtherMonthDay" align="center">27</td>
+                            <td class="CalOtherMonthDay" align="center">28</td>
+                            <td class="CalOtherMonthDay" align="center">29</td>
+                            <td class="CalOtherMonthDay" align="center">30</td>
+                        <td class="" align="center">
+                            1
+                        </td>
+                    <td class="CalWeekendDay" align="center">
+                        2
+                    </td>
+            </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            3
+                        </td>
+                            <td class="" align="center">
+                                4
+                            </td>
+                            <td class="" align="center">
+                                5
+                            </td>
+                            <td class="" align="center">
+                                6
+                            </td>
+                            <td class="" align="center">
+                                7
+                            </td>
+                            <td class="" align="center">
+                                8
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            9
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalTodayDay" align="center">
+                            10
+                        </td>
+                            <td class="" align="center">
+                                11
+                            </td>
+                            <td class="" align="center">
+                                12
+                            </td>
+                            <td class="" align="center">
+                                13
+                            </td>
+                            <td class="" align="center">
+                                14
+                            </td>
+                            <td class="" align="center">
+                                15
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            16
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            17
+                        </td>
+                            <td class="" align="center">
+                                18
+                            </td>
+                            <td class="" align="center">
+                                19
+                            </td>
+                            <td class="" align="center">
+                                20
+                            </td>
+                            <td class="" align="center">
+                                21
+                            </td>
+                            <td class="" align="center">
+                                22
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            23
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            24
+                        </td>
+                            <td class="" align="center">
+                                25
+                            </td>
+                            <td class="" align="center">
+                                26
+                            </td>
+                            <td class="" align="center">
+                                27
+                            </td>
+                            <td class="" align="center">
+                                28
+                            </td>
+                            <td class="" align="center">
+                                29
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            30
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            31
+                        </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                1
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                2
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                3
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                4
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                5
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            6
+                        </td>
+                </tr>
+    </tbody>
+</table></div><script>loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    <div class="mySearch my-search">
+        <h3 class="catListTitle">搜索</h3>
+        <div id="sidebar_search_box">
+            <div id="widget_my_zzk" class="div_my_zzk">
+                <input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- 常用链接 -->
+<div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">
+常用链接
+</h3>
+<ul>
+    <li><a href="https://www.cnblogs.com/wcher/p/" title="我的博客的随笔列表">我的随笔</a></li>
+<li><a href="https://www.cnblogs.com/wcher/MyComments.html" title="我的发表过的评论列表">我的评论</a></li>
+<li><a href="https://www.cnblogs.com/wcher/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li>
+<li><a href="https://www.cnblogs.com/wcher/comments" title="我的博客的评论列表">最新评论</a></li>
+<li><a href="https://www.cnblogs.com/wcher/tag/" title="我的博客的标签列表">我的标签</a></li>
+
+</ul>
+</div>
+
+<!-- 最新随笔 -->
+
+
+<!-- 我的标签 -->
+<div id="sidebar_toptags" class="sidebar-block"></div>
+
+<!-- 积分与排名 -->
+
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+
+    <div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+        <h3 class="catListTitle">
+            
+    <a class="sidebar-card-title-a" href="https://www.cnblogs.com/wcher/post-categories">随笔分类</a>
+
+
+
+        </h3>
+
+        <ul>
+
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/wcher/category/1199445.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">java web(7)</a>
+ 
+                </li>                            <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/wcher/category/1200668.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">随笔(4)</a>
+ 
+                </li>                        
+        </ul>
+
+    </div>    <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+        <h3 class="catListTitle">
+            
+随笔档案
+
+
+        </h3>
+
+        <ul>
+
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/wcher/archive/2018/04.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2018年4月(6)</a>
+ 
+                </li>                            <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/wcher/archive/2018/03.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2018年3月(1)</a>
+ 
+                </li>                            <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/wcher/archive/2016/11.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2016年11月(1)</a>
+ 
+                </li>                            <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/wcher/archive/2016/10.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2016年10月(2)</a>
+ 
+                </li>                            <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/wcher/archive/2016/09.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2016年9月(1)</a>
+ 
+                </li>                        
+        </ul>
+
+    </div></div>
+
+<!-- 最新评论 -->
+<!-- 阅读排行榜 -->
+<div id="sidebar_topviewedposts" class="sidebar-block">
+<div id="topview_posts_wrap">
+    <h3 class="catListTitle">
+        <a href="https://www.cnblogs.com/wcher/most-viewed" class="sidebar-card-title-a">
+    阅读排行榜
+</a>
+
+    </h3>
+    <div id="TopViewPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/wcher/p/8830594.html">
+                            1. JDBC连接MySQL中数据库的端口号(11510)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/wcher/p/8900560.html">
+                            2. eclipse里部署的tomcat启动超时的解决(3785)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/wcher/p/8931707.html">
+                            3. 在JSP中利用JFreechart生成各种图表(1828)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/wcher/p/8889133.html">
+                            4. html中用?字符在页面间传值的误区以及java中字符串与数字的转换(1025)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/wcher/p/8809419.html">
+                            5. jsp内置对象response的自动刷新页面的严重误区(760)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div></div>
+
+<!-- 评论排行榜 -->
+<div id="sidebar_topcommentedposts" class="sidebar-block"></div>
+
+<!-- 推荐排行榜 -->
+<div id="sidebar_topdiggedposts" class="sidebar-block"></div><div id="sidebar_recentcomments" class="sidebar-block"></div>
+
+
+</div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+		<div class="clear"></div>
+	</div><!--end: sideBar 侧边栏容器 -->
+</div><!--end: home 自定义的最大容器 -->
+		<div class="clear"></div>
+<div id="footer">
+	<!--done-->
+Copyright © 2023 artistwcher
+<br><span id="poweredby">Powered by .NET 8.0 on Kubernetes</span>
+
+</div><!--end: footer -->
+</center>
+
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8DZoAyJmInJHoSwqM1IbzdRpnNprCFRLyRXKVzV9Emw4sLDe8lCO-VYkjcPlSBncLzlWoRlNIxGF3pthAzkIU2x-xrUc6SJ1ZDqvCwv8W23bk-i2IhxpIIyMYliZnp-gq7H7qKxtlQ1z3AiuaHJMNJ4">
+    <script async="" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/js"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-M95P3TTWJZ');
+</script>
+<script defer="" src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/hm.js"></script><iframe src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/container.html" style="visibility: hidden; display: none;"></iframe>
+
+<div style="z-index: 998; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: none; flex-direction: column; align-items: center; justify-content: center">
+<div style="background: #fff;padding: 30px; margin: 30px; border-radius: 16px;">
+  <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.8); position: absolute; top: -100px; right: -100px; border-radius: 100px"></div>
+  <div style="text-align: center; font-size: 18px; margin-bottom: 10px;">点击右上角即可分享</div>
+  <img src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/35695-20230906145857937-1471873834.gif" alt="微信分享提示">
+</div>   
+    </div><div id="ai-assist-root"></div><iframe src="./在JSP中利用JFreechart生成各种图表 - artistwcher - 博客园_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body></html>
