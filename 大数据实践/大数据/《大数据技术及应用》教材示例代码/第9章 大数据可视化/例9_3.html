@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts实例：异步加载数据</title>
+    <script src="jquery-3.5.1.min.js"></script>
+	<script src="echarts.js"></script>
+</head>
+<body>
+	<div id="main" style="width: 600px;height:500px;"></div>
+    <script type="text/javascript">
+	
+		var myChart = echarts.init(document.getElementById('main'));
+		$.get('test_data.json', function (data) {
+				myChart.setOption({
+				series : [
+				{
+					name: '访问来源',
+					type: 'pie',    // 设置图表类型为饼图
+					roseType: 'angle',
+					radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+					data:data.data_PV
+				}
+				]
+			})
+			}, 'json')
+    </script>
+</body>
+</html>

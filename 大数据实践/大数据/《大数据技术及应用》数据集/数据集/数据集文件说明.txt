@@ -1,0 +1,14 @@
+1、城市空气质量数据
+city_data_part.csv是原来数据的一部分，但是并不会影响程序的使用。截取数据的原因由两条（1）数据太大，不容易拷贝使用和演示；（2）便于程序调试。
+city-data.csv只包含小部分数据，全球调试是utf-8格式，用于hadoop上运行。
+city-data1.csv可用于在windows下调试的格式
+
+2、网站访问日志文件
+genWebaccesslog.py是用于生成模拟网站访问日志文件的代码
+
+日志文件：Web_accesslog.csv
+各列为：序号,UserID,IP,date,hour,min,sec,protocol,refer,status,agent
+注：【实验5.1】需要将此文件数据导入HBase
+
+
+

@@ -1,0 +1,10 @@
+注：CentOS虚拟机中所有用户密码统一为：hadoop
+
+本教材提供的虚拟机下载链接：
+(1)伪分布
+https://cloud.189.cn/t/ZrQvEzuQrEnm (访问码:5bps)
+（1）完全分布式
+https://cloud.189.cn/t/IjmANrJrEJrm (访问码:lv47)
+
+
+

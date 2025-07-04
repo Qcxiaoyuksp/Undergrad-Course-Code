@@ -1,0 +1,9 @@
+Configuration conf = HBaseConfiguration.create();
+HBaseAdmin admin = **new** HBaseAdmin(conf);
+admin.createNamespace(NamespaceDescriptor.create("my\_ns").build());
+HTableDescriptor tableDesc = **new** HTableDescriptor(TableName.valueOf("my\_ns:mytable"));
+tableDesc.setDurability(Durability.*SYNC\_WAL*);
+HColumnDescriptor hcd = **new** HColumnDescriptor("mycf");
+tableDesc.addFamily(hcd);
+admin.createTable(tableDesc);
+admin.close();  

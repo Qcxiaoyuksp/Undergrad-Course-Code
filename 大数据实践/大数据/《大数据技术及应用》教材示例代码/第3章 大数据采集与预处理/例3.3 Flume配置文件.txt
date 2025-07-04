@@ -1,0 +1,31 @@
+# Name the components on this agent
+taildir-hdfs-agent.sources = taildir-source
+taildir-hdfs-agent.sinks = hdfs-sink
+taildir-hdfs-agent.channels = memory-channel
+ 
+# Describe/configure the source
+taildir-hdfs-agent.sources.taildir-source.type = TAILDIR
+taildir-hdfs-agent.sources.taildir-source.filegroups = f1
+taildir-hdfs-agent.sources.taildir-source.filegroups.f1 = /usr/local/flume/input/.*
+taildir-hdfs-agent.sources.taildir-source.positionFile = /usr/local/flume/taildir_position.json
+ 
+# Describe the sink
+taildir-hdfs-agent.sinks.hdfs-sink.type = hdfs
+taildir-hdfs-agent.sinks.hdfs-sink.hdfs.path = hdfs://Node01:9000/flume/logdir/%Y%m%d%H%M
+taildir-hdfs-agent.sinks.hdfs-sink.hdfs.useLocalTimeStamp = true
+taildir-hdfs-agent.sinks.hdfs-sink.hdfs.fileType = CompressedStream
+taildir-hdfs-agent.sinks.hdfs-sink.hdfs.writeFormat = Text
+taildir-hdfs-agent.sinks.hdfs-sink.hdfs.codeC = gzip
+taildir-hdfs-agent.sinks.hdfs-sink.hdfs.filePrefix = wsk
+taildir-hdfs-agent.sinks.hdfs-sink.hdfs.rollInterval = 30
+taildir-hdfs-agent.sinks.hdfs-sink.hdfs.rollSize = 100000000
+taildir-hdfs-agent.sinks.hdfs-sink.hdfs.rollCount = 0
+ 
+# Use a channel which buffers events in memory
+taildir-hdfs-agent.channels.memory-channel.type = memory
+taildir-hdfs-agent.channels.memory-channel.capacity = 1000
+taildir-hdfs-agent.channels.memory-channel.transactionCapacity = 100
+ 
+# Bind the source and sink to the channel
+taildir-hdfs-agent.sources.taildir-source.channels = memory-channel
+taildir-hdfs-agent.sinks.hdfs-sink.channel = memory-channel
