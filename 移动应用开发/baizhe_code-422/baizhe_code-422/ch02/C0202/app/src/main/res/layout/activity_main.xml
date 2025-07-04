@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="4"
+        android:hint="@string/app_name"
+        android:autofillHints="@string/app_name"
+        android:inputType="textPersonName"
+        android:singleLine="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/str_pw"
+        android:autofillHints="@null"
+        android:inputType="textPassword"
+        android:maxEms="4"
+        android:maxLength="7"
+        android:singleLine="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/str_send_msg"
+        android:autofillHints="@null"
+        android:inputType="text"
+        android:maxLines="7"
+        android:padding="5dp" />
+</LinearLayout>

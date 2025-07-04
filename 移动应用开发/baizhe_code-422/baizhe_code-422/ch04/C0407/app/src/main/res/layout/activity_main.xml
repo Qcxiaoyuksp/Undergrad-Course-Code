@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!-- 分页视图 -->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:persistentDrawingCache="animation">
+    </androidx.viewpager.widget.ViewPager>
+    <!-- 显示滚动事件信息 -->
+    <TextView
+        android:id="@+id/text_view_page_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="25dp"
+        android:textColor="#ffffff" />
+    <!-- 前进按钮 -->
+    <ImageView
+        android:id="@+id/image_button_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="60dp"
+        android:src="@mipmap/img_left" />
+    <!-- 后退按钮 -->
+    <ImageView
+        android:id="@+id/image_button_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="60dp"
+        android:src="@mipmap/img_right" />
+    <!-- 分页标记提示 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="65dp"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/image_view_page0"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/img_page_now" />
+        <ImageView
+            android:id="@+id/image_view_page1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/img_page" />
+        <ImageView
+            android:id="@+id/image_view_page2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/img_page" />
+        <ImageView
+            android:id="@+id/image_view_page3"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/img_page" />
+    </LinearLayout>
+    <!-- 显示滚动状态改变事件信息 -->
+    <TextView
+        android:id="@+id/text_view_page_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:textColor="#ffffff" />
+</FrameLayout>

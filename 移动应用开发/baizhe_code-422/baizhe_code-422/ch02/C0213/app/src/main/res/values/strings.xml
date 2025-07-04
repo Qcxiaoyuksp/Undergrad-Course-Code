@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">C0213</string>
+    <string name="str_button1">滑动到顶部</string>
+    <string name="str_button2">滑动到底部</string>
+    <string name="str_button3">滑动到指定控件</string>
+    <string name="str_button4">随机滑动</string>
+</resources>

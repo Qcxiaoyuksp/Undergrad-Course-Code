@@ -1,0 +1,17 @@
+E:\数据库\课设\keshe\BookMS\bin\Debug\BookMS.exe.config
+E:\数据库\课设\keshe\BookMS\bin\Debug\BookMS.exe
+E:\数据库\课设\keshe\BookMS\bin\Debug\BookMS.pdb
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.Properties.Resources.resources
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.csproj.GenerateResource.cache
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.csproj.CoreCompileInputs.cache
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.exe
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.pdb
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.csproj.AssemblyReference.cache
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.login.resources
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.admin1.resources
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.admin2.resources
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.admin2_1.resources
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.admin2_2.resources
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.user1.resources
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.user2.resources
+E:\数据库\课设\keshe\BookMS\obj\Debug\BookMS.user3.resources

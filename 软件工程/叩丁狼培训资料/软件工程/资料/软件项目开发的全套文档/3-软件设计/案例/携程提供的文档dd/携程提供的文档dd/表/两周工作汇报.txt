@@ -1,0 +1,62 @@
+1.菜单栏改变：订单管理
+			订飞机票
+			订火车票
+			订酒店票 页面空出来
+2.发票管理
+			查看发票
+			开发票页面空出来
+3.功能：天气接口
+5.数据库表：订飞机订单查询表：（最终行程信息）fighttriprecordinfo
+			（标准地理位置信息）standardGeoInfo
+			（标准地理位置信息）standardgeoEntity
+			（航变信息）fightorderchangeInfo
+			（机票订单航程信息）orderflightinfo
+			（订单退票信息）flightorderrefandinfo
+			（订单改签信息）flightorderrebookinfo
+节前1周：1.设计首页，在前端如何接受天气数据，
+	2.订飞机票、订火车票、订酒店的排布
+	3.我的订票、我的票夹排布
+
+cas登录页，到后台能登录进来。
+
+
+10.19一周工作量
+建表：订单乘客基本信息 flightorderpassenger
+	订单结算明细 	flightordersettlementbaseinfo
+	机票订单基本信息	flightorderbaseinfo
+	机票订单结算查询	flightordersettlementqueryrequest
+订火车票
+	火车订单结算查询 searchsettlementtrainorderdetailrequest
+	账号和令牌 authentification
+	订单结算明细 corptrainsettlementdetail
+	订单基本信息  corptrainsettlementorderdetail
+	票张基本信息  corptrainsettlementticketdetail
+	乘客与票张关系 corptrainsettlementticketrelation
+	车次信息 	traindata
+	坐席信息	seatdata
+	保险基本信息 corptrainsettlementinsuranceinfodetail
+	票张及状态基本信息 corptrainsettlementticketinfo
+	票张发票情况  corptrainsettlementticketinvoiceinfo
+	标准地理位置信息 standardgeoentity
+酒店订单
+	酒店订单结算查询 searchsettlementhtlorderdetailrequest
+	订单结算明细 settlementdetail
+	每日均价 dailyavgpricetype
+	订单基本信息 settlementorderdetail
+	申请单修改详情 applyformdetailinfo
+	夜审数据  auditdatatype
+	酒店房型信息  settlementroomdetail
+	入住人基本信息  settlementclientdetail
+	酒店基本信息  settlementhoteldetail
+	标准地理信息  standardgeoinfo
+标准地理信息
+	国家基础信息 countrybaseinfo
+	获取全量标准地理信息数据 queryallpoiinforequesttype
+	查询条件  provincecondition
+	地级市查询条件  prefecturelevelcitycondition
+	标准条件  poicondition
+	标准数据  poidata
+	地级市信息  prefecturelevelcityinfo
+	县级市信息  countylevelcitypoi
+	行政区信息  districtpoiinfo
+	

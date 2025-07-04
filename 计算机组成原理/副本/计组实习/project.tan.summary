@@ -1,0 +1,96 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : -0.501 ns
+From           : d0[0]
+To             : lpm_ram_dq0:InstructionsRAM|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_datain_reg6
+From Clock     : 
+To Clock       : CLK1
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 37.672 ns
+From           : 273:inst30|14
+To             : d1[4]
+From Clock     : CLK1
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 10.404 ns
+From           : d0[2]
+To             : in[2]
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 21.755 ns
+From           : d0[4]
+To             : reg_3:universal_register|273:reg0|15
+From Clock     : 
+To Clock       : CLK1
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 14.097 ns
+From           : se6_1:microaddress_register|inst45
+To             : uaddr[6]
+From Clock     : CLK1
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 8.414 ns
+From           : d0[6]
+To             : in[6]
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Clock Setup: 'CLK1'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 39.35 MHz ( period = 25.410 ns )
+From           : 273:inst30|14
+To             : lpm_ram_dq0:InstructionsRAM|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_datain_reg1
+From Clock     : CLK1
+To Clock       : CLK1
+Failed Paths   : 0
+
+Type           : Clock Hold: 'CLK1'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : 273:address_reg|17
+To             : reg_3:universal_register|273:reg0|17
+From Clock     : CLK1
+To Clock       : CLK1
+Failed Paths   : 2259
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 2259
+
+--------------------------------------------------------------------------------------
+

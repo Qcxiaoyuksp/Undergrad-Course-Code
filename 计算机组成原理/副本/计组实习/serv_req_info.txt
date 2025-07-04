@@ -1,0 +1,18 @@
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>ERR</sub_system>
+	<file>./afc_app.cpp</file>
+	<line>2620</line>
+	<callstack>
+085e3650:
+End-trace</callstack>
+	<error>Exception detected: Access Violation</error>
+	<date>Thu Dec 28 00:01:06 2023</date>
+	<version>Quartus II Version 4.1 Build 181 06/29/2004 SJ Full Version</version>
+	<full_error>Internal Error: Sub-system: ERR, File: ./afc_app.cpp, Line: 2620
+Fatal-error: Exception detected: Access Violation
+Stack-trace:
+085e3650:
+End-trace
+Quartus II Version 4.1 Build 181 06/29/2004 SJ Full Version </full_error>
+</internal_error>

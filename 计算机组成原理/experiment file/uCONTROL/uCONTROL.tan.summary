@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 12.949 ns
+From           : lpm_rom0:inst|altsyncram:altsyncram_component|altsyncram_esq:auto_generated|ram_block1a23~porta_address_reg5
+To             : SE[3]
+From Clock     : T1
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 10.492 ns
+From           : T4
+To             : SE[3]
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 6.669 ns
+From           : se6_1:inst2|inst4
+To             : q[5]
+From Clock     : T2
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 8.480 ns
+From           : I[7]
+To             : SE[4]
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

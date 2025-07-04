@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">C0208</string>
+    <string name="str_switch_bedroom">卧室灯</string>
+    <string name="str_switch_living_room_1">客厅灯</string>
+    <string name="str_switch_living_room_2">关</string>
+    <string name="str_switch_living_room_3">开</string>
+</resources>

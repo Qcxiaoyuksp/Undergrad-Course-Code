@@ -1,0 +1,333 @@
+HTML {
+	_height: 100%
+}
+BODY {
+	_height: 100%
+}
+.docpagepopwindow .blue {
+	COLOR: #002bb8
+}
+A.blue {
+	COLOR: #002bb8
+}
+.docpagepopwindow .a-c {
+	TEXT-ALIGN: center; MARGIN: 0px auto
+}
+#information_module .a-c {
+	TEXT-ALIGN: center; MARGIN: 0px auto
+}
+.docpagepopwindow .inp-btn {
+	BORDER-BOTTOM: #545454 1px solid; BORDER-LEFT: #545454 0px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 22px; MARGIN: 0px -5px 0px 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; HEIGHT: 22px; BORDER-TOP: #545454 0px solid; BORDER-RIGHT: #545454 1px solid; PADDING-TOP: 0px
+}
+.figure .inp-btn {
+	BORDER-BOTTOM: #545454 1px solid; BORDER-LEFT: #545454 0px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 22px; MARGIN: 0px -5px 0px 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; HEIGHT: 22px; BORDER-TOP: #545454 0px solid; BORDER-RIGHT: #545454 1px solid; PADDING-TOP: 0px
+}
+#information_module .inp-btn {
+	BORDER-BOTTOM: #545454 1px solid; BORDER-LEFT: #545454 0px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 22px; MARGIN: 0px -5px 0px 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; HEIGHT: 22px; BORDER-TOP: #545454 0px solid; BORDER-RIGHT: #545454 1px solid; PADDING-TOP: 0px
+}
+.editpop .inp-btn {
+	BORDER-BOTTOM: #545454 1px solid; BORDER-LEFT: #545454 0px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 22px; MARGIN: 0px -5px 0px 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; HEIGHT: 22px; BORDER-TOP: #545454 0px solid; BORDER-RIGHT: #545454 1px solid; PADDING-TOP: 0px
+}
+#mapadmin .inp-btn {
+	BORDER-BOTTOM: #545454 1px solid; BORDER-LEFT: #545454 0px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 22px; MARGIN: 0px -5px 0px 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; HEIGHT: 22px; BORDER-TOP: #545454 0px solid; BORDER-RIGHT: #545454 1px solid; PADDING-TOP: 0px
+}
+.docpagepopwindow DL {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 25px; PADDING-RIGHT: 25px; COLOR: #323232; PADDING-TOP: 0px
+}
+.docpagepopwindow DT {
+	PADDING-TOP: 12px
+}
+.docpagepopwindow DD {
+	PADDING-BOTTOM: 4px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 8px
+}
+.docpagepopwindow .inp_txt {
+	BORDER-BOTTOM: #7f9db9 1px solid; BORDER-LEFT: #7f9db9 1px solid; PADDING-BOTTOM: 3px; PADDING-LEFT: 4px; WIDTH: 180px; PADDING-RIGHT: 8px; HEIGHT: 14px; BORDER-TOP: #7f9db9 1px solid; BORDER-RIGHT: #7f9db9 1px solid; PADDING-TOP: 3px
+}
+.table INPUT {
+	BORDER-BOTTOM: #7f9db9 1px solid; BORDER-LEFT: #7f9db9 1px solid; PADDING-BOTTOM: 3px; PADDING-LEFT: 4px; WIDTH: 180px; PADDING-RIGHT: 8px; HEIGHT: 14px; BORDER-TOP: #7f9db9 1px solid; BORDER-RIGHT: #7f9db9 1px solid; PADDING-TOP: 3px
+}
+.docpagepopwindow .table INPUT {
+	BACKGROUND: #fff
+}
+.docpagepopwindow .area {
+	BORDER-BOTTOM: #7f9db9 1px solid; BORDER-LEFT: #7f9db9 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 3px; WIDTH: 425px; PADDING-RIGHT: 3px; HEIGHT: 120px; BORDER-TOP: #7f9db9 1px solid; BORDER-RIGHT: #7f9db9 1px solid; PADDING-TOP: 5px
+}
+.docpagepopwindow DD.a-c {
+	MARGIN: 1px 0px 20px
+}
+.docpagepopwindow .inp-btn {
+	PADDING-BOTTOM: 0px; MARGIN: 0px 8px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 0px
+}
+.docpagepopwindow .btn_black {
+	BORDER-BOTTOM: #4a4a4a 1px solid; BORDER-LEFT: #4a4a4a 1px solid; BACKGROUND: #7e7e7e; COLOR: white; BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid
+}
+.btn_black {
+	BORDER-BOTTOM: #4a4a4a 1px solid; BORDER-LEFT: #4a4a4a 1px solid; BACKGROUND: #7e7e7e; COLOR: white; BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid
+}
+.docpagepopwindow .add_fl {
+	PADDING-BOTTOM: 20px; LINE-HEIGHT: 18px; PADDING-LEFT: 20px; PADDING-RIGHT: 0px; PADDING-TOP: 5px
+}
+.publish_cg {
+	PADDING-BOTTOM: 20px; LINE-HEIGHT: 18px; PADDING-LEFT: 20px; PADDING-RIGHT: 0px; PADDING-TOP: 5px
+}
+.docpagepopwindow .add_fl {
+	BACKGROUND: url(http://static.hudong.com/wiki/mima.gif) no-repeat left 5px
+}
+.docpagepopwindow .a-l .add_fl {
+	PADDING-LEFT: 20px; BACKGROUND: url(http://static.hudong.com/wiki/mima.gif) no-repeat left 7px
+}
+.docpagepopwindow .publish_cg {
+	BACKGROUND: url(http://static.hudong.com/wiki/dengpao.gif) no-repeat left top
+}
+.docpagepopwindow .table {
+	MARGIN: 0px auto 10px; WIDTH: 455px !important
+}
+.docpagepopwindow .table THEAD {
+	COLOR: #343434; FONT-WEIGHT: bold
+}
+.docpagepopwindow .table TD {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 30px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; HEIGHT: 30px; PADDING-TOP: 0px
+}
+.buy {
+	PADDING-BOTTOM: 20px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 20px
+}
+.challenge {
+	PADDING-BOTTOM: 20px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 20px
+}
+.buy .dt_span {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 20px; PADDING-RIGHT: 0px; BACKGROUND: url(http://static.hudong.com/wiki/mima.gif) no-repeat left 0px; PADDING-TOP: 2px
+}
+.buy INPUT {
+	BORDER-BOTTOM: #4a4a4a 1px solid; BORDER-LEFT: #4a4a4a 1px solid; PADDING-BOTTOM: 0px; MARGIN: 0px 10px 0px 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #7e7e7e; HEIGHT: 24px; COLOR: white; BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid; PADDING-TOP: 0px
+}
+.challenge P INPUT {
+	BORDER-BOTTOM: #4a4a4a 1px solid; BORDER-LEFT: #4a4a4a 1px solid; PADDING-BOTTOM: 0px; MARGIN: 0px 10px 0px 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #7e7e7e; HEIGHT: 24px; COLOR: white; BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid; PADDING-TOP: 0px
+}
+.challenge_dl {
+	BORDER-BOTTOM: #ccc 1px dashed; PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 10px
+}
+.challenge_dl DD {
+	PADDING-LEFT: 20px
+}
+.challenge DD SPAN {
+	PADDING-RIGHT: 15px
+}
+.various_mobile {
+	PADDING-BOTTOM: 20px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 20px
+}
+.various_mobile .input {
+	BORDER-BOTTOM: #4a4a4a 1px solid; BORDER-LEFT: #4a4a4a 1px solid; PADDING-BOTTOM: 0px; MARGIN: 0px 10px 0px 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #7e7e7e; HEIGHT: 24px; COLOR: white; BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid; PADDING-TOP: 0px
+}
+.various_mobile .hint {
+	LINE-HEIGHT: 18px; PADDING-LEFT: 25px; BACKGROUND: url(http://static.hudong.com/wiki/dengpao.gif) no-repeat 0px 8px
+}
+.various_mobile LI {
+	LINE-HEIGHT: 30px; DISPLAY: block; OVERFLOW: hidden
+}
+.editor_login {
+	MARGIN: 15px; WIDTH: 328px; FONT-SIZE: 12px
+}
+.editor_login UL {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px
+}
+.editor_login LI {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 24px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: block; MARGIN-LEFT: 70px; CLEAR: both; PADDING-TOP: 5px
+}
+.editor_register LI {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 24px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: block; MARGIN-LEFT: 70px; CLEAR: both; PADDING-TOP: 5px
+}
+.editor_login LI SPAN {
+	TEXT-ALIGN: right; LINE-HEIGHT: 22px; WIDTH: 75px; FLOAT: left; MARGIN-LEFT: -80px
+}
+.editor_register LI SPAN {
+	TEXT-ALIGN: right; LINE-HEIGHT: 22px; WIDTH: 75px; FLOAT: left; MARGIN-LEFT: -80px
+}
+.editor_login LI INPUT {
+	VERTICAL-ALIGN: middle; MARGIN-RIGHT: 8px
+}
+.error {
+	HEIGHT: 24px; COLOR: red
+}
+.edi_reg_now {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 0px; MARGIN: 20px 0px; PADDING-LEFT: 10px; WIDTH: 308px; PADDING-RIGHT: 10px; FLOAT: left; BORDER-TOP-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 15px
+}
+.edi_reg_now INPUT {
+	MARGIN: 25px auto 0px
+}
+.editor_register {
+	PADDING-BOTTOM: 20px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 20px
+}
+.editor_register H3 {
+	MARGIN-BOTTOM: 12px; HEIGHT: 24px
+}
+.editor_register LI INPUT {
+	VERTICAL-ALIGN: middle; MARGIN-RIGHT: 8px
+}
+.editor_register B {
+	FONT-WEIGHT: normal; MARGIN-RIGHT: 5px
+}
+.editor_register LABEL.block {
+	COLOR: #666; CLEAR: left
+}
+.editor_register LABEL.red {
+	COLOR: red
+}
+.editor_register LI.a-l {
+	MARGIN-TOP: 12px
+}
+INPUT.wid50 {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 4px; WIDTH: 36px; PADDING-RIGHT: 4px; FLOAT: left; PADDING-TOP: 2px
+}
+#float_window .img_yzm {
+	WIDTH: 61px; FLOAT: left; HEIGHT: 21px; VERTICAL-ALIGN: middle; OVERFLOW: hidden
+}
+#float_window .img_yzm IMG {
+	WIDTH: 100px; HEIGHT: 26px
+}
+#float_window A .blur {
+	LINE-HEIGHT: 28px; HEIGHT: 22px
+}
+.submit_succeed {
+	PADDING-BOTTOM: 8px; LINE-HEIGHT: 22px; PADDING-LEFT: 20px; WIDTH: 280px; PADDING-RIGHT: 20px; COLOR: #666; PADDING-TOP: 8px
+}
+.submit_succeed LI {
+	PADDING-BOTTOM: 8px
+}
+#help_question {
+	PADDING-BOTTOM: 8px; LINE-HEIGHT: 20px; PADDING-LEFT: 12px; PADDING-RIGHT: 12px; PADDING-TOP: 8px
+}
+#newopen {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 15px; WIDTH: 520px; PADDING-RIGHT: 15px; PADDING-TOP: 15px
+}
+#newopen LI {
+	PADDING-BOTTOM: 5px; LINE-HEIGHT: 24px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: block; MARGIN-LEFT: 80px; CLEAR: both; PADDING-TOP: 5px
+}
+#newopen STRONG {
+	TEXT-ALIGN: right; WIDTH: 80px; FLOAT: left; MARGIN-LEFT: -80px
+}
+#newopen INPUT {
+	MARGIN-RIGHT: 10px
+}
+#newopen LABEL {
+	MARGIN-RIGHT: 15px
+}
+#newopen LABEL INPUT {
+	MARGIN-RIGHT: 2px
+}
+#newopen TEXTAREA {
+	BORDER-BOTTOM: #7f9db9 1px solid; BORDER-LEFT: #7f9db9 1px solid; PADDING-BOTTOM: 2px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; BORDER-TOP: #7f9db9 1px solid; BORDER-RIGHT: #7f9db9 1px solid; PADDING-TOP: 2px
+}
+#join_group {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 24px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 20px
+}
+#join_group .inp_btn {
+	MARGIN-TOP: 15px
+}
+.figure {
+	PADDING-BOTTOM: 15px; LINE-HEIGHT: 24px; PADDING-LEFT: 15px; WIDTH: 340px; PADDING-RIGHT: 15px; PADDING-TOP: 15px
+}
+.figure .upload {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 2px
+}
+.figure LABEL {
+	DISPLAY: block; COLOR: #999; MARGIN-LEFT: 65px
+}
+.false {
+	LINE-HEIGHT: 22px; HEIGHT: 22px
+}
+.add-task_word {
+	PADDING-BOTTOM: 12px; LINE-HEIGHT: 22px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 12px
+}
+.add-task_word .area {
+	BORDER-BOTTOM: #7f9db9 1px solid; BORDER-LEFT: #7f9db9 1px solid; PADDING-BOTTOM: 4px; LINE-HEIGHT: 20px; PADDING-LEFT: 3px; WIDTH: 370px; PADDING-RIGHT: 3px; HEIGHT: 76px; BORDER-TOP: #7f9db9 1px solid; BORDER-RIGHT: #7f9db9 1px solid; PADDING-TOP: 4px
+}
+#information_module {
+	BACKGROUND: #fff
+}
+.editpop {
+	BACKGROUND: #fff
+}
+#mapadmin {
+	BACKGROUND: #fff
+}
+#information_module DIV {
+	PADDING-BOTTOM: 20px; OVERFLOW-X: hidden; OVERFLOW-Y: scroll; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; HEIGHT: 350px; PADDING-TOP: 20px
+}
+#adminfigure DIV {
+	PADDING-BOTTOM: 20px; OVERFLOW-X: hidden; OVERFLOW-Y: scroll; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; HEIGHT: 350px; PADDING-TOP: 20px
+}
+#information_module .tishi {
+	BORDER-BOTTOM: #ccc 1px solid; PADDING-BOTTOM: 15px; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; BACKGROUND: #ffffcc; PADDING-TOP: 15px
+}
+#information_module .a-c {
+	PADDING-BOTTOM: 20px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 20px
+}
+.editpop .a-c {
+	PADDING-BOTTOM: 20px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 20px
+}
+#information_module TABLE {
+	MARGIN: 0px auto 20px; BORDER-SPACING: 0; BORDER-COLLAPSE: collapse; EMPTY-CELLS: show
+}
+#adminfigure TABLE {
+	MARGIN: 0px auto 20px; BORDER-SPACING: 0; BORDER-COLLAPSE: collapse; EMPTY-CELLS: show
+}
+#information_module TABLE TD {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 25px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; VERTICAL-ALIGN: top; PADDING-TOP: 0px
+}
+#adminfigure TABLE TD {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 25px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; VERTICAL-ALIGN: top; PADDING-TOP: 0px
+}
+#information_module TABLE LI {
+	FLOAT: left; MARGIN-RIGHT: 15px
+}
+#information_module TABLE .inp_txt {
+	WIDTH: 250px
+}
+#information_module TABLE .bor-white-t {
+	BORDER-TOP: #ccc 1px solid; PADDING-TOP: 20px
+}
+#information_module TABLE P {
+	COLOR: #666
+}
+#information_module DL SPAN {
+	PADDING-BOTTOM: 5px; WIDTH: 150px; DISPLAY: block; FLOAT: left; HEIGHT: 20px; OVERFLOW: hidden
+}
+#information_module DL .inp_txt {
+	WIDTH: 120px
+}
+#information_module .select {
+	WIDTH: 133px !important
+}
+#information_module .inp133 {
+	WIDTH: 133px !important
+}
+#information_module SELECT {
+	MARGIN-RIGHT: 2px
+}
+#information_module .select {
+	MARGIN-RIGHT: 2px
+}
+#information_module .inp133 {
+	MARGIN-RIGHT: 2px
+}
+#adminfigure DIV {
+	BORDER-BOTTOM: #ccc 1px solid
+}
+#adminfigure TH {
+	PADDING-BOTTOM: 10px; FONT-WEIGHT: bold
+}
+.gxms {
+	WIDTH: 190px
+}
+#adminfigure A {
+	CURSOR: pointer
+}
+#mapadmin {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 24px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px
+}
+#mapadmin P {
+	PADDING-BOTTOM: 10px
+}
+#mapadmin LI.a-c {
+	WIDTH: 360px; HEIGHT: 220px; OVERFLOW: hidden
+}

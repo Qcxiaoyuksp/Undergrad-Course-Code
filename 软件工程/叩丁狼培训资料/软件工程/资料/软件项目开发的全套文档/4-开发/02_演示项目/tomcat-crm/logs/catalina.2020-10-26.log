@@ -1,0 +1,69 @@
+26-Oct-2020 11:46:28.614 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.50
+26-Oct-2020 11:46:28.616 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 7 2018 20:06:05 UTC
+26-Oct-2020 11:46:28.617 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.50.0
+26-Oct-2020 11:46:28.617 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+26-Oct-2020 11:46:28.617 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+26-Oct-2020 11:46:28.617 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+26-Oct-2020 11:46:28.617 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\jdk1.8.0_151\jre
+26-Oct-2020 11:46:28.617 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_151-b12
+26-Oct-2020 11:46:28.617 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+26-Oct-2020 11:46:28.617 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm
+26-Oct-2020 11:46:28.618 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm
+26-Oct-2020 11:46:28.618 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=d:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm\conf\logging.properties
+26-Oct-2020 11:46:28.618 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+26-Oct-2020 11:46:28.618 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+26-Oct-2020 11:46:28.618 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+26-Oct-2020 11:46:28.618 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+26-Oct-2020 11:46:28.618 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=d:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm
+26-Oct-2020 11:46:28.619 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=d:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm
+26-Oct-2020 11:46:28.620 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=d:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm\temp
+26-Oct-2020 11:46:28.622 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.16 using APR version 1.6.3.
+26-Oct-2020 11:46:28.623 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+26-Oct-2020 11:46:29.385 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2m  2 Nov 2017)
+26-Oct-2020 11:46:29.550 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+26-Oct-2020 11:46:29.569 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8008"]
+26-Oct-2020 11:46:29.570 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1321 ms
+26-Oct-2020 11:46:29.612 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+26-Oct-2020 11:46:29.612 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.50
+26-Oct-2020 11:46:29.625 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm\webapps\ROOT
+26-Oct-2020 11:46:33.678 信息 [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+26-Oct-2020 11:46:34.036 警告 [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [311] milliseconds.
+26-Oct-2020 11:46:40.909 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm\webapps\ROOT has finished in 11,284 ms
+26-Oct-2020 11:46:40.922 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+26-Oct-2020 11:46:40.938 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8008"]
+26-Oct-2020 11:46:40.942 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 11368 ms
+26-Oct-2020 11:50:33.059 信息 [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+26-Oct-2020 11:50:36.719 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.50
+26-Oct-2020 11:50:36.722 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 7 2018 20:06:05 UTC
+26-Oct-2020 11:50:36.722 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.50.0
+26-Oct-2020 11:50:36.722 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+26-Oct-2020 11:50:36.722 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+26-Oct-2020 11:50:36.722 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+26-Oct-2020 11:50:36.723 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\jdk1.8.0_151\jre
+26-Oct-2020 11:50:36.723 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_151-b12
+26-Oct-2020 11:50:36.723 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+26-Oct-2020 11:50:36.723 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm
+26-Oct-2020 11:50:36.724 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm
+26-Oct-2020 11:50:36.724 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=d:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm\conf\logging.properties
+26-Oct-2020 11:50:36.724 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+26-Oct-2020 11:50:36.724 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+26-Oct-2020 11:50:36.724 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+26-Oct-2020 11:50:36.724 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+26-Oct-2020 11:50:36.724 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=d:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm
+26-Oct-2020 11:50:36.725 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=d:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm
+26-Oct-2020 11:50:36.725 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=d:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm\temp
+26-Oct-2020 11:50:36.726 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.16 using APR version 1.6.3.
+26-Oct-2020 11:50:36.726 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+26-Oct-2020 11:50:37.485 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2m  2 Nov 2017)
+26-Oct-2020 11:50:37.607 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+26-Oct-2020 11:50:37.618 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8008"]
+26-Oct-2020 11:50:37.620 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1230 ms
+26-Oct-2020 11:50:37.657 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+26-Oct-2020 11:50:37.657 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.50
+26-Oct-2020 11:50:37.671 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm\webapps\ROOT
+26-Oct-2020 11:50:41.681 信息 [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+26-Oct-2020 11:50:42.067 警告 [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [335] milliseconds.
+26-Oct-2020 11:50:48.596 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Users\Administrator\Desktop\java23班\第四阶段\02-CRM\02-CRM\02_演示项目\tomcat-crm\webapps\ROOT has finished in 10,925 ms
+26-Oct-2020 11:50:48.602 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+26-Oct-2020 11:50:48.621 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8008"]
+26-Oct-2020 11:50:48.625 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 11004 ms

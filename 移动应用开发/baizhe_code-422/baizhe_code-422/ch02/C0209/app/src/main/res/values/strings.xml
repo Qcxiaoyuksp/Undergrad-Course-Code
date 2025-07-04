@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">C0209</string>
+    <string name="str_button_1">显示提示信息1</string>
+    <string name="str_button_2">显示提示信息2</string>
+</resources>

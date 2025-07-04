@@ -1,0 +1,31 @@
+Version 4.1 Build 181 06/29/2004 SJ Full Version
+34
+OFF
+OFF
+OFF
+OFF
+0
+# entity
+74181
+# case_insensitive
+# source_file
+..|quartus|libraries|others|maxplus2|74181.bdf
+1081475040
+23
+# storage
+db|ALU.(1).cnf
+db|ALU.(1).cnf
+# end
+# entity
+ALU
+# case_insensitive
+# source_file
+ALU.bdf
+1697249663
+23
+# storage
+db|ALU.(0).cnf
+db|ALU.(0).cnf
+# end
+# complete
+

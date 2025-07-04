@@ -1,0 +1,355 @@
+实验5-1：01背包问题(回溯法)
+问题描述：有n个物品，每个物品有重量w和价值v两个属性，还有一个承重为W的背包。现在让你用这个背包装物品，使所装物品的价值最大化。
+示例 1：
+    输入：
+items	A：0	B：1	C：2	D：3
+profit	1	6	10	16
+weight	1	2	3	5
+    输出：
+要求：
+    1 填空完成程序；
+    2 输出所选物品重量及价值，总重量与价值。
+    *3 报告中指出是排列树还是子集树，指出约束函数与剪枝函数。
+程序框架：
+/*01背包问题,回溯法。*/
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include "stdlib.h"
+#include <iostream>
+#include <vector>
+#include <algorithm> 
+
+using namespace std;
+//问题表示
+int n = 4;			//4种物品
+int W = 6;			//限制重量为6
+int w[] = { 0, 5, 3, 2, 1 };		//存放4个物品重量,不用下标0元素
+int v[] = { 0, 4, 4, 3, 1 };		//存放4个物品价值,不用下标0元素
+//求解结果表示
+int x[5];			//存放最终解
+int maxv; 			//存放最优解的总价值
+
+void dfs(int i, int tw, int tv, int rw, int op[]); //求解0/1背包问题
+
+int main(){
+	//假设已按单位价值降序排序
+	int sumWeight=0, sumProfit=0;
+	int rw=0;
+	int op[5] = {0};
+
+	for (int i = 1; i <= n; i++)
+	{
+		rw+= w[i];
+	}
+	dfs(1, 0, 0, rw, op);
+
+    printf("放入背包的物品为：\n");
+	for (int i = 1; i <= n ; i++)
+	{
+		if (x[i] != 0){
+			printf("第%d个，重量为：%d, 价值为：%d\n", i, w[i], v[i]);
+			sumWeight += w[i];
+			sumProfit += v[i];
+		}
+		//printf("%f ", x[i]);
+	}
+	printf("总重量为：%d, 总价值为：%d\n", sumWeight, maxv);
+	system("PAUSE");
+	return 0;
+} 
+
+
+void dfs(int i, int tw, int tv, int rw, int op[]) //求解0/1背包问题
+{  //初始调用时rw为所有物品重量和
+	int j;
+	if (i>n)				//找到一个叶子结点
+	{
+		if (tw == W && tv>maxv) 		//找到一个满足条件的更优解,保存
+		{
+			maxv =  ______________;
+			for (j = 1; j <= n; j++)		//复制最优解
+				x[j] =  ______________;
+		}
+	}
+	else					//尚未找完所有物品
+	{
+		if (tw + w[i] <= W)			//左孩子结点剪枝
+		{
+			op[i] = 1;			//选取第i个物品
+			dfs(i + 1,  ______________,  ______________,  ______________, op);
+		}
+		op[i] = 0;				//不选取第i个物品,回溯
+		if (tw + rw>W)			//右孩子结点剪枝
+			dfs(i + 1,  ______________,  ______________,  ______________, op);
+	}
+}
+
+
+
+
+
+实验5-2：装载问题(回溯法)
+问题描述: 有一批共n个集装箱要装上两艘载重量分别为c1和c2的轮船，其中集装箱i的重量为wi，且w1+w2+…+wn≤c1+c2。 装载问题要求确定是否有一个合理的装载方案可将这些集装箱装上这两艘轮船。如果有，找出一种装载方案。
+示例 1：
+     当n=3，c1=c2=50，w={10，40，40}时，则可以将集装箱1和2装到第一艘轮船上，而将集装箱3装到第二艘轮船上。如果w={20，40，40}，则无法将这3个集装箱都装上轮船。
+要求：
+    1 填空完成程序；
+    2 输出装载方案。
+   *3报告中指出是排列树还是子集树，指出约束函数与剪枝函数。
+程序框架：
+/*MaxLoading,回溯法。*/
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include "stdlib.h"
+#include <iostream>
+#include <vector>
+#include <algorithm> 
+
+using namespace std;
+
+//问题表示
+int w[] = { 0, 10, 40, 40 };	//各集装箱重量,不用下标0的元素
+int n = 3;
+int c1 = 50, c2 = 50;
+
+//求解结果表示
+int maxw;		//存放最优解的总重量
+int x[6];		//存放最优解向量
+int minnum = 999999;	//存放最优解的集装箱个数,初值为最大值
+
+
+void dfs(int tw, int rw, int op[], int i); //求第一艘轮船的最优解
+bool solve();			//求解复杂装载问题
+
+int main(){
+	//假设已按单位价值降序排序
+	int op[6];			//存放临时解
+
+	memset(op, 0, sizeof(op));
+	int rw = 0;
+	for (int i = 1; i <= n; i++)
+		rw += w[i];
+	dfs(0, rw, op, 1);			//求第一艘轮船的最优解
+	
+	if (solve())			//输出结果
+	{
+		printf(" 装载方案\n");
+		for (int i = 1; i <= n; i++)
+		{
+			printf("%d ",______________);
+		}
+	
+	}
+	else printf("    没有合适的装载方案\n");
+
+	system("PAUSE");
+	return 0;
+} 
+
+void dfs(int tw, int rw, int op[], int i) //求第一艘轮船的最优解
+{
+	if (i>n)				//找到一个叶子结点
+	{
+		if (tw <= c1 && tw>maxw)
+		{
+			maxw = ______________;			//找到一个满足条件的更优解
+			for (int j = 1; j <= n; j++)	//复制最优解
+				x[j] = ______________;
+		}
+	}
+	else				//尚未找完所有集装箱
+	{
+		op[i] = 1;			//选取第i个集装箱
+		if (tw + w[i] <= c1)	//左孩子结点剪枝
+			dfs(______________, ______________, op, i + 1);
+		op[i] = 0;			//不选取第i个集装箱,回溯
+		if (tw + rw>c1)		//右孩子结点剪枝
+			dfs(______________, ______________, op, i + 1);
+	}
+}
+
+bool solve()			//求解复杂装载问题
+{
+	int sum = 0;			//累计第一艘轮船装完后剩余的集装箱重量
+	for (int j = 1; j <= n; j++)
+	if (x[j] == 0)
+		sum += w[j];
+	if (sum <= c2)		//第二艘轮船可以装完
+		return true;
+	else				//第二艘轮船不能装完
+		return false;
+}
+
+
+实验5-3：n皇后问题(回溯法)
+问题描述：在n×n的棋盘上摆放n个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上。
+示例 1：
+    输入: 
+    输出:  
+ 
+要求：
+    1 填空完成程序；
+    2 输出每个解n个皇后的位置，给出解的个数。
+    *3 分析解空间的分支总数，利用程序计算回溯法生成的分支数。
+    *4 报告中指出是排列树还是子集树。
+程序框架：
+/*nQueen回溯法,排列树。*/
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+void Queens(vector<int>& q, int i, int length);
+bool place(vector<int>& q, int i);
+void swap(vector<int>& q, int i, int j);
+int cnt = 0; //解的数量
+
+int main()
+{
+	int n = 8;
+	vector<int> q(n);//存放最优解向量
+	for (int i = 0; i < n; i++)
+	{
+		q[i] = i + 1; //下标表示行/列，值表示列/行
+	}
+	Queens(q, 0, n);
+	cout << cnt << endl; 
+	system("PAUSE");
+	return 0;
+}
+
+void Queens(vector<int>& q, int i, int length)
+{
+	if (i == length) //找到一个解
+	{
+		cout << "解序号" << cnt << "：";
+		for (int j = 0; j < length; j++)
+		{
+			cout <<______________<< " ";
+		}
+		cout << endl;
+
+	}
+	else
+	{
+		for (int k = i; k < length; k++)
+		{
+			swap(q, k, i);
+			if (place(q, i)) //是否可放置
+				Queens(q,______________, length);
+			swap(q, k, i); //回溯还原
+		}
+	}
+}
+//测试第i行的q[i]列上能否摆放皇后
+bool place(vector<int>& q, int i)
+{
+	for (int j = 0; j < i; j++)
+	{
+		if (i == j || ______________|| ______________))	//同行或同列或在同一斜线上
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+void swap(vector<int>& q, int i, int j)
+{
+	int tmp = q[i];
+	q[i] = q[j];
+	q[j] = tmp;
+}
+
+
+
+实验5-4：旅行商问题(回溯法)
+问题描述：某售货员要到n个城市去推销商品，已知各城市之间的路程,请问他应该如何选定一条从城市1出发，经过每个城市一遍，最后回到城市1的路线，使得总的周游路程最小。
+示例 1：结点数 4
+    输入: 0 30 6 4
+30 0 5 10
+6 5 0 20
+4 10 20 0
+    输出:  
+ 
+要求：
+    1 填空完成程序；
+    2 输出最少旅行费用，给出旅行路径。
+    *3 分析解空间的分支总数，利用程序计算回溯法生成的分支数。
+    *4 报告中指出是排列树还是子集树，指出约束函数与剪枝函数。
+程序框架：
+/**
+回溯法-旅行商(TSP)问题
+输入
+4
+0 30 6 4
+30 0 5 10
+6 5 0 20
+4 10 20 0
+*/
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<algorithm>
+#define MAX 100
+using  namespace std;
+
+//问题表示
+int n;                               //城市个数
+int a[MAX][MAX];                   //城市间距离,邻接矩阵，0表示不通
+//求解结果表示
+int x[MAX];                       //记录路径
+int bestx[MAX] = { 0 };           //记录最优路径
+int bestp = 63355;              //最短路径长
+int cp = 0;                    //当前路径长
+
+void backtrack(int t){
+	if (t>n){//得到一个解  
+		if ((a[x[n]][1]) && (a[x[n]][1] + cp<bestp)){
+			bestp = ______________;
+			for (int i = 1; i <= n; i++){
+				bestx[i] = ______________;
+			}
+		}
+	}
+	else{
+		for (int i = t; i <= n; i++){
+			/*约束为当前节点到下一节点的长度不为0,限界为走过的长度+当前要走的长度之和小于最优长度*/
+			if ((a[x[t - 1]][x[i]]) && (cp + a[x[t - 1]][x[i]]<______________)){
+				swap(x[t], x[i]);
+				cp += ______________;
+				backtrack(t + 1);
+				cp -= ______________;
+				swap(x[t], x[i]);
+			}
+		}
+	}
+}
+int main(){
+	cout << "输入城市个数:" << endl;
+	cin >> n;      //顶点数
+	for (int i = 1; i <= n; i++){
+		x[i] = i;
+	}
+	cout << "输入城市之间的距离(0表示城市间不通):" << endl;
+	for (int i = 1; i <= n; i++){
+		for (int j = 1; j <= n; j++){
+			cin >> a[i][j];
+		}
+	}
+	backtrack(2);
+	cout << "最少旅行费用为: " << bestp << endl;
+	cout << "旅行路径为:" << endl;
+	for (int i = 1; i <= n; i++){
+		cout << bestx[i] << " ";
+	}
+	cout << bestx[1];
+
+	system("PAUSE");
+	return 0;
+}
+
+
+

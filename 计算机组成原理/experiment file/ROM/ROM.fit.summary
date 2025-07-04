@@ -1,0 +1,13 @@
+Flow Status : Successful - Wed Nov 01 21:20:13 2023
+Quartus II Version : 4.1 Build 181 06/29/2004 SJ Full Version
+Revision Name : ROM
+Top-level Entity Name : ROM
+Family : Stratix
+Total logic elements : 0 / 10,570 ( 0 % )
+Total pins : 31 / 336 ( 9 % )
+Total memory bits : 1,536 / 920,448 ( < 1 % )
+DSP block 9-bit elements : 0 / 48 ( 0 % )
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 2 ( 0 % )
+Device : EP1S10F484C5
+Timing Models : Production

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">千寻</string>
+    <string name="app_domain">http://app.weiju2014.com/</string>
+    <string name="app_domain_folder">app_server_weijian/</string>
+    <string name="app_version">V1.0</string>
+    <string name="app_show_version">内测版  V1.0</string>
+    <string name="app_copyright">版权所有</string>
+    <string name="app_qq">交流服务群：576861130</string>
+
+    <!-- login 调用字符串 -->
+    <string name="login_title">千寻</string>
+    <string name="login_sub_title">发现身边的缘分</string>
+    <string name="login_phone">手机</string>
+    <string name="login_phone_hint">请输入手机号</string>
+    <string name="login_pwd">密码</string>
+    <string name="login_pwd_hint">请输入密码</string>
+    <string name="login_login">登录</string>
+    <string name="login_reg">注册</string>
+    <string name="login_forget_pwd">忘记密码</string>
+    <!-- sub 调用字符串 -->
+    <string name="sub_quit">退出</string>
+</resources>

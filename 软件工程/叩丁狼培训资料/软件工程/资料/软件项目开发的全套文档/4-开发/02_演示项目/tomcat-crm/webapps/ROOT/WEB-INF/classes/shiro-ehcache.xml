@@ -1,0 +1,17 @@
+<!--
+maxElementsInMemory 最大缓存数据
+eternal 是否永久缓存
+timeToIdleSeconds 最大空闲时间
+timeToLiveSeconds 最大生存时间
+memoryStoreEvictionPolicy 淘汰算法
+-->
+
+<ehcache>
+    <defaultCache
+            maxElementsInMemory="1000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            memoryStoreEvictionPolicy="LRU">
+    </defaultCache>
+</ehcache>

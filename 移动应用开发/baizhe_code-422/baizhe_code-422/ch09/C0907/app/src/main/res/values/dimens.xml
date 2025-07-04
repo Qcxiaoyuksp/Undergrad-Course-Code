@@ -1,0 +1,6 @@
+<resources>
+    <!-- PullDownListView -->
+    <dimen name="updatebar_height">62dp</dimen>
+    <dimen name="updatebar_content_height">60dp</dimen>
+    <dimen name="updatebar_padding">10dp</dimen>
+</resources>

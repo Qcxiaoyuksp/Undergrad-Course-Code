@@ -1,0 +1,536 @@
+--F1_q_a[7] is lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[7] at M4K_X37_Y8
+--RAM Block Operation Mode: Single Port
+--Port A Depth: 256, Port A Width: 8
+--Port A Logical Depth: 256, Port A Logical Width: 8
+--Port A Input: Registered, Port A Output: Un-registered
+F1_q_a[7]_PORT_A_data_in = BUS(H1L61, H1L41, H1L21, H1L01, H1L8, H1L6, H1L4, H1L2);
+F1_q_a[7]_PORT_A_data_in_reg = DFFE(F1_q_a[7]_PORT_A_data_in, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_address = BUS(B2_19, B2_18, B2_17, B2_16, B2_15, B2_14, B2_13, B2_12);
+F1_q_a[7]_PORT_A_address_reg = DFFE(F1_q_a[7]_PORT_A_address, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_write_enable = wr;
+F1_q_a[7]_PORT_A_write_enable_reg = DFFE(F1_q_a[7]_PORT_A_write_enable, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_clock_0 = GLOBAL(ram);
+F1_q_a[7]_PORT_A_data_out = MEMORY(F1_q_a[7]_PORT_A_data_in_reg, , F1_q_a[7]_PORT_A_address_reg, , F1_q_a[7]_PORT_A_write_enable_reg, , , , F1_q_a[7]_clock_0, , , , , );
+F1_q_a[7] = F1_q_a[7]_PORT_A_data_out[0];
+
+--F1_q_a[0] is lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[0] at M4K_X37_Y8
+F1_q_a[7]_PORT_A_data_in = BUS(H1L61, H1L41, H1L21, H1L01, H1L8, H1L6, H1L4, H1L2);
+F1_q_a[7]_PORT_A_data_in_reg = DFFE(F1_q_a[7]_PORT_A_data_in, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_address = BUS(B2_19, B2_18, B2_17, B2_16, B2_15, B2_14, B2_13, B2_12);
+F1_q_a[7]_PORT_A_address_reg = DFFE(F1_q_a[7]_PORT_A_address, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_write_enable = wr;
+F1_q_a[7]_PORT_A_write_enable_reg = DFFE(F1_q_a[7]_PORT_A_write_enable, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_clock_0 = GLOBAL(ram);
+F1_q_a[7]_PORT_A_data_out = MEMORY(F1_q_a[7]_PORT_A_data_in_reg, , F1_q_a[7]_PORT_A_address_reg, , F1_q_a[7]_PORT_A_write_enable_reg, , , , F1_q_a[7]_clock_0, , , , , );
+F1_q_a[0] = F1_q_a[7]_PORT_A_data_out[7];
+
+--F1_q_a[1] is lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[1] at M4K_X37_Y8
+F1_q_a[7]_PORT_A_data_in = BUS(H1L61, H1L41, H1L21, H1L01, H1L8, H1L6, H1L4, H1L2);
+F1_q_a[7]_PORT_A_data_in_reg = DFFE(F1_q_a[7]_PORT_A_data_in, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_address = BUS(B2_19, B2_18, B2_17, B2_16, B2_15, B2_14, B2_13, B2_12);
+F1_q_a[7]_PORT_A_address_reg = DFFE(F1_q_a[7]_PORT_A_address, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_write_enable = wr;
+F1_q_a[7]_PORT_A_write_enable_reg = DFFE(F1_q_a[7]_PORT_A_write_enable, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_clock_0 = GLOBAL(ram);
+F1_q_a[7]_PORT_A_data_out = MEMORY(F1_q_a[7]_PORT_A_data_in_reg, , F1_q_a[7]_PORT_A_address_reg, , F1_q_a[7]_PORT_A_write_enable_reg, , , , F1_q_a[7]_clock_0, , , , , );
+F1_q_a[1] = F1_q_a[7]_PORT_A_data_out[6];
+
+--F1_q_a[2] is lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[2] at M4K_X37_Y8
+F1_q_a[7]_PORT_A_data_in = BUS(H1L61, H1L41, H1L21, H1L01, H1L8, H1L6, H1L4, H1L2);
+F1_q_a[7]_PORT_A_data_in_reg = DFFE(F1_q_a[7]_PORT_A_data_in, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_address = BUS(B2_19, B2_18, B2_17, B2_16, B2_15, B2_14, B2_13, B2_12);
+F1_q_a[7]_PORT_A_address_reg = DFFE(F1_q_a[7]_PORT_A_address, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_write_enable = wr;
+F1_q_a[7]_PORT_A_write_enable_reg = DFFE(F1_q_a[7]_PORT_A_write_enable, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_clock_0 = GLOBAL(ram);
+F1_q_a[7]_PORT_A_data_out = MEMORY(F1_q_a[7]_PORT_A_data_in_reg, , F1_q_a[7]_PORT_A_address_reg, , F1_q_a[7]_PORT_A_write_enable_reg, , , , F1_q_a[7]_clock_0, , , , , );
+F1_q_a[2] = F1_q_a[7]_PORT_A_data_out[5];
+
+--F1_q_a[3] is lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[3] at M4K_X37_Y8
+F1_q_a[7]_PORT_A_data_in = BUS(H1L61, H1L41, H1L21, H1L01, H1L8, H1L6, H1L4, H1L2);
+F1_q_a[7]_PORT_A_data_in_reg = DFFE(F1_q_a[7]_PORT_A_data_in, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_address = BUS(B2_19, B2_18, B2_17, B2_16, B2_15, B2_14, B2_13, B2_12);
+F1_q_a[7]_PORT_A_address_reg = DFFE(F1_q_a[7]_PORT_A_address, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_write_enable = wr;
+F1_q_a[7]_PORT_A_write_enable_reg = DFFE(F1_q_a[7]_PORT_A_write_enable, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_clock_0 = GLOBAL(ram);
+F1_q_a[7]_PORT_A_data_out = MEMORY(F1_q_a[7]_PORT_A_data_in_reg, , F1_q_a[7]_PORT_A_address_reg, , F1_q_a[7]_PORT_A_write_enable_reg, , , , F1_q_a[7]_clock_0, , , , , );
+F1_q_a[3] = F1_q_a[7]_PORT_A_data_out[4];
+
+--F1_q_a[4] is lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[4] at M4K_X37_Y8
+F1_q_a[7]_PORT_A_data_in = BUS(H1L61, H1L41, H1L21, H1L01, H1L8, H1L6, H1L4, H1L2);
+F1_q_a[7]_PORT_A_data_in_reg = DFFE(F1_q_a[7]_PORT_A_data_in, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_address = BUS(B2_19, B2_18, B2_17, B2_16, B2_15, B2_14, B2_13, B2_12);
+F1_q_a[7]_PORT_A_address_reg = DFFE(F1_q_a[7]_PORT_A_address, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_write_enable = wr;
+F1_q_a[7]_PORT_A_write_enable_reg = DFFE(F1_q_a[7]_PORT_A_write_enable, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_clock_0 = GLOBAL(ram);
+F1_q_a[7]_PORT_A_data_out = MEMORY(F1_q_a[7]_PORT_A_data_in_reg, , F1_q_a[7]_PORT_A_address_reg, , F1_q_a[7]_PORT_A_write_enable_reg, , , , F1_q_a[7]_clock_0, , , , , );
+F1_q_a[4] = F1_q_a[7]_PORT_A_data_out[3];
+
+--F1_q_a[5] is lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[5] at M4K_X37_Y8
+F1_q_a[7]_PORT_A_data_in = BUS(H1L61, H1L41, H1L21, H1L01, H1L8, H1L6, H1L4, H1L2);
+F1_q_a[7]_PORT_A_data_in_reg = DFFE(F1_q_a[7]_PORT_A_data_in, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_address = BUS(B2_19, B2_18, B2_17, B2_16, B2_15, B2_14, B2_13, B2_12);
+F1_q_a[7]_PORT_A_address_reg = DFFE(F1_q_a[7]_PORT_A_address, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_write_enable = wr;
+F1_q_a[7]_PORT_A_write_enable_reg = DFFE(F1_q_a[7]_PORT_A_write_enable, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_clock_0 = GLOBAL(ram);
+F1_q_a[7]_PORT_A_data_out = MEMORY(F1_q_a[7]_PORT_A_data_in_reg, , F1_q_a[7]_PORT_A_address_reg, , F1_q_a[7]_PORT_A_write_enable_reg, , , , F1_q_a[7]_clock_0, , , , , );
+F1_q_a[5] = F1_q_a[7]_PORT_A_data_out[2];
+
+--F1_q_a[6] is lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[6] at M4K_X37_Y8
+F1_q_a[7]_PORT_A_data_in = BUS(H1L61, H1L41, H1L21, H1L01, H1L8, H1L6, H1L4, H1L2);
+F1_q_a[7]_PORT_A_data_in_reg = DFFE(F1_q_a[7]_PORT_A_data_in, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_address = BUS(B2_19, B2_18, B2_17, B2_16, B2_15, B2_14, B2_13, B2_12);
+F1_q_a[7]_PORT_A_address_reg = DFFE(F1_q_a[7]_PORT_A_address, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_PORT_A_write_enable = wr;
+F1_q_a[7]_PORT_A_write_enable_reg = DFFE(F1_q_a[7]_PORT_A_write_enable, F1_q_a[7]_clock_0, , , );
+F1_q_a[7]_clock_0 = GLOBAL(ram);
+F1_q_a[7]_PORT_A_data_out = MEMORY(F1_q_a[7]_PORT_A_data_in_reg, , F1_q_a[7]_PORT_A_address_reg, , F1_q_a[7]_PORT_A_write_enable_reg, , , , F1_q_a[7]_clock_0, , , , , );
+F1_q_a[6] = F1_q_a[7]_PORT_A_data_out[1];
+
+
+--H1L51 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result195w~37 at LC_X39_Y8_N0
+--operation mode is normal
+
+H1L51 = sel[1] & (sel[0] # F1_q_a[7]) # !sel[1] & !sel[0] & d0[7];
+
+
+--B2_12 is 273:inst1|12 at LC_X39_Y8_N4
+--operation mode is normal
+
+B2_12_sload_eqn = H1L61;
+B2_12 = DFFEA(B2_12_sload_eqn, GLOBAL(addr), VCC, , , , );
+
+
+--H1L61 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result195w~38 at LC_X39_Y8_N1
+--operation mode is normal
+
+B1_12_qfbk = B1_12;
+H1L61 = H1L51 & (B2_12 # !sel[0]) # !H1L51 & sel[0] & B1_12_qfbk;
+
+--B1_12 is 273:inst|12 at LC_X39_Y8_N1
+--operation mode is normal
+
+B1_12 = DFFEA(H1L61, GLOBAL(reg), VCC, , , , );
+
+
+--H1L31 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result170w~37 at LC_X39_Y8_N3
+--operation mode is normal
+
+B1_13_qfbk = B1_13;
+H1L31 = sel[0] & (B1_13_qfbk # sel[1]) # !sel[0] & d0[6] & !sel[1];
+
+--B1_13 is 273:inst|13 at LC_X39_Y8_N3
+--operation mode is normal
+
+B1_13_sload_eqn = H1L41;
+B1_13 = DFFEA(B1_13_sload_eqn, GLOBAL(reg), VCC, , , , );
+
+
+--H1L41 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result170w~38 at LC_X39_Y8_N7
+--operation mode is normal
+
+B2_13_qfbk = B2_13;
+H1L41 = H1L31 & (B2_13_qfbk # !sel[1]) # !H1L31 & sel[1] & F1_q_a[6];
+
+--B2_13 is 273:inst1|13 at LC_X39_Y8_N7
+--operation mode is normal
+
+B2_13 = DFFEA(H1L41, GLOBAL(addr), VCC, , , , );
+
+
+--H1L11 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result145w~37 at LC_X39_Y8_N5
+--operation mode is normal
+
+H1L11 = sel[1] & (sel[0] # F1_q_a[5]) # !sel[1] & !sel[0] & d0[5];
+
+
+--B2_14 is 273:inst1|14 at LC_X39_Y8_N9
+--operation mode is normal
+
+B2_14_lut_out = H1L21;
+B2_14 = DFFEA(B2_14_lut_out, GLOBAL(addr), VCC, , , , );
+
+
+--H1L21 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result145w~38 at LC_X39_Y8_N6
+--operation mode is normal
+
+B1_14_qfbk = B1_14;
+H1L21 = H1L11 & (B2_14 # !sel[0]) # !H1L11 & sel[0] & B1_14_qfbk;
+
+--B1_14 is 273:inst|14 at LC_X39_Y8_N6
+--operation mode is normal
+
+B1_14 = DFFEA(H1L21, GLOBAL(reg), VCC, , , , );
+
+
+--H1L9 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result120w~37 at LC_X39_Y8_N8
+--operation mode is normal
+
+B1_15_qfbk = B1_15;
+H1L9 = sel[0] & (B1_15_qfbk # sel[1]) # !sel[0] & d0[4] & !sel[1];
+
+--B1_15 is 273:inst|15 at LC_X39_Y8_N8
+--operation mode is normal
+
+B1_15_sload_eqn = H1L01;
+B1_15 = DFFEA(B1_15_sload_eqn, GLOBAL(reg), VCC, , , , );
+
+
+--H1L01 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result120w~38 at LC_X39_Y8_N2
+--operation mode is normal
+
+B2_15_qfbk = B2_15;
+H1L01 = H1L9 & (B2_15_qfbk # !sel[1]) # !H1L9 & sel[1] & F1_q_a[4];
+
+--B2_15 is 273:inst1|15 at LC_X39_Y8_N2
+--operation mode is normal
+
+B2_15 = DFFEA(H1L01, GLOBAL(addr), VCC, , , , );
+
+
+--H1L7 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result95w~37 at LC_X36_Y8_N3
+--operation mode is normal
+
+H1L7 = sel[1] & (sel[0] # F1_q_a[3]) # !sel[1] & !sel[0] & d0[3];
+
+
+--B2_16 is 273:inst1|16 at LC_X36_Y8_N1
+--operation mode is normal
+
+B2_16_lut_out = H1L8;
+B2_16 = DFFEA(B2_16_lut_out, GLOBAL(addr), VCC, , , , );
+
+
+--H1L8 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result95w~38 at LC_X36_Y8_N4
+--operation mode is normal
+
+B1_16_qfbk = B1_16;
+H1L8 = H1L7 & (B2_16 # !sel[0]) # !H1L7 & sel[0] & B1_16_qfbk;
+
+--B1_16 is 273:inst|16 at LC_X36_Y8_N4
+--operation mode is normal
+
+B1_16 = DFFEA(H1L8, GLOBAL(reg), VCC, , , , );
+
+
+--H1L5 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result70w~37 at LC_X36_Y8_N2
+--operation mode is normal
+
+B1_17_qfbk = B1_17;
+H1L5 = sel[0] & (B1_17_qfbk # sel[1]) # !sel[0] & d0[2] & !sel[1];
+
+--B1_17 is 273:inst|17 at LC_X36_Y8_N2
+--operation mode is normal
+
+B1_17_sload_eqn = H1L6;
+B1_17 = DFFEA(B1_17_sload_eqn, GLOBAL(reg), VCC, , , , );
+
+
+--H1L6 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result70w~38 at LC_X36_Y8_N9
+--operation mode is normal
+
+B2_17_qfbk = B2_17;
+H1L6 = H1L5 & (B2_17_qfbk # !sel[1]) # !H1L5 & F1_q_a[2] & sel[1];
+
+--B2_17 is 273:inst1|17 at LC_X36_Y8_N9
+--operation mode is normal
+
+B2_17 = DFFEA(H1L6, GLOBAL(addr), VCC, , , , );
+
+
+--H1L3 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result45w~37 at LC_X36_Y8_N6
+--operation mode is normal
+
+H1L3 = sel[1] & (sel[0] # F1_q_a[1]) # !sel[1] & !sel[0] & d0[1];
+
+
+--B2_18 is 273:inst1|18 at LC_X36_Y8_N8
+--operation mode is normal
+
+B2_18_lut_out = H1L4;
+B2_18 = DFFEA(B2_18_lut_out, GLOBAL(addr), VCC, , , , );
+
+
+--H1L4 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result45w~38 at LC_X36_Y8_N7
+--operation mode is normal
+
+B1_18_qfbk = B1_18;
+H1L4 = H1L3 & (B2_18 # !sel[0]) # !H1L3 & sel[0] & B1_18_qfbk;
+
+--B1_18 is 273:inst|18 at LC_X36_Y8_N7
+--operation mode is normal
+
+B1_18 = DFFEA(H1L4, GLOBAL(reg), VCC, , , , );
+
+
+--H1L1 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result15w~37 at LC_X36_Y8_N0
+--operation mode is normal
+
+B1_19_qfbk = B1_19;
+H1L1 = sel[0] & (B1_19_qfbk # sel[1]) # !sel[0] & d0[0] & !sel[1];
+
+--B1_19 is 273:inst|19 at LC_X36_Y8_N0
+--operation mode is normal
+
+B1_19_sload_eqn = H1L2;
+B1_19 = DFFEA(B1_19_sload_eqn, GLOBAL(reg), VCC, , , , );
+
+
+--H1L2 is lpm_mux0:inst4|lpm_mux:lpm_mux_component|mux_fgc:auto_generated|w_result15w~38 at LC_X36_Y8_N5
+--operation mode is normal
+
+B2_19_qfbk = B2_19;
+H1L2 = H1L1 & (B2_19_qfbk # !sel[1]) # !H1L1 & sel[1] & F1_q_a[0];
+
+--B2_19 is 273:inst1|19 at LC_X36_Y8_N5
+--operation mode is normal
+
+B2_19 = DFFEA(H1L2, GLOBAL(addr), VCC, , , , );
+
+
+--B3_12 is 273:inst2|12 at LC_X45_Y2_N2
+--operation mode is normal
+
+B3_12_sload_eqn = H1L61;
+B3_12 = DFFEA(B3_12_sload_eqn, GLOBAL(led_b), VCC, , , , );
+
+
+--B3_13 is 273:inst2|13 at LC_X39_Y30_N2
+--operation mode is normal
+
+B3_13_sload_eqn = H1L41;
+B3_13 = DFFEA(B3_13_sload_eqn, GLOBAL(led_b), VCC, , , , );
+
+
+--B3_14 is 273:inst2|14 at LC_X41_Y2_N2
+--operation mode is normal
+
+B3_14_sload_eqn = H1L21;
+B3_14 = DFFEA(B3_14_sload_eqn, GLOBAL(led_b), VCC, , , , );
+
+
+--B3_15 is 273:inst2|15 at LC_X44_Y1_N2
+--operation mode is normal
+
+B3_15_lut_out = H1L01;
+B3_15 = DFFEA(B3_15_lut_out, GLOBAL(led_b), VCC, , , , );
+
+
+--B3_16 is 273:inst2|16 at LC_X34_Y1_N2
+--operation mode is normal
+
+B3_16_sload_eqn = H1L8;
+B3_16 = DFFEA(B3_16_sload_eqn, GLOBAL(led_b), VCC, , , , );
+
+
+--B3_17 is 273:inst2|17 at LC_X39_Y2_N2
+--operation mode is normal
+
+B3_17_sload_eqn = H1L6;
+B3_17 = DFFEA(B3_17_sload_eqn, GLOBAL(led_b), VCC, , , , );
+
+
+--B3_18 is 273:inst2|18 at LC_X52_Y8_N0
+--operation mode is normal
+
+B3_18_sload_eqn = H1L4;
+B3_18 = DFFEA(B3_18_sload_eqn, GLOBAL(led_b), VCC, , , , );
+
+
+--B3_19 is 273:inst2|19 at LC_X36_Y2_N2
+--operation mode is normal
+
+B3_19_sload_eqn = H1L2;
+B3_19 = DFFEA(B3_19_sload_eqn, GLOBAL(led_b), VCC, , , , );
+
+
+--sel[0] is sel[0] at PIN_M7
+--operation mode is input
+
+sel[0] = INPUT();
+
+
+--sel[1] is sel[1] at PIN_P9
+--operation mode is input
+
+sel[1] = INPUT();
+
+
+--d0[7] is d0[7] at PIN_W8
+--operation mode is input
+
+d0[7] = INPUT();
+
+
+--d0[6] is d0[6] at PIN_T1
+--operation mode is input
+
+d0[6] = INPUT();
+
+
+--d0[5] is d0[5] at PIN_U2
+--operation mode is input
+
+d0[5] = INPUT();
+
+
+--d0[4] is d0[4] at PIN_U8
+--operation mode is input
+
+d0[4] = INPUT();
+
+
+--d0[3] is d0[3] at PIN_Y9
+--operation mode is input
+
+d0[3] = INPUT();
+
+
+--d0[2] is d0[2] at PIN_N8
+--operation mode is input
+
+d0[2] = INPUT();
+
+
+--d0[1] is d0[1] at PIN_U9
+--operation mode is input
+
+d0[1] = INPUT();
+
+
+--d0[0] is d0[0] at PIN_V9
+--operation mode is input
+
+d0[0] = INPUT();
+
+
+--reg is reg at PIN_M3
+--operation mode is input
+
+reg = INPUT();
+
+
+--wr is wr at PIN_T8
+--operation mode is input
+
+wr = INPUT();
+
+
+--ram is ram at PIN_M2
+--operation mode is input
+
+ram = INPUT();
+
+
+--addr is addr at PIN_L2
+--operation mode is input
+
+addr = INPUT();
+
+
+--led_b is led_b at PIN_L3
+--operation mode is input
+
+led_b = INPUT();
+
+
+--bus[7] is bus[7] at PIN_AB8
+--operation mode is output
+
+bus[7] = OUTPUT(H1L61);
+
+
+--bus[6] is bus[6] at PIN_C8
+--operation mode is output
+
+bus[6] = OUTPUT(H1L41);
+
+
+--bus[5] is bus[5] at PIN_AA7
+--operation mode is output
+
+bus[5] = OUTPUT(H1L21);
+
+
+--bus[4] is bus[4] at PIN_V6
+--operation mode is output
+
+bus[4] = OUTPUT(H1L01);
+
+
+--bus[3] is bus[3] at PIN_Y8
+--operation mode is output
+
+bus[3] = OUTPUT(H1L8);
+
+
+--bus[2] is bus[2] at PIN_AA8
+--operation mode is output
+
+bus[2] = OUTPUT(H1L6);
+
+
+--bus[1] is bus[1] at PIN_T2
+--operation mode is output
+
+bus[1] = OUTPUT(H1L4);
+
+
+--bus[0] is bus[0] at PIN_M8
+--operation mode is output
+
+bus[0] = OUTPUT(H1L2);
+
+
+--led[7] is led[7] at PIN_AB7
+--operation mode is output
+
+led[7] = OUTPUT(B3_12);
+
+
+--led[6] is led[6] at PIN_E8
+--operation mode is output
+
+led[6] = OUTPUT(B3_13);
+
+
+--led[5] is led[5] at PIN_W9
+--operation mode is output
+
+led[5] = OUTPUT(B3_14);
+
+
+--led[4] is led[4] at PIN_U6
+--operation mode is output
+
+led[4] = OUTPUT(B3_15);
+
+
+--led[3] is led[3] at PIN_T10
+--operation mode is output
+
+led[3] = OUTPUT(B3_16);
+
+
+--led[2] is led[2] at PIN_V8
+--operation mode is output
+
+led[2] = OUTPUT(B3_17);
+
+
+--led[1] is led[1] at PIN_N6
+--operation mode is output
+
+led[1] = OUTPUT(B3_18);
+
+
+--led[0] is led[0] at PIN_P8
+--operation mode is output
+
+led[0] = OUTPUT(B3_19);
+
+
+

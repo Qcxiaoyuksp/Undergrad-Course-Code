@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!-- 配置 Controller 对象 IoC DI 注解解析器-->
+    <context:component-scan base-package="cn.wolfcode.crm.web.controller,cn.wolfcode.crm.exception"/>
+
+    <!-- 配置 MVC 注解解析器 -->
+    <mvc:annotation-driven/>
+
+    <!-- 配置视图解析器 -->
+  <!--  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>-->
+
+    <!--配置freeMarker的模板路径 -->
+    <bean class="cn.wolfcode.crm.shiro.MyFreeMarkerConfig">
+        <!-- 配置freemarker的文件编码 -->
+        <property name="defaultEncoding" value="UTF-8" />
+        <!-- 配置freemarker寻找模板的路径 -->
+        <property name="templateLoaderPath" value="/WEB-INF/views/" />
+    </bean>
+
+    <!--freemarker视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <!-- 是否在model自动把session中的attribute导入进去; -->
+        <property name="exposeSessionAttributes" value="true" />
+        <!-- 配置逻辑视图自动添加的后缀名 -->
+        <property name="suffix" value=".ftl" />
+        <!-- 配置视图的输出HTML的contentType -->
+        <property name="contentType" value="text/html;charset=UTF-8" />
+    </bean>
+
+
+    <!-- 关联 applicationContext.xml-->
+    <import resource="classpath:applicationContext.xml"/>
+
+    <!-- 关联 shiro.xml-->
+    <import resource="classpath:shiro.xml"/>
+
+    <!--文件上传解析器 id必须是multipartResolver-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--最大上传文件大小 3M-->
+        <property name="maxUploadSize" value="#{1024*1024*3}"/>
+    </bean>
+
+</beans>

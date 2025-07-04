@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top|fill"
+    android:alignmentMode="alignMargins"
+    android:background="#eeeeee"
+    android:columnCount="4"
+    android:rowCount="2">
+    <ViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="4"
+        android:flipInterval="3000"
+        android:inAnimation="@anim/view_flipper_right_in"
+        android:outAnimation="@anim/view_flipper_left_out">
+        <include layout="@layout/view_flipper_page1" />
+        <include layout="@layout/view_flipper_page2" />
+    </ViewFlipper>
+    <Button
+        android:id="@+id/button_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1.0"
+        android:text="开始" />
+    <Button
+        android:id="@+id/button_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1.0"
+        android:text="停止" />
+    <Button
+        android:id="@+id/button_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1.0"
+        android:text="上一页" />
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1.0"
+        android:text="下一页" />
+</GridLayout>

@@ -1,0 +1,29 @@
+﻿生成启动时间为 2023-3-7 12:17:56。
+     1>项目“C:\Documents and Settings\Administrator\桌面\新建文件夹\44455555\44455555\44455555.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Debug\44455555.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt "..\..\exp1-0 twoSum.c"
+         exp1-0 twoSum.c
+     1>c:\documents and settings\administrator\桌面\新建文件夹\exp1-0 twosum.c(7): warning C4013: “malloc”未定义；假设外部返回 int
+     1>c:\documents and settings\administrator\桌面\新建文件夹\exp1-0 twosum.c(25): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(304) : 参见“scanf”的声明
+     1>c:\documents and settings\administrator\桌面\新建文件夹\exp1-0 twosum.c(28): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(304) : 参见“scanf”的声明
+     1>c:\documents and settings\administrator\桌面\新建文件夹\exp1-0 twosum.c(31): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(304) : 参见“scanf”的声明
+     1>c:\documents and settings\administrator\桌面\新建文件夹\exp1-0 twosum.c(32): warning C4047: “函数”:“int *”与“int **”的间接级别不同
+     1>c:\documents and settings\administrator\桌面\新建文件夹\exp1-0 twosum.c(32): warning C4024: “twoSum”: 形参和实参 4 的类型不同
+       Link:
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\Administrator\桌面\新建文件夹\44455555\Debug\44455555.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\44455555.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\Administrator\桌面\新建文件夹\44455555\Debug\44455555.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\Administrator\桌面\新建文件夹\44455555\Debug\44455555.lib" /MACHINE:X86 "Debug\exp1-0 twoSum.obj"
+         44455555.vcxproj -> C:\Documents and Settings\Administrator\桌面\新建文件夹\44455555\Debug\44455555.exe
+       Manifest:
+         c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Documents and Settings\Administrator\桌面\新建文件夹\44455555\Debug\44455555.exe;#1" /manifest Debug\44455555.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Debug\44455555.unsuccessfulbuild”。
+         正在对“Debug\44455555.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“C:\Documents and Settings\Administrator\桌面\新建文件夹\44455555\44455555\44455555.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.96

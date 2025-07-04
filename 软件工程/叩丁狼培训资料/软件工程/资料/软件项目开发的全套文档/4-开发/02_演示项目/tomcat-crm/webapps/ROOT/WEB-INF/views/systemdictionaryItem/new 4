@@ -1,0 +1,23 @@
+select   m.*
+from systemdictionaryitem m
+left outer join systemdictionary y on m.parent_id=y.id
+where y.sn='job';
+
+
+select   *
+from systemdictionaryitem 
+where id=2;
+
+
+select   m.*
+from systemdictionaryitem m
+left outer join systemdictionary y on m.parent_id=y.id
+where y.sn='source';
+
+select * from employee where id=2;
+
+select DISTINCT e.* from employee e
+left outer join employee_role er on e.id=er.employee_id 
+left outer join role r on er.role_id=r.id
+where r.sn in ('Market','Market_Manager');
+

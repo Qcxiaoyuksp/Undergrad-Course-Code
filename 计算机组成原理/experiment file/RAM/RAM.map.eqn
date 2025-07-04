@@ -1,0 +1,464 @@
+--G1_safe_q[7] is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[7]
+--operation mode is normal
+
+G1_safe_q[7]_carry_eqn = G1L41;
+G1_safe_q[7]_lut_out = G1_safe_q[7] $ G1_safe_q[7]_carry_eqn;
+G1_safe_q[7] = DFFEA(G1_safe_q[7]_lut_out, Cclk, !CRd, , , Cdata[7], CLd);
+
+
+--G1_safe_q[6] is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[6]
+--operation mode is arithmetic
+
+G1_safe_q[6]_carry_eqn = G1L21;
+G1_safe_q[6]_lut_out = G1_safe_q[6] $ !G1_safe_q[6]_carry_eqn;
+G1_safe_q[6] = DFFEA(G1_safe_q[6]_lut_out, Cclk, !CRd, , , Cdata[6], CLd);
+
+--G1L41 is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|counter_cella6~COUT
+--operation mode is arithmetic
+
+G1L41 = CARRY(G1_safe_q[6] & !G1L21);
+
+
+--G1_safe_q[5] is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[5]
+--operation mode is arithmetic
+
+G1_safe_q[5]_carry_eqn = G1L01;
+G1_safe_q[5]_lut_out = G1_safe_q[5] $ G1_safe_q[5]_carry_eqn;
+G1_safe_q[5] = DFFEA(G1_safe_q[5]_lut_out, Cclk, !CRd, , , Cdata[5], CLd);
+
+--G1L21 is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|counter_cella5~COUT
+--operation mode is arithmetic
+
+G1L21 = CARRY(!G1L01 # !G1_safe_q[5]);
+
+
+--G1_safe_q[4] is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[4]
+--operation mode is arithmetic
+
+G1_safe_q[4]_carry_eqn = G1L8;
+G1_safe_q[4]_lut_out = G1_safe_q[4] $ !G1_safe_q[4]_carry_eqn;
+G1_safe_q[4] = DFFEA(G1_safe_q[4]_lut_out, Cclk, !CRd, , , Cdata[4], CLd);
+
+--G1L01 is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|counter_cella4~COUT
+--operation mode is arithmetic
+
+G1L01 = CARRY(G1_safe_q[4] & !G1L8);
+
+
+--G1_safe_q[3] is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[3]
+--operation mode is arithmetic
+
+G1_safe_q[3]_carry_eqn = G1L6;
+G1_safe_q[3]_lut_out = G1_safe_q[3] $ G1_safe_q[3]_carry_eqn;
+G1_safe_q[3] = DFFEA(G1_safe_q[3]_lut_out, Cclk, !CRd, , , Cdata[3], CLd);
+
+--G1L8 is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|counter_cella3~COUT
+--operation mode is arithmetic
+
+G1L8 = CARRY(!G1L6 # !G1_safe_q[3]);
+
+
+--G1_safe_q[2] is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[2]
+--operation mode is arithmetic
+
+G1_safe_q[2]_carry_eqn = G1L4;
+G1_safe_q[2]_lut_out = G1_safe_q[2] $ !G1_safe_q[2]_carry_eqn;
+G1_safe_q[2] = DFFEA(G1_safe_q[2]_lut_out, Cclk, !CRd, , , Cdata[2], CLd);
+
+--G1L6 is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|counter_cella2~COUT
+--operation mode is arithmetic
+
+G1L6 = CARRY(G1_safe_q[2] & !G1L4);
+
+
+--G1_safe_q[1] is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[1]
+--operation mode is arithmetic
+
+G1_safe_q[1]_carry_eqn = G1L2;
+G1_safe_q[1]_lut_out = G1_safe_q[1] $ G1_safe_q[1]_carry_eqn;
+G1_safe_q[1] = DFFEA(G1_safe_q[1]_lut_out, Cclk, !CRd, , , Cdata[1], CLd);
+
+--G1L4 is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|counter_cella1~COUT
+--operation mode is arithmetic
+
+G1L4 = CARRY(!G1L2 # !G1_safe_q[1]);
+
+
+--G1_safe_q[0] is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[0]
+--operation mode is arithmetic
+
+G1_safe_q[0]_lut_out = !G1_safe_q[0];
+G1_safe_q[0] = DFFEA(G1_safe_q[0]_lut_out, Cclk, !CRd, , , Cdata[0], CLd);
+
+--G1L2 is lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|counter_cella0~COUT
+--operation mode is arithmetic
+
+G1L2 = CARRY(G1_safe_q[0]);
+
+
+--E1_q_a[7] is lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[7]
+--RAM Block Operation Mode: Single Port
+--Port A Depth: 256, Port A Width: 1
+--Port A Logical Depth: 256, Port A Logical Width: 8
+--Port A Input: Registered, Port A Output: Un-registered
+E1_q_a[7]_PORT_A_data_in = Mdata[7];
+E1_q_a[7]_PORT_A_data_in_reg = DFFE(E1_q_a[7]_PORT_A_data_in, E1_q_a[7]_clock_0, , , );
+E1_q_a[7]_PORT_A_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[7]_PORT_A_address_reg = DFFE(E1_q_a[7]_PORT_A_address, E1_q_a[7]_clock_0, , , );
+E1_q_a[7]_PORT_B_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[7]_PORT_B_address_reg = DFFE(E1_q_a[7]_PORT_B_address, E1_q_a[7]_clock_0, , , );
+E1_q_a[7]_PORT_A_write_enable = WR;
+E1_q_a[7]_PORT_A_write_enable_reg = DFFE(E1_q_a[7]_PORT_A_write_enable, E1_q_a[7]_clock_0, , , );
+E1_q_a[7]_clock_0 = Mclk;
+E1_q_a[7]_PORT_A_data_out = MEMORY(E1_q_a[7]_PORT_A_data_in_reg, , E1_q_a[7]_PORT_A_address_reg, E1_q_a[7]_PORT_B_address_reg, E1_q_a[7]_PORT_A_write_enable_reg, , , , E1_q_a[7]_clock_0, , , , , );
+E1_q_a[7] = E1_q_a[7]_PORT_A_data_out[0];
+
+
+--E1_q_a[6] is lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[6]
+--RAM Block Operation Mode: Single Port
+--Port A Depth: 256, Port A Width: 1
+--Port A Logical Depth: 256, Port A Logical Width: 8
+--Port A Input: Registered, Port A Output: Un-registered
+E1_q_a[6]_PORT_A_data_in = Mdata[6];
+E1_q_a[6]_PORT_A_data_in_reg = DFFE(E1_q_a[6]_PORT_A_data_in, E1_q_a[6]_clock_0, , , );
+E1_q_a[6]_PORT_A_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[6]_PORT_A_address_reg = DFFE(E1_q_a[6]_PORT_A_address, E1_q_a[6]_clock_0, , , );
+E1_q_a[6]_PORT_B_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[6]_PORT_B_address_reg = DFFE(E1_q_a[6]_PORT_B_address, E1_q_a[6]_clock_0, , , );
+E1_q_a[6]_PORT_A_write_enable = WR;
+E1_q_a[6]_PORT_A_write_enable_reg = DFFE(E1_q_a[6]_PORT_A_write_enable, E1_q_a[6]_clock_0, , , );
+E1_q_a[6]_clock_0 = Mclk;
+E1_q_a[6]_PORT_A_data_out = MEMORY(E1_q_a[6]_PORT_A_data_in_reg, , E1_q_a[6]_PORT_A_address_reg, E1_q_a[6]_PORT_B_address_reg, E1_q_a[6]_PORT_A_write_enable_reg, , , , E1_q_a[6]_clock_0, , , , , );
+E1_q_a[6] = E1_q_a[6]_PORT_A_data_out[0];
+
+
+--E1_q_a[5] is lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[5]
+--RAM Block Operation Mode: Single Port
+--Port A Depth: 256, Port A Width: 1
+--Port A Logical Depth: 256, Port A Logical Width: 8
+--Port A Input: Registered, Port A Output: Un-registered
+E1_q_a[5]_PORT_A_data_in = Mdata[5];
+E1_q_a[5]_PORT_A_data_in_reg = DFFE(E1_q_a[5]_PORT_A_data_in, E1_q_a[5]_clock_0, , , );
+E1_q_a[5]_PORT_A_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[5]_PORT_A_address_reg = DFFE(E1_q_a[5]_PORT_A_address, E1_q_a[5]_clock_0, , , );
+E1_q_a[5]_PORT_B_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[5]_PORT_B_address_reg = DFFE(E1_q_a[5]_PORT_B_address, E1_q_a[5]_clock_0, , , );
+E1_q_a[5]_PORT_A_write_enable = WR;
+E1_q_a[5]_PORT_A_write_enable_reg = DFFE(E1_q_a[5]_PORT_A_write_enable, E1_q_a[5]_clock_0, , , );
+E1_q_a[5]_clock_0 = Mclk;
+E1_q_a[5]_PORT_A_data_out = MEMORY(E1_q_a[5]_PORT_A_data_in_reg, , E1_q_a[5]_PORT_A_address_reg, E1_q_a[5]_PORT_B_address_reg, E1_q_a[5]_PORT_A_write_enable_reg, , , , E1_q_a[5]_clock_0, , , , , );
+E1_q_a[5] = E1_q_a[5]_PORT_A_data_out[0];
+
+
+--E1_q_a[4] is lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[4]
+--RAM Block Operation Mode: Single Port
+--Port A Depth: 256, Port A Width: 1
+--Port A Logical Depth: 256, Port A Logical Width: 8
+--Port A Input: Registered, Port A Output: Un-registered
+E1_q_a[4]_PORT_A_data_in = Mdata[4];
+E1_q_a[4]_PORT_A_data_in_reg = DFFE(E1_q_a[4]_PORT_A_data_in, E1_q_a[4]_clock_0, , , );
+E1_q_a[4]_PORT_A_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[4]_PORT_A_address_reg = DFFE(E1_q_a[4]_PORT_A_address, E1_q_a[4]_clock_0, , , );
+E1_q_a[4]_PORT_B_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[4]_PORT_B_address_reg = DFFE(E1_q_a[4]_PORT_B_address, E1_q_a[4]_clock_0, , , );
+E1_q_a[4]_PORT_A_write_enable = WR;
+E1_q_a[4]_PORT_A_write_enable_reg = DFFE(E1_q_a[4]_PORT_A_write_enable, E1_q_a[4]_clock_0, , , );
+E1_q_a[4]_clock_0 = Mclk;
+E1_q_a[4]_PORT_A_data_out = MEMORY(E1_q_a[4]_PORT_A_data_in_reg, , E1_q_a[4]_PORT_A_address_reg, E1_q_a[4]_PORT_B_address_reg, E1_q_a[4]_PORT_A_write_enable_reg, , , , E1_q_a[4]_clock_0, , , , , );
+E1_q_a[4] = E1_q_a[4]_PORT_A_data_out[0];
+
+
+--E1_q_a[3] is lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[3]
+--RAM Block Operation Mode: Single Port
+--Port A Depth: 256, Port A Width: 1
+--Port A Logical Depth: 256, Port A Logical Width: 8
+--Port A Input: Registered, Port A Output: Un-registered
+E1_q_a[3]_PORT_A_data_in = Mdata[3];
+E1_q_a[3]_PORT_A_data_in_reg = DFFE(E1_q_a[3]_PORT_A_data_in, E1_q_a[3]_clock_0, , , );
+E1_q_a[3]_PORT_A_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[3]_PORT_A_address_reg = DFFE(E1_q_a[3]_PORT_A_address, E1_q_a[3]_clock_0, , , );
+E1_q_a[3]_PORT_B_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[3]_PORT_B_address_reg = DFFE(E1_q_a[3]_PORT_B_address, E1_q_a[3]_clock_0, , , );
+E1_q_a[3]_PORT_A_write_enable = WR;
+E1_q_a[3]_PORT_A_write_enable_reg = DFFE(E1_q_a[3]_PORT_A_write_enable, E1_q_a[3]_clock_0, , , );
+E1_q_a[3]_clock_0 = Mclk;
+E1_q_a[3]_PORT_A_data_out = MEMORY(E1_q_a[3]_PORT_A_data_in_reg, , E1_q_a[3]_PORT_A_address_reg, E1_q_a[3]_PORT_B_address_reg, E1_q_a[3]_PORT_A_write_enable_reg, , , , E1_q_a[3]_clock_0, , , , , );
+E1_q_a[3] = E1_q_a[3]_PORT_A_data_out[0];
+
+
+--E1_q_a[2] is lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[2]
+--RAM Block Operation Mode: Single Port
+--Port A Depth: 256, Port A Width: 1
+--Port A Logical Depth: 256, Port A Logical Width: 8
+--Port A Input: Registered, Port A Output: Un-registered
+E1_q_a[2]_PORT_A_data_in = Mdata[2];
+E1_q_a[2]_PORT_A_data_in_reg = DFFE(E1_q_a[2]_PORT_A_data_in, E1_q_a[2]_clock_0, , , );
+E1_q_a[2]_PORT_A_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[2]_PORT_A_address_reg = DFFE(E1_q_a[2]_PORT_A_address, E1_q_a[2]_clock_0, , , );
+E1_q_a[2]_PORT_B_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[2]_PORT_B_address_reg = DFFE(E1_q_a[2]_PORT_B_address, E1_q_a[2]_clock_0, , , );
+E1_q_a[2]_PORT_A_write_enable = WR;
+E1_q_a[2]_PORT_A_write_enable_reg = DFFE(E1_q_a[2]_PORT_A_write_enable, E1_q_a[2]_clock_0, , , );
+E1_q_a[2]_clock_0 = Mclk;
+E1_q_a[2]_PORT_A_data_out = MEMORY(E1_q_a[2]_PORT_A_data_in_reg, , E1_q_a[2]_PORT_A_address_reg, E1_q_a[2]_PORT_B_address_reg, E1_q_a[2]_PORT_A_write_enable_reg, , , , E1_q_a[2]_clock_0, , , , , );
+E1_q_a[2] = E1_q_a[2]_PORT_A_data_out[0];
+
+
+--E1_q_a[1] is lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[1]
+--RAM Block Operation Mode: Single Port
+--Port A Depth: 256, Port A Width: 1
+--Port A Logical Depth: 256, Port A Logical Width: 8
+--Port A Input: Registered, Port A Output: Un-registered
+E1_q_a[1]_PORT_A_data_in = Mdata[1];
+E1_q_a[1]_PORT_A_data_in_reg = DFFE(E1_q_a[1]_PORT_A_data_in, E1_q_a[1]_clock_0, , , );
+E1_q_a[1]_PORT_A_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[1]_PORT_A_address_reg = DFFE(E1_q_a[1]_PORT_A_address, E1_q_a[1]_clock_0, , , );
+E1_q_a[1]_PORT_B_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[1]_PORT_B_address_reg = DFFE(E1_q_a[1]_PORT_B_address, E1_q_a[1]_clock_0, , , );
+E1_q_a[1]_PORT_A_write_enable = WR;
+E1_q_a[1]_PORT_A_write_enable_reg = DFFE(E1_q_a[1]_PORT_A_write_enable, E1_q_a[1]_clock_0, , , );
+E1_q_a[1]_clock_0 = Mclk;
+E1_q_a[1]_PORT_A_data_out = MEMORY(E1_q_a[1]_PORT_A_data_in_reg, , E1_q_a[1]_PORT_A_address_reg, E1_q_a[1]_PORT_B_address_reg, E1_q_a[1]_PORT_A_write_enable_reg, , , , E1_q_a[1]_clock_0, , , , , );
+E1_q_a[1] = E1_q_a[1]_PORT_A_data_out[0];
+
+
+--E1_q_a[0] is lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|q_a[0]
+--RAM Block Operation Mode: Single Port
+--Port A Depth: 256, Port A Width: 1
+--Port A Logical Depth: 256, Port A Logical Width: 8
+--Port A Input: Registered, Port A Output: Un-registered
+E1_q_a[0]_PORT_A_data_in = Mdata[0];
+E1_q_a[0]_PORT_A_data_in_reg = DFFE(E1_q_a[0]_PORT_A_data_in, E1_q_a[0]_clock_0, , , );
+E1_q_a[0]_PORT_A_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[0]_PORT_A_address_reg = DFFE(E1_q_a[0]_PORT_A_address, E1_q_a[0]_clock_0, , , );
+E1_q_a[0]_PORT_B_address = BUS(G1_safe_q[0], G1_safe_q[1], G1_safe_q[2], G1_safe_q[3], G1_safe_q[4], G1_safe_q[5], G1_safe_q[6], G1_safe_q[7]);
+E1_q_a[0]_PORT_B_address_reg = DFFE(E1_q_a[0]_PORT_B_address, E1_q_a[0]_clock_0, , , );
+E1_q_a[0]_PORT_A_write_enable = WR;
+E1_q_a[0]_PORT_A_write_enable_reg = DFFE(E1_q_a[0]_PORT_A_write_enable, E1_q_a[0]_clock_0, , , );
+E1_q_a[0]_clock_0 = Mclk;
+E1_q_a[0]_PORT_A_data_out = MEMORY(E1_q_a[0]_PORT_A_data_in_reg, , E1_q_a[0]_PORT_A_address_reg, E1_q_a[0]_PORT_B_address_reg, E1_q_a[0]_PORT_A_write_enable_reg, , , , E1_q_a[0]_clock_0, , , , , );
+E1_q_a[0] = E1_q_a[0]_PORT_A_data_out[0];
+
+
+--Cclk is Cclk
+--operation mode is input
+
+Cclk = INPUT();
+
+
+--Cdata[7] is Cdata[7]
+--operation mode is input
+
+Cdata[7] = INPUT();
+
+
+--CRd is CRd
+--operation mode is input
+
+CRd = INPUT();
+
+
+--CLd is CLd
+--operation mode is input
+
+CLd = INPUT();
+
+
+--Cdata[6] is Cdata[6]
+--operation mode is input
+
+Cdata[6] = INPUT();
+
+
+--Cdata[5] is Cdata[5]
+--operation mode is input
+
+Cdata[5] = INPUT();
+
+
+--Cdata[4] is Cdata[4]
+--operation mode is input
+
+Cdata[4] = INPUT();
+
+
+--Cdata[3] is Cdata[3]
+--operation mode is input
+
+Cdata[3] = INPUT();
+
+
+--Cdata[2] is Cdata[2]
+--operation mode is input
+
+Cdata[2] = INPUT();
+
+
+--Cdata[1] is Cdata[1]
+--operation mode is input
+
+Cdata[1] = INPUT();
+
+
+--Cdata[0] is Cdata[0]
+--operation mode is input
+
+Cdata[0] = INPUT();
+
+
+--WR is WR
+--operation mode is input
+
+WR = INPUT();
+
+
+--Mclk is Mclk
+--operation mode is input
+
+Mclk = INPUT();
+
+
+--Mdata[7] is Mdata[7]
+--operation mode is input
+
+Mdata[7] = INPUT();
+
+
+--Mdata[6] is Mdata[6]
+--operation mode is input
+
+Mdata[6] = INPUT();
+
+
+--Mdata[5] is Mdata[5]
+--operation mode is input
+
+Mdata[5] = INPUT();
+
+
+--Mdata[4] is Mdata[4]
+--operation mode is input
+
+Mdata[4] = INPUT();
+
+
+--Mdata[3] is Mdata[3]
+--operation mode is input
+
+Mdata[3] = INPUT();
+
+
+--Mdata[2] is Mdata[2]
+--operation mode is input
+
+Mdata[2] = INPUT();
+
+
+--Mdata[1] is Mdata[1]
+--operation mode is input
+
+Mdata[1] = INPUT();
+
+
+--Mdata[0] is Mdata[0]
+--operation mode is input
+
+Mdata[0] = INPUT();
+
+
+--Maddr[7] is Maddr[7]
+--operation mode is output
+
+Maddr[7] = OUTPUT(G1_safe_q[7]);
+
+
+--Maddr[6] is Maddr[6]
+--operation mode is output
+
+Maddr[6] = OUTPUT(G1_safe_q[6]);
+
+
+--Maddr[5] is Maddr[5]
+--operation mode is output
+
+Maddr[5] = OUTPUT(G1_safe_q[5]);
+
+
+--Maddr[4] is Maddr[4]
+--operation mode is output
+
+Maddr[4] = OUTPUT(G1_safe_q[4]);
+
+
+--Maddr[3] is Maddr[3]
+--operation mode is output
+
+Maddr[3] = OUTPUT(G1_safe_q[3]);
+
+
+--Maddr[2] is Maddr[2]
+--operation mode is output
+
+Maddr[2] = OUTPUT(G1_safe_q[2]);
+
+
+--Maddr[1] is Maddr[1]
+--operation mode is output
+
+Maddr[1] = OUTPUT(G1_safe_q[1]);
+
+
+--Maddr[0] is Maddr[0]
+--operation mode is output
+
+Maddr[0] = OUTPUT(G1_safe_q[0]);
+
+
+--Mout[7] is Mout[7]
+--operation mode is output
+
+Mout[7] = OUTPUT(E1_q_a[7]);
+
+
+--Mout[6] is Mout[6]
+--operation mode is output
+
+Mout[6] = OUTPUT(E1_q_a[6]);
+
+
+--Mout[5] is Mout[5]
+--operation mode is output
+
+Mout[5] = OUTPUT(E1_q_a[5]);
+
+
+--Mout[4] is Mout[4]
+--operation mode is output
+
+Mout[4] = OUTPUT(E1_q_a[4]);
+
+
+--Mout[3] is Mout[3]
+--operation mode is output
+
+Mout[3] = OUTPUT(E1_q_a[3]);
+
+
+--Mout[2] is Mout[2]
+--operation mode is output
+
+Mout[2] = OUTPUT(E1_q_a[2]);
+
+
+--Mout[1] is Mout[1]
+--operation mode is output
+
+Mout[1] = OUTPUT(E1_q_a[1]);
+
+
+--Mout[0] is Mout[0]
+--operation mode is output
+
+Mout[0] = OUTPUT(E1_q_a[0]);
+
+

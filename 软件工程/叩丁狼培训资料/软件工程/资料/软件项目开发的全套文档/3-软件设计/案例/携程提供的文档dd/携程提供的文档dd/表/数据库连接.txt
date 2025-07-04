@@ -1,0 +1,36 @@
+连接名：hibernate-HRP
+连接类型： Basic
+主机：172.16.14.46
+端口：1521
+服务名：yzhrp
+用户名：JDHRP
+密码：JDHRP
+
+
+
+连接名：jeecg-boot
+连接类型： Basic
+主机：172.16.1.121
+端口：3306
+服务名：root
+用户名：root
+密码：123456
+
+
+连接名：fins
+连接类型： Basic
+主机：localhost
+端口：3306
+服务名：root
+用户名：root
+密码：123456
+
+
+
+连接名：dev_budget
+连接类型： Basic
+主机：39.107.115.248
+端口：3306
+服务名：root
+用户名：dev_budget
+密码：dev_budget@123456

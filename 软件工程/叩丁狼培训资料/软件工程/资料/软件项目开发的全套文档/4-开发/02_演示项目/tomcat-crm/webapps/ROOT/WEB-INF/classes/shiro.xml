@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <context:component-scan base-package="cn.wolfcode.crm.shiro"/>
+
+    <!-- shiro过滤器 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <!--
+        loginUrl :代表了两个意思(默认/login.jsp)
+         1.登录页面的地址(get)
+         2.登录表单提交的地址(post)
+          -->
+        <property name="loginUrl" value="/login.html"/>
+        <!-- 访问规则 -->
+        <property name="filterChainDefinitions">
+            <!--
+                anon 匿名  authc 认证  logout 注销
+            -->
+            <value>
+                /js/**=anon
+                /images/**=anon
+                /css/**=anon
+                /logout.do=logout
+                /**=authc
+            </value>
+        </property>
+        <!-- 使用自定义的过滤器 -->
+        <property name="filters">
+            <map>
+                <!--设置当前使用的认证过滤器-->
+                <entry key="authc" value-ref="crmFormAuthenticationFilter" />
+            </map>
+        </property>
+     </bean>
+
+    <!-- 会话管理器 -->
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <!-- 验证会话时会话的过期时间(毫秒) -->
+        <property name="globalSessionTimeout" value="3600000" />
+        <property name="sessionIdUrlRewritingEnabled" value="false" />
+
+    </bean>
+    <!-- 安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!--配置数据源-->
+        <property name="realm" ref="crmRealm"/>
+        <!--缓存管理器-->
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="sessionManager" ref="sessionManager"/>
+     </bean>
+
+
+    <!-- 密码匹配器(指定算法) -->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"/>
+    </bean>
+
+    <!-- 开启shiro的注解扫描 -->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+
+    <!-- 缓存管理器 -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <!-- 设置配置文件 -->
+        <property name="cacheManagerConfigFile" value="classpath:shiro-ehcache.xml"/>
+    </bean>
+</beans>

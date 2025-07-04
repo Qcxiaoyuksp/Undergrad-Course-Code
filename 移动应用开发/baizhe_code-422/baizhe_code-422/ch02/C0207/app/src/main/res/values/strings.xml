@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">C0207</string>
+    <string name="str_check_box1_txt">读书</string>
+    <string name="str_check_box2_txt">旅行</string>
+    <string name="str_check_box3_txt">摄影</string>
+    <string name="str_check_box4_txt">绘画</string>
+    <string name="str_button_submit_txt">确定</string>
+</resources>

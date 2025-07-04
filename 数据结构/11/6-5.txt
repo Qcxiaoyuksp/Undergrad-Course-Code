@@ -1,0 +1,91 @@
+Status in_order_traverse(bst_p T)
+{
+    if (T) {
+        in_order_traverse(T->lchild);
+        if (!print(T->data)) return ERROR;
+        in_order_traverse(T->rchild);
+    }
+    return OK;
+}
+
+Status post_order_traverse(bst_p T)
+{
+    if (T) {
+        post_order_traverse(T->lchild);
+        post_order_traverse(T->rchild);
+        if (!print(T->data)) return ERROR;
+    }
+    return OK;
+}
+
+Status delete_bst_node(bst_p *root, data_type data)
+{
+    bst_p p = *root, parent, s;
+
+    parent = NULL;
+    s = NULL;
+
+    if (!p) {
+        printf("Not found.\n");
+        return ERROR;
+    }
+
+    if (p->data == data) {
+        /* It's a leaf node */
+        if (!p->rchild && !p->lchild) {
+            *root = NULL;
+            free(p);
+        }
+        /* the right child is NULL */
+        else if (!p->rchild) {
+            *root = p->lchild;
+            free(p);
+        }
+        /* the left child is NULL */
+        else if (!p->lchild) {
+            *root = p->rchild;
+            free(p);
+        }
+        /* the node has both children */
+        else {
+            s = p->rchild;
+            /* the s without left child */
+            if (!s->lchild) {
+                s->lchild = p->lchild;
+                *root = s;
+                free(p);
+            }
+            /* the s has left child */
+            else {
+                bst_p q = s->lchild;
+                while (q->lchild) {
+                    s = q;
+                    q = q->lchild;
+                }
+                s->lchild = q->rchild;
+                q->lchild = p->lchild;
+                q->rchild = p->rchild;
+                *root = q;
+                free(p);
+            }
+        }
+    } else if (data > p->data) {
+        delete_bst_node(&(p->rchild), data);
+    } else if (data < p->data) {
+        delete_bst_node(&(p->lchild), data);
+    }
+    return OK;
+}
+
+Status search_bst_node(bst_p T, data_type key)
+{
+    if (T) {
+        if (T->data == key)
+            return OK;
+        else if (key < T->data)
+            return search_bst_node(T->lchild, key);
+        else
+            return search_bst_node(T->rchild, key);
+    }
+    return ERROR;
+}

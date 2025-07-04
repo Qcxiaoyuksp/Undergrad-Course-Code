@@ -1,0 +1,13 @@
+Flow Status : Successful - Fri Dec 29 05:48:10 2023
+Quartus II Version : 4.1 Build 181 06/29/2004 SJ Full Version
+Revision Name : jzsx
+Top-level Entity Name : jzsx
+Family : Stratix
+Device : EP1S10B672C6
+Timing Models : Production
+Total logic elements : 192
+Total pins : 74
+Total memory bits : 3,584
+DSP block 9-bit elements : 0
+Total PLLs : 0
+Total DLLs : 0

@@ -1,0 +1,414 @@
+Analysis & Synthesis report for shixi
+Fri Dec 29 05:21:09 2023
+Version 4.1 Build 181 06/29/2004 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Multiplexer Restructuring Statistics (No Restructuring Performed)
+  5. WYSIWYG Cells
+  6. General Register Statistics
+  7. Hierarchy
+  8. Analysis & Synthesis Resource Utilization by Entity
+  9. Analysis & Synthesis Equations
+ 10. Analysis & Synthesis Source Files Read
+ 11. Analysis & Synthesis Resource Usage Summary
+ 12. Analysis & Synthesis RAM Summary
+ 13. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2004 Altera Corporation
+Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+support information,  device programming or simulation file,  and any other
+associated  documentation or information  provided by  Altera  or a partner
+under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+other  use  of such  megafunction  design,  netlist,  support  information,
+device programming or simulation file,  or any other  related documentation
+or information  is prohibited  for  any  other purpose,  including, but not
+limited to  modification,  reverse engineering,  de-compiling, or use  with
+any other  silicon devices,  unless such use is  explicitly  licensed under
+a separate agreement with  Altera  or a megafunction partner.  Title to the
+intellectual property,  including patents,  copyrights,  trademarks,  trade
+secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+support  information,  device programming or simulation file,  or any other
+related documentation or information provided by  Altera  or a megafunction
+partner, remains with Altera, the megafunction partner, or their respective
+licensors. No other licenses, including any licenses needed under any third
+party's intellectual property, are provided herein.
+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Fri Dec 29 05:21:09 2023    ;
+; Quartus II Version          ; 4.1 Build 181 06/29/2004 SJ Full Version ;
+; Revision Name               ; shixi                                    ;
+; Top-level Entity Name       ; shixi                                    ;
+; Family                      ; Stratix                                  ;
+; Total logic elements        ; 192                                      ;
+; Total pins                  ; 74                                       ;
+; Total memory bits           ; 3,584                                    ;
+; DSP block 9-bit elements    ; 0                                        ;
+; Total PLLs                  ; 0                                        ;
+; Total DLLs                  ; 0                                        ;
++-----------------------------+------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                     ;
++--------------------------------------------------------------------+--------------+---------------+
+; Option                                                             ; Setting      ; Default Value ;
++--------------------------------------------------------------------+--------------+---------------+
+; Device                                                             ; EP1S10B672C6 ;               ;
+; Restructure Multiplexers                                           ; Auto         ; Auto          ;
+; Create Debugging Nodes for IP Cores                                ; off          ; off           ;
+; Disk space/compilation speed tradeoff                              ; Normal       ; Normal        ;
+; Preserve fewer node names                                          ; On           ; On            ;
+; Disable OpenCore Plus hardware evaluation                          ; Off          ; Off           ;
+; Verilog Version                                                    ; Verilog_2001 ; Verilog_2001  ;
+; VHDL Version                                                       ; VHDL93       ; VHDL93        ;
+; Family name                                                        ; Stratix      ; Stratix       ;
+; Top-level entity name                                              ; shixi        ; shixi         ;
+; State Machine Processing                                           ; Auto         ; Auto          ;
+; DSP Block Balancing                                                ; Auto         ; Auto          ;
+; NOT Gate Push-Back                                                 ; On           ; On            ;
+; Power-Up Don't Care                                                ; On           ; On            ;
+; Remove Redundant Logic Cells                                       ; Off          ; Off           ;
+; Remove Duplicate Registers                                         ; On           ; On            ;
+; Ignore CARRY Buffers                                               ; Off          ; Off           ;
+; Ignore CASCADE Buffers                                             ; Off          ; Off           ;
+; Ignore GLOBAL Buffers                                              ; Off          ; Off           ;
+; Ignore ROW GLOBAL Buffers                                          ; Off          ; Off           ;
+; Ignore LCELL Buffers                                               ; Off          ; Off           ;
+; Ignore SOFT Buffers                                                ; On           ; On            ;
+; Limit AHDL Integers to 32 Bits                                     ; Off          ; Off           ;
+; Optimization Technique -- Stratix/Stratix GX                       ; Balanced     ; Balanced      ;
+; Carry Chain Length -- Stratix/Stratix GX/Cyclone/MAX II/Cyclone II ; 70           ; 70            ;
+; Auto Carry Chains                                                  ; On           ; On            ;
+; Auto Open-Drain Pins                                               ; On           ; On            ;
+; Remove Duplicate Logic                                             ; On           ; On            ;
+; Perform WYSIWYG Primitive Resynthesis                              ; Off          ; Off           ;
+; Perform gate-level register retiming                               ; Off          ; Off           ;
+; Allow register retiming to trade off Tsu/Tco with Fmax             ; On           ; On            ;
+; Auto ROM Replacement                                               ; On           ; On            ;
+; Auto RAM Replacement                                               ; On           ; On            ;
+; Auto DSP Block Replacement                                         ; On           ; On            ;
+; Auto Shift Register Replacement                                    ; On           ; On            ;
+; Auto Clock Enable Replacement                                      ; On           ; On            ;
+; Allows Synchronous Control Signal Usage in Normal Mode Logic Cells ; On           ; On            ;
+; Auto RAM Block Balancing                                           ; On           ; On            ;
+; Auto Resource Sharing                                              ; Off          ; Off           ;
+; Allow Any RAM Size For Recognition                                 ; Off          ; Off           ;
+; Allow Any ROM Size For Recognition                                 ; Off          ; Off           ;
+; Allow Any Shift Register Size For Recognition                      ; Off          ; Off           ;
++--------------------------------------------------------------------+--------------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (No Restructuring Performed)                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
+; 2:1                ; 8 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |shixi|273:inst20|12                                                                   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |shixi|lpm_mux0:inst17|lpm_mux:lpm_mux_component|mux_jgc:auto_generated|w_result444w~2 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |shixi|lpm_mux0:inst17|lpm_mux:lpm_mux_component|mux_jgc:auto_generated|w_result375w~2 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |shixi|lpm_mux0:inst17|lpm_mux:lpm_mux_component|mux_jgc:auto_generated|w_result306w~2 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |shixi|lpm_mux0:inst17|lpm_mux:lpm_mux_component|mux_jgc:auto_generated|w_result237w~2 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |shixi|lpm_mux0:inst17|lpm_mux:lpm_mux_component|mux_jgc:auto_generated|w_result168w~2 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |shixi|lpm_mux0:inst17|lpm_mux:lpm_mux_component|mux_jgc:auto_generated|w_result99w~2  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |shixi|lpm_mux0:inst17|lpm_mux:lpm_mux_component|mux_jgc:auto_generated|w_result28w~2  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |shixi|lpm_mux0:inst17|lpm_mux:lpm_mux_component|mux_jgc:auto_generated|w_result513w~2 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------+
+; WYSIWYG Cells                                                  ;
++--------------------------------------------------------+-------+
+; Statistic                                              ; Value ;
++--------------------------------------------------------+-------+
+; Number of WYSIWYG cells                                ; 17    ;
+; Number of synthesis-generated cells                    ; 175   ;
+; Number of WYSIWYG LUTs                                 ; 17    ;
+; Number of synthesis-generated LUTs                     ; 109   ;
+; Number of WYSIWYG registers                            ; 16    ;
+; Number of synthesis-generated registers                ; 67    ;
+; Number of cells with combinational logic only          ; 109   ;
+; Number of cells with registers only                    ; 66    ;
+; Number of cells with combinational logic and registers ; 17    ;
++--------------------------------------------------------+-------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 19    ;
+; Number of registers using Asynchronous Load  ; 13    ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Output Enable      ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------+
+; Hierarchy ;
++-----------+
+shixi
+ |-- ldr0_2:inst
+ |-- reg_3:inst1
+      |-- 273:reg0
+      |-- 273:reg1
+      |-- 273:reg2
+ |-- 74148:inst3
+ |-- t4:inst4
+      |-- 21mux:inst9
+      |-- 21mux:inst10
+ |-- se5_1:inst6
+ |-- se6_1:inst7
+ |-- 273:inst8
+ |-- lpm_ram_dq0:inst10
+      |-- altsyncram:altsyncram_component
+           |-- altsyncram_dru:auto_generated
+ |-- lpm_counter0:inst11
+      |-- lpm_counter:lpm_counter_component
+           |-- cntr_fa8:auto_generated
+ |-- lpm_rom0:inst12
+      |-- altsyncram:altsyncram_component
+           |-- altsyncram_ecq:auto_generated
+ |-- decode2_4:inst13
+ |-- decodec:inst14
+ |-- decodeb:inst15
+ |-- decodea:inst16
+ |-- lpm_mux0:inst17
+      |-- lpm_mux:lpm_mux_component
+           |-- mux_jgc:auto_generated
+ |-- ALU2:inst18
+      |-- 74181:inst
+      |-- 74181:inst1
+ |-- 273:inst19
+ |-- 273:inst20
+ |-- 273:inst21
+ |-- 273:inst22
+ |-- busmux:inst23
+      |-- lpm_mux:$00000
+           |-- mux_cgc:auto_generated
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                           ;
++-------------------------------------------+-------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-----------------+-----------------------------------------------------------------------------------------+
+; Compilation Hierarchy Node                ; Logic Cells ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Full Hierarchy Name                                                                     ;
++-------------------------------------------+-------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-----------------+-----------------------------------------------------------------------------------------+
+; |shixi                                    ; 192 (7)     ; 83           ; 3584        ; 0            ; 0       ; 0         ; 0         ; 74   ; 0            ; 109 (7)      ; 66 (0)            ; 17 (0)           ; 8 (0)           ; |shixi                                                                                  ;
+;    |273:inst19|                           ; 8 (8)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |shixi|273:inst19                                                                       ;
+;    |273:inst20|                           ; 8 (8)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 8 (8)            ; 0 (0)           ; |shixi|273:inst20                                                                       ;
+;    |273:inst21|                           ; 8 (8)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |shixi|273:inst21                                                                       ;
+;    |273:inst22|                           ; 8 (8)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |shixi|273:inst22                                                                       ;
+;    |273:inst8|                            ; 8 (8)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |shixi|273:inst8                                                                        ;
+;    |74148:inst3|                          ; 5 (5)       ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|74148:inst3                                                                      ;
+;    |ALU2:inst18|                          ; 40 (1)      ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 40 (1)       ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|ALU2:inst18                                                                      ;
+;       |74181:inst1|                       ; 19 (19)     ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 19 (19)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|ALU2:inst18|74181:inst1                                                          ;
+;       |74181:inst|                        ; 20 (20)     ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 20 (20)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|ALU2:inst18|74181:inst                                                           ;
+;    |decode2_4:inst13|                     ; 3 (3)       ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|decode2_4:inst13                                                                 ;
+;    |decodea:inst16|                       ; 2 (2)       ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|decodea:inst16                                                                   ;
+;    |decodeb:inst15|                       ; 1 (1)       ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|decodeb:inst15                                                                   ;
+;    |decodec:inst14|                       ; 1 (1)       ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|decodec:inst14                                                                   ;
+;    |lpm_counter0:inst11|                  ; 8 (0)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 8 (0)            ; 8 (0)           ; |shixi|lpm_counter0:inst11                                                              ;
+;       |lpm_counter:lpm_counter_component| ; 8 (0)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 8 (0)            ; 8 (0)           ; |shixi|lpm_counter0:inst11|lpm_counter:lpm_counter_component                            ;
+;          |cntr_fa8:auto_generated|        ; 8 (8)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 8 (8)            ; 8 (8)           ; |shixi|lpm_counter0:inst11|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated    ;
+;    |lpm_mux0:inst17|                      ; 33 (0)      ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 33 (0)       ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|lpm_mux0:inst17                                                                  ;
+;       |lpm_mux:lpm_mux_component|         ; 33 (0)      ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 33 (0)       ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|lpm_mux0:inst17|lpm_mux:lpm_mux_component                                        ;
+;          |mux_jgc:auto_generated|         ; 33 (33)     ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 33 (33)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|lpm_mux0:inst17|lpm_mux:lpm_mux_component|mux_jgc:auto_generated                 ;
+;    |lpm_ram_dq0:inst10|                   ; 0 (0)       ; 0            ; 2048        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|lpm_ram_dq0:inst10                                                               ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)       ; 0            ; 2048        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|lpm_ram_dq0:inst10|altsyncram:altsyncram_component                               ;
+;          |altsyncram_dru:auto_generated|  ; 0 (0)       ; 0            ; 2048        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|lpm_ram_dq0:inst10|altsyncram:altsyncram_component|altsyncram_dru:auto_generated ;
+;    |lpm_rom0:inst12|                      ; 0 (0)       ; 0            ; 1536        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|lpm_rom0:inst12                                                                  ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)       ; 0            ; 1536        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|lpm_rom0:inst12|altsyncram:altsyncram_component                                  ;
+;          |altsyncram_ecq:auto_generated|  ; 0 (0)       ; 0            ; 1536        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|lpm_rom0:inst12|altsyncram:altsyncram_component|altsyncram_ecq:auto_generated    ;
+;    |reg_3:inst1|                          ; 29 (5)      ; 24           ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 5 (5)        ; 24 (0)            ; 0 (0)            ; 0 (0)           ; |shixi|reg_3:inst1                                                                      ;
+;       |273:reg0|                          ; 8 (8)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |shixi|reg_3:inst1|273:reg0                                                             ;
+;       |273:reg1|                          ; 8 (8)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |shixi|reg_3:inst1|273:reg1                                                             ;
+;       |273:reg2|                          ; 8 (8)       ; 8            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |shixi|reg_3:inst1|273:reg2                                                             ;
+;    |se5_1:inst6|                          ; 11 (11)     ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |shixi|se5_1:inst6                                                                      ;
+;    |se6_1:inst7|                          ; 6 (6)       ; 6            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 6 (6)             ; 0 (0)            ; 0 (0)           ; |shixi|se6_1:inst7                                                                      ;
+;    |t4:inst4|                             ; 6 (6)       ; 5            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 1 (1)        ; 4 (4)             ; 1 (1)            ; 0 (0)           ; |shixi|t4:inst4                                                                         ;
++-------------------------------------------+-------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-----------------+-----------------------------------------------------------------------------------------+
+
+
++--------------------------------+
+; Analysis & Synthesis Equations ;
++--------------------------------+
+The equations can be found in e:/计算机组成原理/experiment file/shixi/shixi.map.eqn.
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                          ;
++---------------------------------------------------------------+-----------------+
+; File Name                                                     ; Used in Netlist ;
++---------------------------------------------------------------+-----------------+
+; ../../计组实习/273.bdf                                        ; yes             ;
+; ../../计组实习/ALU2.bdf                                       ; yes             ;
+; ../../计组实习/decode2_4.bdf                                  ; yes             ;
+; ../../计组实习/decodea.bdf                                    ; yes             ;
+; ../../计组实习/decodeb.bdf                                    ; yes             ;
+; ../../计组实习/decodec.bdf                                    ; yes             ;
+; ../../计组实习/ldr0_2.bdf                                     ; yes             ;
+; ../../计组实习/lpm_counter0.tdf                               ; yes             ;
+; ../../计组实习/lpm_mux0.tdf                                   ; yes             ;
+; ../../计组实习/lpm_ram_dq0.tdf                                ; yes             ;
+; ../../计组实习/lpm_rom0.tdf                                   ; yes             ;
+; ../../计组实习/reg_3.bdf                                      ; yes             ;
+; ../../计组实习/se5_1.bdf                                      ; yes             ;
+; ../../计组实习/se6_1.bdf                                      ; yes             ;
+; ../../计组实习/t4.bdf                                         ; yes             ;
+; shixi.bdf                                                     ; yes             ;
+; e:/quartus/libraries/megafunctions/lpm_counter.inc            ; yes             ;
+; e:/quartus/libraries/megafunctions/lpm_mux.inc                ; yes             ;
+; e:/quartus/libraries/megafunctions/altsyncram.inc             ; yes             ;
+; e:/quartus/libraries/megafunctions/altsyncram.tdf             ; yes             ;
+; e:/quartus/libraries/megafunctions/stratix_ram_block.inc      ; yes             ;
+; e:/quartus/libraries/megafunctions/aglobal41.inc              ; yes             ;
+; e:/计算机组成原理/experiment file/shixi/db/altsyncram_ecq.tdf ; yes             ;
+; e:/quartus/libraries/others/maxplus2/21mux.bdf                ; yes             ;
+; e:/quartus/libraries/others/maxplus2/74181.bdf                ; yes             ;
+; e:/quartus/libraries/megafunctions/lpm_mux.tdf                ; yes             ;
+; e:/计算机组成原理/experiment file/shixi/db/mux_jgc.tdf        ; yes             ;
+; e:/计算机组成原理/experiment file/shixi/db/altsyncram_dru.tdf ; yes             ;
+; e:/quartus/libraries/megafunctions/BUSMUX.tdf                 ; yes             ;
+; e:/计算机组成原理/experiment file/shixi/db/mux_cgc.tdf        ; yes             ;
+; e:/quartus/libraries/megafunctions/lpm_counter.tdf            ; yes             ;
+; e:/quartus/libraries/megafunctions/lpm_constant.inc           ; yes             ;
+; e:/计算机组成原理/experiment file/shixi/db/cntr_fa8.tdf       ; yes             ;
+; e:/quartus/libraries/others/maxplus2/74148.bdf                ; yes             ;
++---------------------------------------------------------------+-----------------+
+
+
++---------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary       ;
++-----------------------------------+---------------+
+; Resource                          ; Usage         ;
++-----------------------------------+---------------+
+; Logic cells                       ; 192           ;
+; Total combinational functions     ; 126           ;
+; Total 4-input functions           ; 83            ;
+; Total 3-input functions           ; 26            ;
+; Total 2-input functions           ; 9             ;
+; Total 1-input functions           ; 8             ;
+; Total 0-input functions           ; 0             ;
+; Combinational cells for routing   ; 0             ;
+; Total registers                   ; 83            ;
+; Total logic cells in carry chains ; 8             ;
+; I/O pins                          ; 74            ;
+; Total memory bits                 ; 3584          ;
+; Maximum fan-out node              ; t4:inst4|inst ;
+; Maximum fan-out                   ; 26            ;
+; Total fan-out                     ; 957           ;
+; Average fan-out                   ; 3.21          ;
++-----------------------------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                           ;
++---------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                        ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++---------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
+; lpm_ram_dq0:inst10|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; None ;
+; lpm_rom0:inst12|altsyncram:altsyncram_component|altsyncram_ecq:auto_generated|ALTSYNCRAM    ; AUTO ; ROM         ; 64           ; 24           ; --           ; --           ; 1536 ; None ;
++---------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 4.1 Build 181 06/29/2004 SJ Full Version
+    Info: Processing started: Fri Dec 29 05:21:08 2023
+Info: Command: quartus_map --import_settings_files=on --export_settings_files=off shixi -c shixi
+Warning: Entity 273 obtained from e:/计算机组成原理/计组实习/273.bdf instead of from Quartus II megafunction library
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/273.bdf
+    Info: Found entity 1: 273
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/ALU2.bdf
+    Info: Found entity 1: ALU2
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/decode2_4.bdf
+    Info: Found entity 1: decode2_4
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/decodea.bdf
+    Info: Found entity 1: decodea
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/decodeb.bdf
+    Info: Found entity 1: decodeb
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/decodec.bdf
+    Info: Found entity 1: decodec
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/ldr0_2.bdf
+    Info: Found entity 1: ldr0_2
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/lpm_counter0.tdf
+    Info: Found entity 1: lpm_counter0
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/lpm_mux0.tdf
+    Info: Found entity 1: lpm_mux0
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/lpm_ram_dq0.tdf
+    Info: Found entity 1: lpm_ram_dq0
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/lpm_rom0.tdf
+    Info: Found entity 1: lpm_rom0
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/old_273.bdf
+    Info: Found entity 1: old_273
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/project.bdf
+    Info: Found entity 1: project
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/reg_3.bdf
+    Info: Found entity 1: reg_3
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/se5_1.bdf
+    Info: Found entity 1: se5_1
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/se6_1.bdf
+    Info: Found entity 1: se6_1
+Info: Found 1 design units, including 1 entities, in source file ../../计组实习/t4.bdf
+    Info: Found entity 1: t4
+Info: Found 1 design units, including 1 entities, in source file shixi.bdf
+    Info: Found entity 1: shixi
+Info: Found 1 design units, including 1 entities, in source file ../../../quartus/libraries/megafunctions/altsyncram.tdf
+    Info: Found entity 1: altsyncram
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_ecq.tdf
+    Info: Found entity 1: altsyncram_ecq
+Warning: Can't find Memory Initialization File or Hexadecimal (Intel-Format) File e:/计算机组成原理/experiment file/shixi/ROM.hex -- setting all initial values to 0
+Info: Found 1 design units, including 1 entities, in source file ../../../quartus/libraries/others/maxplus2/21mux.bdf
+    Info: Found entity 1: 21mux
+Info: Found 1 design units, including 1 entities, in source file ../../../quartus/libraries/others/maxplus2/74181.bdf
+    Info: Found entity 1: 74181
+Info: Found 1 design units, including 1 entities, in source file ../../../quartus/libraries/megafunctions/lpm_mux.tdf
+    Info: Found entity 1: lpm_mux
+Info: Found 1 design units, including 1 entities, in source file db/mux_jgc.tdf
+    Info: Found entity 1: mux_jgc
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_dru.tdf
+    Info: Found entity 1: altsyncram_dru
+Info: Found 1 design units, including 1 entities, in source file ../../../quartus/libraries/megafunctions/BUSMUX.tdf
+    Info: Found entity 1: busmux
+Info: Found 1 design units, including 1 entities, in source file db/mux_cgc.tdf
+    Info: Found entity 1: mux_cgc
+Info: Found 1 design units, including 1 entities, in source file ../../../quartus/libraries/megafunctions/lpm_counter.tdf
+    Info: Found entity 1: lpm_counter
+Info: Found 1 design units, including 1 entities, in source file db/cntr_fa8.tdf
+    Info: Found entity 1: cntr_fa8
+Info: Found 1 design units, including 1 entities, in source file ../../../quartus/libraries/others/maxplus2/74148.bdf
+    Info: Found entity 1: 74148
+Info: Ignored 30 buffer(s)
+    Info: Ignored 30 SOFT buffer(s)
+Info: Implemented 298 device resources after synthesis - the final resource count might be different
+    Info: Implemented 13 input pins
+    Info: Implemented 61 output pins
+    Info: Implemented 192 logic cells
+    Info: Implemented 32 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Processing ended: Fri Dec 29 05:21:09 2023
+    Info: Elapsed time: 00:00:01
+
+

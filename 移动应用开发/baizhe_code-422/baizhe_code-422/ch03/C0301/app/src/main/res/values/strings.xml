@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">C0301</string>
+    <string name="textview1">沉睡的海螺</string>
+    <string name="textview2">2021年7月7日</string>
+    <string name="button1">关注</string>
+    <string name="textview3">举报</string>
+</resources>

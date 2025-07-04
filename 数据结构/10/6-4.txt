@@ -1,0 +1,62 @@
+void InThreading(BiTree p)
+{
+    if (p != NULL) {
+        InThreading(p->lchild);  // Recursively thread the left subtree
+        
+        if (p->lchild == NULL) {
+            p->ltag = thread;  // Set left tag to thread if there is no left child
+            p->lchild = pre;  // Set left child to the predecessor
+        }
+        
+        if (pre != NULL && pre->rchild == NULL) {
+            pre->rtag = thread;  // Set right tag of predecessor to thread if there is no right child
+            pre->rchild = p;  // Set right child of predecessor to the current node
+        }
+        
+        pre = p;  // Update predecessor
+        
+        InThreading(p->rchild);  // Recursively thread the right subtree
+    }
+}
+
+BiTree InOrderThreading(BiTree Thr, BiTree T)
+{
+    Thr = (BiTree)malloc(sizeof(BiTNode));  // Create the head node
+    if (!Thr)
+        exit(1);
+    Thr->ltag = link;
+    Thr->rchild = Thr;
+    Thr->rtag = thread;
+    if (T == NULL) {
+        Thr->lchild = Thr;
+    } else {
+        Thr->lchild = T;  // Set the left child of the head node to the non-empty root
+        pre = Thr;
+        InThreading(T);
+        pre->rchild = Thr;
+        pre->rtag = thread;
+        Thr->rchild = pre;
+    }
+    return Thr;
+}
+
+void InOrderTraverse(BiTree T)
+{
+    BiTree p = T->lchild;  // Start from the leftmost node
+    
+    while (p != T) {
+        while (p->ltag == link) {
+            p = p->lchild;  // Move to the leftmost descendant
+        }
+        
+        // Visit the node
+        printf("%c ", p->data);
+        
+        while (p->rtag == thread && p->rchild != T) {
+            p = p->rchild;  // Move to the successor
+            printf("%c ", p->data);  // Visit the node
+        }
+        
+        p = p->rchild;  // Move to the right subtree
+    }
+}

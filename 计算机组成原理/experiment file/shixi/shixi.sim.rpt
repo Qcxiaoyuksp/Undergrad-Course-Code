@@ -1,0 +1,127 @@
+Simulator report for shixi
+Fri Dec 29 05:38:14 2023
+Version 4.1 Build 181 06/29/2004 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. |shixi|lpm_rom0:inst12|altsyncram:altsyncram_component|altsyncram_ecq:auto_generated|ALTSYNCRAM
+  6. |shixi|lpm_ram_dq0:inst10|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ALTSYNCRAM
+  7. Simulator INI Usage
+  8. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2004 Altera Corporation
+Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+support information,  device programming or simulation file,  and any other
+associated  documentation or information  provided by  Altera  or a partner
+under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+other  use  of such  megafunction  design,  netlist,  support  information,
+device programming or simulation file,  or any other  related documentation
+or information  is prohibited  for  any  other purpose,  including, but not
+limited to  modification,  reverse engineering,  de-compiling, or use  with
+any other  silicon devices,  unless such use is  explicitly  licensed under
+a separate agreement with  Altera  or a megafunction partner.  Title to the
+intellectual property,  including patents,  copyrights,  trademarks,  trade
+secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+support  information,  device programming or simulation file,  or any other
+related documentation or information provided by  Altera  or a megafunction
+partner, remains with Altera, the megafunction partner, or their respective
+licensors. No other licenses, including any licenses needed under any third
+party's intellectual property, are provided herein.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 64.0 us      ;
+; Simulation Netlist Size     ; 299 nodes    ;
+; Simulation Coverage         ;      11.75 % ;
+; Total Number of Transitions ; 4478         ;
++-----------------------------+--------------+
+
+
++-----------------------------------------------------------------+
+; Simulator Settings                                              ;
++-------------------------------------------------------+---------+
+; Option                                                ; Setting ;
++-------------------------------------------------------+---------+
+; Simulation mode                                       ; Timing  ;
+; Start time                                            ; 0ns     ;
+; Add pins automatically to simulation output waveforms ; On      ;
+; Check outputs                                         ; Off     ;
+; Report simulation coverage                            ; On      ;
+; Detect setup and hold time violations                 ; Off     ;
+; Detect glitches                                       ; Off     ;
+; Estimate power consumption                            ; Off     ;
+; USE_COMPILER_SETTINGS                                 ; shixi   ;
+; Automatically save/load simulation netlist            ; Off     ;
+; Disable timing delays in Timing Simulation            ; Off     ;
++-------------------------------------------------------+---------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++-------------------------------------------------------------------------------------------------+
+; |shixi|lpm_rom0:inst12|altsyncram:altsyncram_component|altsyncram_ecq:auto_generated|ALTSYNCRAM ;
++-------------------------------------------------------------------------------------------------+
+Memory report data cannot be output to ASCII.
+Please use Quartus II to view the memory report data.
+
+
++----------------------------------------------------------------------------------------------------+
+; |shixi|lpm_ram_dq0:inst10|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ALTSYNCRAM ;
++----------------------------------------------------------------------------------------------------+
+Memory report data cannot be output to ASCII.
+Please use Quartus II to view the memory report data.
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 4.1 Build 181 06/29/2004 SJ Full Version
+    Info: Processing started: Fri Dec 29 05:38:14 2023
+Info: Command: quartus_sim --import_settings_files=on --export_settings_files=off shixi -c shixi
+Warning: Ignored node in vector source file. Can't find corresponding node name in[7] in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name in[6] in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name in[5] in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name in[4] in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name in[3] in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name in[2] in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name in[1] in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name in[0] in design.
+Info: Simulation coverage is      11.75 %
+Info: Number of transitions in simulation is 4478
+Info: Quartus II Simulator was successful. 0 errors, 8 warnings
+    Info: Processing ended: Fri Dec 29 05:38:14 2023
+    Info: Elapsed time: 00:00:00
+
+

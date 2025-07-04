@@ -1,0 +1,85 @@
+//对以*p为根的二叉排序树做右旋处理，处理之后p指向新的树根结点
+void R_Rotate(BSTree* p)
+{
+    BSTree lc;
+    lc = (*p)->lchild;     // lc指向*p的左子树根结点
+    (*p)->lchild = lc->rchild;    // lc的右子树挂接为*p的左子树
+    lc->rchild = (*p);
+    (*p) = lc;     // p指向新的根结点
+}
+
+//对以 p 为根结点的二叉树做左旋处理，处理之后p指向新的树根结点
+void L_Rotate(BSTree* p)
+{
+    BSTree rc;
+    rc = (*p)->rchild;    // rc指向*p的右子树根结点
+    (*p)->rchild = rc->lchild;    // rc的左子树挂接为*p的右子树
+    rc->lchild = (*p);
+    (*p) = rc;    // p指向新的根结点
+}
+
+//对以指针 T 所指向结点为根结点的二叉树作左子树的平衡处理，令指针 T 指向新的根结点
+void LeftBalance(BSTree* T)
+{
+    BSTree lc, rd;
+    lc = (*T)->lchild;    // lc指向*T的左子树根结点
+    switch (lc->bf)
+    {
+        case LH:    // 新结点插入在*T的左孩子的左子树上，作单右旋处理
+            (*T)->bf = lc->bf = EH;
+            R_Rotate(T);
+            break;
+        case RH:    // 新结点插入在*T的左孩子的右子树上，作双旋处理
+            rd = lc->rchild;    // rd指向*T的左孩子的右子树根
+            switch (rd->bf)
+            {
+                case LH:
+                    (*T)->bf = RH;
+                    lc->bf = EH;
+                    break;
+                case EH:
+                    (*T)->bf = lc->bf = EH;
+                    break;
+                case RH:
+                    (*T)->bf = EH;
+                    lc->bf = LH;
+                    break;
+            }
+            rd->bf = EH;
+            L_Rotate(&(*T)->lchild);    // 对*T的左子树作左旋平衡处理
+            R_Rotate(T);    // 对*T作右旋平衡处理
+    }
+}
+
+//右子树的平衡处理同左子树的平衡处理类似
+void RightBalance(BSTree* T)
+{
+    BSTree rc, ld;
+    rc = (*T)->rchild;    // rc指向*T的右子树根结点
+    switch (rc->bf)
+    {
+        case RH:    // 新结点插入在*T的右孩子的右子树上，作单左旋处理
+            (*T)->bf = rc->bf = EH;
+            L_Rotate(T);
+            break;
+        case LH:    // 新结点插入在*T的右孩子的左子树上，作双旋处理
+            ld = rc->lchild;    // ld指向*T的右孩子的左子树根
+            switch (ld->bf)
+            {
+                case RH:
+                    (*T)->bf = LH;
+                    rc->bf = EH;
+                    break;
+                case EH:
+                    (*T)->bf = rc->bf = EH;
+                    break;
+                case LH:
+                    (*T)->bf = EH;
+                    rc->bf = RH;
+                    break;
+            }
+            ld->bf = EH;
+            R_Rotate(&(*T)->rchild);    // 对*T的右子树作右旋平衡处理
+            L_Rotate(T);    // 对*T作左旋平衡处理
+    }
+}

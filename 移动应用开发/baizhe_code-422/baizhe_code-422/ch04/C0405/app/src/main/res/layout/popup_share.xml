@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/img_popup_bg"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/btn_weixin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="微信"
+        android:textSize="18sp" />
+    <Button
+        android:id="@+id/btn_weibo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="微博"
+        android:textSize="18sp" />
+</LinearLayout>

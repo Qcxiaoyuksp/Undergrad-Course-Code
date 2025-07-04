@@ -1,0 +1,106 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.607 ns
+From           : d0[6]
+To             : 273:inst2|13
+From Clock     : 
+To Clock       : led_b
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 12.019 ns
+From           : lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_address_reg7
+To             : bus[6]
+From Clock     : ram
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 11.091 ns
+From           : d0[6]
+To             : bus[6]
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -2.395 ns
+From           : d0[3]
+To             : 273:inst|16
+From Clock     : 
+To Clock       : reg
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 6.294 ns
+From           : 273:inst2|18
+To             : led[1]
+From Clock     : led_b
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.355 ns
+From           : d0[3]
+To             : bus[3]
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Clock Setup: 'ram'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 175.59 MHz ( period = 5.695 ns )
+From           : lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_address_reg7
+To             : lpm_ram_dq0:inst3|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_datain_reg3
+From Clock     : ram
+To Clock       : ram
+Failed Paths   : 0
+
+Type           : Clock Setup: 'addr'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 422.12 MHz ( period = 2.369 ns )
+From           : 273:inst1|12
+To             : 273:inst1|12
+From Clock     : addr
+To Clock       : addr
+Failed Paths   : 0
+
+Type           : Clock Setup: 'reg'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 422.12 MHz ( period = 2.369 ns )
+From           : 273:inst|15
+To             : 273:inst|15
+From Clock     : reg
+To Clock       : reg
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

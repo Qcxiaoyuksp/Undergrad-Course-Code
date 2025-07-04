@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="昵称:" />
+
+        <EditText
+            android:id="@+id/name_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="匿名" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/content_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:background="@drawable/bg_edit_text_content"
+        android:ems="10"
+        android:gravity="left|top"
+        android:hint="写点什么吧^6^"
+        android:inputType="textMultiLine">
+
+        <requestFocus />
+    </EditText>
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_edit_text_content"
+        android:contentDescription="@null"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/img_add" />
+
+    <Button
+        android:id="@+id/send_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发布" />
+
+</LinearLayout>

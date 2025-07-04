@@ -1,0 +1,16 @@
+package com.vt.c0501;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class Sub2Activity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sub2);
+        //设置标题
+        setTitle("Sub2Activity");
+    }
+}

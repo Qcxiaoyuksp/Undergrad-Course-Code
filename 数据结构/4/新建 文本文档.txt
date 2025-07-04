@@ -1,0 +1,31 @@
+Status MazePath(SqStack *S,MazeType maze,PosType start,PosType end){  
+    int curstep=1;//当前步数  
+    SElemType e;  
+    PosType curpos=start;//当前位置  
+    InitStack(S);//初始化栈  
+    do{  
+        if(当前位置可以通过 ){
+              将迷宫的当前位置pos设置为“走过”；// FootPrint
+               e=NewSElem(curstep,curpos,1);//e.direction=1  
+              Push(S,e);               //入栈一个元素
+              if(到达终点（出口){    //当前位置为终点位置
+                     输出迷宫路径； return TRUE; 
+               }  
+               走下一步;  步数加一; 
+        }//if  
+        else{//当前位置不能通过  
+             if(!StackEmpty(*S)){  
+                   Pop(S,&e);  //退出上一步的记录
+                   while (四个方向都走过&&栈非空){ //上一步的记录中四个方向是否还有可走的，都走过再出栈
+                          FootPrint(&maze, e.location); Pop(S,&e);   //将迷宫M的pos位置，设为已走
+                    }//while  
+                    if (e.direction<4){//退出上一步的记录中四个方向还有可走的，换下一个方向
+                             e.direction++;
+                             Push(S,e);  
+                            curpos =                               ; //当前位置设为下一个位置
+                     }//if  
+                }//if  
+          }//else  
+     }while(!StackEmpty(*S));  
+     return FALSE;  
+}

@@ -1,0 +1,4 @@
+﻿  exp1-0 twoSum.c
+D:\数据结构\数据结构第一节课\exp1-0 twoSum.c(27,2): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\数据结构\数据结构第一节课\exp1-0 twoSum.c(30,3): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\数据结构\数据结构第一节课\exp1-0 twoSum.c(33,2): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.

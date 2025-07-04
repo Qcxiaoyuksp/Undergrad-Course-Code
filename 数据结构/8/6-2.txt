@@ -1,0 +1,25 @@
+BTree *getRoot(char *pre, int p1, int p2, char *in, int i1, int i2) {
+    char rootCh = pre[p1]; //取先序序列中的第一个字符
+    int tmp;
+    BTree *nd;
+    if (!pre || p2 < p1 || p1 < 0 || p2 >= strlen(pre) || !in || i2 < i1 || i1 < 0 || i2 >= strlen(in)) {
+        return NULL;
+    }
+    tmp = findChar(in, i1, i2, rootCh);
+    if (tmp < 0) {
+        return NULL;
+    }
+
+    nd = createBTreeNode(rootCh); //先序遍历次序创建二叉树，由rootCh创建一个结点
+    nd->left = getRoot(pre, p1 + 1, p1 + tmp - i1, in, i1, tmp - 1); //递归创建左子树
+    nd->right = getRoot(pre, p1 + tmp - i1 + 1, p2, in, tmp + 1, i2); //递归创建右子树
+    return nd;
+}
+
+void printPostOrder(BTree *t) {
+    if (t) {
+        printPostOrder(t->left);
+        printPostOrder(t->right);
+        printf("%c", t->e);
+    }
+}

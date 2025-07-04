@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+    <Button
+        android:id="@+id/button_explicit_open_inner_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动内部Activity(显式)"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/button_explicit_open_outer_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动外部Activity(显式)"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/button_implicit_preset_open_outer_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动外部Activity(预设隐式)"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/button_implicit_custom_open_outer_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动外部Activity(自定义隐式)"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/button_open_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动拨打电话(预设隐式)" />
+    <Button
+        android:id="@+id/button_open_sms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动发送短信(预设隐式)" />
+    <Button
+        android:id="@+id/button_open_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开发送邮件(预设隐式)" />
+    <Button
+        android:id="@+id/button_open_browser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开浏览器(预设隐式)" />
+</LinearLayout>

@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="hospital.sql" type="DatabaseScript" editBeforeRun="true" singleton="false" nameIsGenerated="true">
+    <script-file value="$PROJECT_DIR$/src/main/webapp/sql/hospital.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="1faa598b-33f2-41aa-afb2-061256aee950" />
+    <method v="2" />
+  </configuration>
+</component>

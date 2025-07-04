@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--在RelativeLayout控件内顶端显示-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/tv_top"
+        android:textSize="30sp"
+        tools:ignore="RelativeOverlap" />
+    <!--在RelativeLayout控件内底端显示-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="底端"
+        android:textSize="30sp" />
+    <!--在RelativeLayout控件内左端显示-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:text="左端"
+        android:textSize="30sp" />
+    <!--在RelativeLayout控件内右端显示-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:text="右端"
+        android:textSize="30sp" />
+    <!--在RelativeLayout控件内居中显示-->
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="中"
+        android:textSize="30sp" />
+    <!--显示在text_view上方-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/text_view"
+        android:layout_centerHorizontal="true"
+        android:text="上"
+        android:textSize="30sp" />
+    <!--显示在text_view下方-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view"
+        android:layout_centerHorizontal="true"
+        android:text="下"
+        android:textSize="30sp" />
+    <!--显示在text_view左侧-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/text_view"
+        android:text="左"
+        android:textSize="30sp" />
+    <!--显示在text_view右侧-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/text_view"
+        android:text="右"
+        android:textSize="30sp" />
+</RelativeLayout>

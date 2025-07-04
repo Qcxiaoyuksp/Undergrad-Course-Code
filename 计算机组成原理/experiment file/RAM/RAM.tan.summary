@@ -1,0 +1,76 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 2.790 ns
+From           : Mdata[5]
+To             : lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_datain_reg2
+From Clock     : 
+To Clock       : Mclk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 10.251 ns
+From           : lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_address_reg7
+To             : Mout[5]
+From Clock     : Mclk
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -2.003 ns
+From           : Mdata[3]
+To             : lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_datain_reg4
+From Clock     : 
+To Clock       : Mclk
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 6.629 ns
+From           : lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[0]
+To             : Maddr[0]
+From Clock     : Cclk
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Clock Setup: 'Mclk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 290.87 MHz ( period = 3.438 ns )
+From           : lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_datain_reg0
+To             : lpm_ram_dq0:inst|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_memory_reg0
+From Clock     : Mclk
+To Clock       : Mclk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'Cclk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 422.12 MHz ( period = 2.369 ns )
+From           : lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[2]
+To             : lpm_counter0:inst1|lpm_counter:lpm_counter_component|cntr_fa8:auto_generated|safe_q[7]
+From Clock     : Cclk
+To Clock       : Cclk
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

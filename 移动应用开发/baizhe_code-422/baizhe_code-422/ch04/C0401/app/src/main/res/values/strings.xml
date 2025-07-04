@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">C0401</string>
+    <string-array name="movie_type_array">
+        <item>剧情</item>
+        <item>喜剧</item>
+        <item>爱情</item>
+        <item>传记</item>
+        <item>历史</item>
+        <item>科幻</item>
+        <item>奇幻</item>
+        <item>悬疑</item>
+        <item>犯罪</item>
+        <item>武侠</item>
+        <item>动画</item>
+    </string-array>
+</resources>

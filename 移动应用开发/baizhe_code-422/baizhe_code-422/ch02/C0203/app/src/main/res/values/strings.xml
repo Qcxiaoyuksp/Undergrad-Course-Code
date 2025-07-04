@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">C0203</string>
+    <string name="str_get_current_time">获取当前系统时间</string>
+</resources>

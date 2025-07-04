@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">C0210</string>
+    <string name="str_button1">默认对话框</string>
+    <string name="str_button2">自定义对话框</string>
+</resources>

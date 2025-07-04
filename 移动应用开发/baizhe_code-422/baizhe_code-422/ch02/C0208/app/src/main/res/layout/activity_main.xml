@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <Switch
+        android:id="@+id/switch_living_room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:showText="true"
+        android:switchMinWidth="50dp"
+        android:text="@string/str_switch_living_room_1"
+        android:textOff="@string/str_switch_living_room_2"
+        android:textOn="@string/str_switch_living_room_3" />
+    <Switch
+        android:id="@+id/switch_bedroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/str_switch_bedroom" />
+</LinearLayout>

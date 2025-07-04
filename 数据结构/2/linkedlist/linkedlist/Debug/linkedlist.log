@@ -1,0 +1,4 @@
+﻿  exp2-1 linkedlist.c
+D:\QQ数据\1904977351\FileRecv\exp2-1 linkedlist.c(39,6): warning C4101: “e”: 未引用的局部变量
+D:\QQ数据\1904977351\FileRecv\exp2-1 linkedlist.c(39,8): warning C4101: “d”: 未引用的局部变量
+  linkedlist.vcxproj -> D:\数据结构\第二节课\linkedlist\Debug\linkedlist.exe

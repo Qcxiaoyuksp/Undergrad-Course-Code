@@ -1,0 +1,76 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : -0.173 ns
+From           : d0[6]
+To             : lpm_ram_dq0:inst10|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_datain_reg1
+From Clock     : 
+To Clock       : CLK1
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 41.937 ns
+From           : 273:inst8|14
+To             : d1[4]
+From Clock     : CLK1
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 24.778 ns
+From           : d0[0]
+To             : reg_3:inst1|273:reg2|19
+From Clock     : 
+To Clock       : CLK1
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 15.100 ns
+From           : se6_1:inst7|inst41
+To             : uaddr[2]
+From Clock     : CLK1
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Clock Setup: 'CLK1'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 34.51 MHz ( period = 28.980 ns )
+From           : 273:inst8|14
+To             : lpm_ram_dq0:inst10|altsyncram:altsyncram_component|altsyncram_dru:auto_generated|ram_block1a7~porta_datain_reg3
+From Clock     : CLK1
+To Clock       : CLK1
+Failed Paths   : 0
+
+Type           : Clock Hold: 'CLK1'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : 273:inst20|15
+To             : reg_3:inst1|273:reg2|15
+From Clock     : CLK1
+To Clock       : CLK1
+Failed Paths   : 2252
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 2252
+
+--------------------------------------------------------------------------------------
+

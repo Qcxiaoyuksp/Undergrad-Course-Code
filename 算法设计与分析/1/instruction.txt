@@ -1,0 +1,152 @@
+实验2-1 全排列问题
+问题描述：设计一个递归算法生成n个元素{r1,r2,…,rn}的全排列。设R={r1,r2,…,rn}是要进行排列的n个元素，Ri=R-{ri}。集合X中元素的全排列记为perm(X)。(ri)perm(X)表示在全排列perm(X)的每一个排列前加上前缀ri得到的排列。
+程序框架：
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include "stdlib.h"
+#include <iostream>
+
+using namespace std;
+
+void perm(int list[], int k, int m);
+void swap(int& a, int& b);
+
+void main()
+{
+	int a[5] = {0,1,2,3,4};
+	perm(a, 0, 3);
+	printf("\n");
+
+	system("PAUSE");
+}
+void perm(int list[], int k, int m)
+{
+	if (k == m)
+	{
+		//只剩下一个元素
+		for (int i = 0; i <= m; i++)
+			cout << list[i];
+		cout << endl;
+	}
+	else
+	for (int i = k; i <= m; i++)
+	{
+		swap(   ,    ); //将第i个元素与第k个元素交换位置
+		perm(   ,    ,    ); //递归排列第k+1到第m个元素
+		swap(   ,    ); //第i和第k个交换元素的重新换回正常位置
+	}
+}
+void swap(int& a, int& b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+
+实验2-2 大整数乘法问题
+问题描述：分治法求两个N位的整数的乘积。
+程序框架：
+#include <math.h>
+#include <tchar.h>
+#include<iostream>
+using namespace std;
+
+int IntegerMultiply(int x, int y, int N)
+{
+		
+	if ((0 == x) || (0 == y))
+		return 0;
+	if (1 == N)
+		return x*y;
+	else
+	{
+		int a = x / (int)pow(10., (int)N / 2);
+		int b = x - a * (int)pow(10., N / 2);
+		int c = y / (int)pow(10., (int)N / 2);
+		int d = y - c * (int)pow(10., N / 2);
+
+		int ac = IntegerMultiply(   ,   ,   );
+		int bd = IntegerMultiply(   ,   ,   );
+		int ambdmc = IntegerMultiply(   ,   ,   ) + ac + bd;
+		return (ac * (int)pow(10., N) + ambdmc * (int)pow(10., N / 2) + bd);
+	}
+}
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int x = 2304;
+	int y = 1520;
+	
+	cout << "x * y = " << IntegerMultiply(x, y, 4) << endl;
+	cout << "x * y = " << x*y << endl;
+	system("pause");
+	return 0;
+}
+
+
+实验2-3 棋盘覆盖问题
+问题描述：在一个2^k×2^k 个方格组成的棋盘中，恰有一个方格与其它方格不同，称为特殊方格或缺陷方格，且称该棋盘为一特殊棋盘。在棋盘覆盖问题中，要用图示的4种不同形态的L型骨牌覆盖给定的特殊棋盘上除特殊方格以外的所有方格，且任何2个L型骨牌不得重叠覆盖。在2^kⅹ2^k的棋盘覆盖中，用到的L型骨盘数恰为（4k-1)/3,即（所有方格个数-特殊方格个数）/3.
+程序框架：
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include "stdlib.h"
+#include <iostream>
+
+
+#include<iomanip>  
+//setw(n)是c++中在输出操作中使用的字段宽度设置，n表示字段宽度。
+using namespace std;
+
+int matrix[100][100];
+int num = 0;
+void chessBoard(int x, int y, int a, int b, int length);
+
+int main()
+{
+	int a, b, length;
+	cout << "请输入棋盘的行列号";
+	cin >> length;
+	cout << "请输入特殊方格的行列号";
+	cin >> a >> b;
+	matrix[a][b] = 0;
+
+	chessBoard(1, 1, a, b, length);
+
+	for (int i = 1; i <= length; i++){
+		for (int j = 1; j <= length; j++){
+			cout << setw(4) << matrix[i][j];
+		}
+		cout << endl;
+	}
+
+	system("PAUSE");
+
+	return 0;
+}
+void chessBoard(int x, int y, int a, int b, int length) {
+	//如果棋盘上只有一个方格，且该方格为一特殊方格
+	if (length == 1){
+		return;
+	}
+	int h = length / 2;   //分割棋盘
+//	int t = ++num;        //L型骨牌号(从1开始)
+	int t = num++;        //L型骨牌号(从0开始)
+	/*左上角*/
+	if (a < x + h && b < y + h){   //特殊方格在此棋盘中则划分
+		chessBoard(x, y, a, b, h);
+	}
+	else{   //否则先覆盖右下角的方格(用t号L型骨牌)，再划分
+		matrix[x + h - 1][y + h - 1] = t;
+		chessBoard(x, y, x + h - 1, y + h - 1, h);
+	}
+	/*右上角*/
+
+
+	/*右下角*/
+
+
+
+	/*左下角*/
+
+
+}

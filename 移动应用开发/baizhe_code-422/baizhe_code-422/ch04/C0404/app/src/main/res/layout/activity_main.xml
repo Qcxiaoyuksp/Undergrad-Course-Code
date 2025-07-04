@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+    <AutoCompleteTextView
+        android:id="@+id/actv"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:completionHint="请选择搜索内容"
+        android:completionThreshold="2"
+        android:hint="自动完成文本框" />
+    <MultiAutoCompleteTextView
+        android:id="@+id/mactv"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:completionThreshold="1"
+        android:dropDownHeight="200dp"
+        android:hint="多提示项自动完成文本框" />
+</LinearLayout>

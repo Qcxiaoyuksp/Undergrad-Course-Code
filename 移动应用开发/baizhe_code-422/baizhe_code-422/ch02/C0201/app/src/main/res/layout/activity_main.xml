@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_layout_main_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/text_view_hello"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="36sp"
+        android:text="Hello World!" />
+</LinearLayout>

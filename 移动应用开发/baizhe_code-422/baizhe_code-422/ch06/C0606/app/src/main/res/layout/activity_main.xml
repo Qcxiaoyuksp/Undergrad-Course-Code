@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button_send_broadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送标准广播"
+        android:textSize="28sp"/>
+
+    <Button
+        android:id="@+id/button_send_ordered_broadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送有序广播（连续传递）"
+        android:textSize="28sp"/>
+
+    <Button
+        android:id="@+id/button_send_ordered_broadcast_stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送有序广播（传递一次）"
+        android:textSize="28sp"/>
+
+</LinearLayout>

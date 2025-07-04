@@ -1,0 +1,264 @@
+Analysis & Synthesis report for uCONTROL
+Sat Nov 18 15:03:22 2023
+Version 4.1 Build 181 06/29/2004 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Hierarchy
+  5. Analysis & Synthesis Resource Utilization by Entity
+  6. Analysis & Synthesis Equations
+  7. Analysis & Synthesis Source Files Read
+  8. Analysis & Synthesis Resource Usage Summary
+  9. Analysis & Synthesis RAM Summary
+ 10. WYSIWYG Cells
+ 11. General Register Statistics
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2004 Altera Corporation
+Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+support information,  device programming or simulation file,  and any other
+associated  documentation or information  provided by  Altera  or a partner
+under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+other  use  of such  megafunction  design,  netlist,  support  information,
+device programming or simulation file,  or any other  related documentation
+or information  is prohibited  for  any  other purpose,  including, but not
+limited to  modification,  reverse engineering,  de-compiling, or use  with
+any other  silicon devices,  unless such use is  explicitly  licensed under
+a separate agreement with  Altera  or a megafunction partner.  Title to the
+intellectual property,  including patents,  copyrights,  trademarks,  trade
+secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+support  information,  device programming or simulation file,  or any other
+related documentation or information provided by  Altera  or a megafunction
+partner, remains with Altera, the megafunction partner, or their respective
+licensors. No other licenses, including any licenses needed under any third
+party's intellectual property, are provided herein.
+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sat Nov 18 15:03:22 2023    ;
+; Quartus II Version          ; 4.1 Build 181 06/29/2004 SJ Full Version ;
+; Revision Name               ; uCONTROL                                 ;
+; Top-level Entity Name       ; uCONTROL                                 ;
+; Family                      ; Stratix                                  ;
+; Total logic elements        ; 18                                       ;
+; Total pins                  ; 52                                       ;
+; Total memory bits           ; 1,536                                    ;
+; DSP block 9-bit elements    ; 0                                        ;
+; Total PLLs                  ; 0                                        ;
+; Total DLLs                  ; 0                                        ;
++-----------------------------+------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                     ;
++--------------------------------------------------------------------+--------------+---------------+
+; Option                                                             ; Setting      ; Default Value ;
++--------------------------------------------------------------------+--------------+---------------+
+; Restructure Multiplexers                                           ; Auto         ; Auto          ;
+; Create Debugging Nodes for IP Cores                                ; off          ; off           ;
+; Disk space/compilation speed tradeoff                              ; Normal       ; Normal        ;
+; Preserve fewer node names                                          ; On           ; On            ;
+; Disable OpenCore Plus hardware evaluation                          ; Off          ; Off           ;
+; Verilog Version                                                    ; Verilog_2001 ; Verilog_2001  ;
+; VHDL Version                                                       ; VHDL93       ; VHDL93        ;
+; Family name                                                        ; Stratix      ; Stratix       ;
+; Top-level entity name                                              ; uCONTROL     ; uCONTROL      ;
+; State Machine Processing                                           ; Auto         ; Auto          ;
+; DSP Block Balancing                                                ; Auto         ; Auto          ;
+; NOT Gate Push-Back                                                 ; On           ; On            ;
+; Power-Up Don't Care                                                ; On           ; On            ;
+; Remove Redundant Logic Cells                                       ; Off          ; Off           ;
+; Remove Duplicate Registers                                         ; On           ; On            ;
+; Ignore CARRY Buffers                                               ; Off          ; Off           ;
+; Ignore CASCADE Buffers                                             ; Off          ; Off           ;
+; Ignore GLOBAL Buffers                                              ; Off          ; Off           ;
+; Ignore ROW GLOBAL Buffers                                          ; Off          ; Off           ;
+; Ignore LCELL Buffers                                               ; Off          ; Off           ;
+; Ignore SOFT Buffers                                                ; On           ; On            ;
+; Limit AHDL Integers to 32 Bits                                     ; Off          ; Off           ;
+; Optimization Technique -- Stratix/Stratix GX                       ; Balanced     ; Balanced      ;
+; Carry Chain Length -- Stratix/Stratix GX/Cyclone/MAX II/Cyclone II ; 70           ; 70            ;
+; Auto Carry Chains                                                  ; On           ; On            ;
+; Auto Open-Drain Pins                                               ; On           ; On            ;
+; Remove Duplicate Logic                                             ; On           ; On            ;
+; Perform WYSIWYG Primitive Resynthesis                              ; Off          ; Off           ;
+; Perform gate-level register retiming                               ; Off          ; Off           ;
+; Allow register retiming to trade off Tsu/Tco with Fmax             ; On           ; On            ;
+; Auto ROM Replacement                                               ; On           ; On            ;
+; Auto RAM Replacement                                               ; On           ; On            ;
+; Auto DSP Block Replacement                                         ; On           ; On            ;
+; Auto Shift Register Replacement                                    ; On           ; On            ;
+; Auto Clock Enable Replacement                                      ; On           ; On            ;
+; Allows Synchronous Control Signal Usage in Normal Mode Logic Cells ; On           ; On            ;
+; Auto RAM Block Balancing                                           ; On           ; On            ;
+; Auto Resource Sharing                                              ; Off          ; Off           ;
+; Allow Any RAM Size For Recognition                                 ; Off          ; Off           ;
+; Allow Any ROM Size For Recognition                                 ; Off          ; Off           ;
+; Allow Any Shift Register Size For Recognition                      ; Off          ; Off           ;
++--------------------------------------------------------------------+--------------+---------------+
+
+
++-----------+
+; Hierarchy ;
++-----------+
+uCONTROL
+ |-- lpm_rom0:inst
+      |-- altsyncram:altsyncram_component
+           |-- altsyncram_esq:auto_generated
+ |-- se5_1:inst1
+ |-- se6_1:inst2
+ |-- decodec:inst3
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                        ;
++------------------------------------------+-------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-----------------+---------------------------------------------------------------------------------------+
+; Compilation Hierarchy Node               ; Logic Cells ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Full Hierarchy Name                                                                   ;
++------------------------------------------+-------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-----------------+---------------------------------------------------------------------------------------+
+; |uCONTROL                                ; 18 (0)      ; 6            ; 1536        ; 0            ; 0       ; 0         ; 0         ; 52   ; 0            ; 12 (0)       ; 6 (0)             ; 0 (0)            ; 0 (0)           ; |uCONTROL                                                                             ;
+;    |decodec:inst3|                       ; 2 (2)       ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |uCONTROL|decodec:inst3                                                               ;
+;    |lpm_rom0:inst|                       ; 0 (0)       ; 0            ; 1536        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |uCONTROL|lpm_rom0:inst                                                               ;
+;       |altsyncram:altsyncram_component|  ; 0 (0)       ; 0            ; 1536        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |uCONTROL|lpm_rom0:inst|altsyncram:altsyncram_component                               ;
+;          |altsyncram_esq:auto_generated| ; 0 (0)       ; 0            ; 1536        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |uCONTROL|lpm_rom0:inst|altsyncram:altsyncram_component|altsyncram_esq:auto_generated ;
+;    |se5_1:inst1|                         ; 10 (10)     ; 0            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |uCONTROL|se5_1:inst1                                                                 ;
+;    |se6_1:inst2|                         ; 6 (6)       ; 6            ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 6 (6)             ; 0 (0)            ; 0 (0)           ; |uCONTROL|se6_1:inst2                                                                 ;
++------------------------------------------+-------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-----------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------------+
+; Analysis & Synthesis Equations ;
++--------------------------------+
+The equations can be found in E:/计算机组成原理/experiment file/uCONTROL/uCONTROL.map.eqn.
+
+
++------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                             ;
++------------------------------------------------------------------+-----------------+
+; File Name                                                        ; Used in Netlist ;
++------------------------------------------------------------------+-----------------+
+; se5_1.bdf                                                        ; yes             ;
+; uCONTROL.bdf                                                     ; yes             ;
+; se6_1.bdf                                                        ; yes             ;
+; decodec.bdf                                                      ; yes             ;
+; E:/计算机组成原理/experiment file/uCONTROL/lpm_rom0.tdf          ; yes             ;
+; e:/quartus/libraries/megafunctions/altsyncram.inc                ; yes             ;
+; e:/quartus/libraries/megafunctions/altsyncram.tdf                ; yes             ;
+; e:/quartus/libraries/megafunctions/stratix_ram_block.inc         ; yes             ;
+; E:/计算机组成原理/experiment file/uCONTROL/db/altsyncram_esq.tdf ; yes             ;
++------------------------------------------------------------------+-----------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------+-------------------+
+; Resource                        ; Usage             ;
++---------------------------------+-------------------+
+; Logic cells                     ; 18                ;
+; Total combinational functions   ; 12                ;
+; Total 4-input functions         ; 7                 ;
+; Total 3-input functions         ; 3                 ;
+; Total 2-input functions         ; 2                 ;
+; Total 1-input functions         ; 0                 ;
+; Total 0-input functions         ; 0                 ;
+; Combinational cells for routing ; 0                 ;
+; Total registers                 ; 6                 ;
+; I/O pins                        ; 52                ;
+; Total memory bits               ; 1536              ;
+; Maximum fan-out node            ; se6_1:inst2|inst5 ;
+; Maximum fan-out                 ; 25                ;
+; Total fan-out                   ; 269               ;
+; Average fan-out                 ; 2.86              ;
++---------------------------------+-------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                               ;
++----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                   ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------+
+; lpm_rom0:inst|altsyncram:altsyncram_component|altsyncram_esq:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 64           ; 24           ; --           ; --           ; 1536 ; None ;
++----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------+
+
+
++----------------------------------------------------------------+
+; WYSIWYG Cells                                                  ;
++--------------------------------------------------------+-------+
+; Statistic                                              ; Value ;
++--------------------------------------------------------+-------+
+; Number of WYSIWYG cells                                ; 0     ;
+; Number of synthesis-generated cells                    ; 18    ;
+; Number of WYSIWYG LUTs                                 ; 0     ;
+; Number of synthesis-generated LUTs                     ; 12    ;
+; Number of WYSIWYG registers                            ; 0     ;
+; Number of synthesis-generated registers                ; 6     ;
+; Number of cells with combinational logic only          ; 12    ;
+; Number of cells with registers only                    ; 6     ;
+; Number of cells with combinational logic and registers ; 0     ;
++--------------------------------------------------------+-------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 6     ;
+; Number of registers using Asynchronous Load  ; 5     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Output Enable      ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 4.1 Build 181 06/29/2004 SJ Full Version
+    Info: Processing started: Sat Nov 18 15:03:21 2023
+Info: Command: quartus_map --import_settings_files=on --export_settings_files=off uCONTROL -c uCONTROL
+Info: Found 1 design units, including 1 entities, in source file se5_1.bdf
+    Info: Found entity 1: se5_1
+Info: Found 1 design units, including 1 entities, in source file uCONTROL.bdf
+    Info: Found entity 1: uCONTROL
+Info: Found 1 design units, including 1 entities, in source file se6_1.bdf
+    Info: Found entity 1: se6_1
+Info: Found 1 design units, including 1 entities, in source file decodec.bdf
+    Info: Found entity 1: decodec
+Warning: Not all bits are used
+Info: Using design file lpm_rom0.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: lpm_rom0
+Info: Found 1 design units, including 1 entities, in source file ../../../quartus/libraries/megafunctions/altsyncram.tdf
+    Info: Found entity 1: altsyncram
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_esq.tdf
+    Info: Found entity 1: altsyncram_esq
+Warning: Can't find Memory Initialization File or Hexadecimal (Intel-Format) File D:/大学/计算机组成原理/uCONTROL/uCode.hex -- setting all initial values to 0
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin SE[6] stuck at VCC
+Info: Implemented 94 device resources after synthesis - the final resource count might be different
+    Info: Implemented 14 input pins
+    Info: Implemented 38 output pins
+    Info: Implemented 18 logic cells
+    Info: Implemented 24 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Processing ended: Sat Nov 18 15:03:22 2023
+    Info: Elapsed time: 00:00:00
+
+

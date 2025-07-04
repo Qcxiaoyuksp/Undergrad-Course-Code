@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">C0206</string>
+    <string name="select_sex">请选择性别：</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="submit">提交</string>
+</resources>

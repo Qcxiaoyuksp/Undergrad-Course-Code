@@ -1,0 +1,207 @@
+.lrbox {
+	TEXT-ALIGN: left; WIDTH: 510px; ZOOM: 1; HEIGHT: 345px; OVERFLOW: hidden
+}
+.lrbox .lrbox_t {
+	BORDER-BOTTOM: #add0f2 1px solid; LINE-HEIGHT: 24px; MARGIN: 8px 8px 0px; PADDING-LEFT: 1px; HEIGHT: 24px; CLEAR: both; _padding-left: 2px
+}
+.lrbox .lrbox_t LI {
+	TEXT-ALIGN: center; WIDTH: 99px; FLOAT: left; HEIGHT: 24px; MARGIN-LEFT: -1px; FONT-WEIGHT: bold
+}
+.lrbox .lrbox_t LI A {
+	WIDTH: 99px; DISPLAY: block; BACKGROUND: url(../images/login_bg110603.gif) no-repeat; HEIGHT: 24px; COLOR: #0268cd
+}
+.lrbox .lrbox_t LI.active A {
+	POSITION: relative; MARGIN-TOP: -1px; BACKGROUND: url(../images/login_bg110603.gif) #fff no-repeat -99px 0px; HEIGHT: 25px; COLOR: #333; TEXT-DECORATION: none; TOP: 1px
+}
+.lrbox .lrbox_t LI A:hover {
+	TEXT-DECORATION: none
+}
+.login {
+	MARGIN: 0px 8px; ZOOM: 1; HEIGHT: auto; OVERFLOW: hidden
+}
+.login FORM .ts {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; MARGIN-TOP: 15px; PADDING-LEFT: 35px; PADDING-RIGHT: 35px; HEIGHT: 26px; COLOR: #333; PADDING-TOP: 0px
+}
+.login FORM .ts A {
+	MARGIN: 0px 7px; COLOR: #0268cd; FONT-WEIGHT: bold
+}
+.login FORM .bold {
+	LINE-HEIGHT: 35px; MARGIN-TOP: 31px; HEIGHT: 35px; COLOR: #000; FONT-SIZE: 14px
+}
+.login FORM UL .l_link_xn .v_middle {
+	MARGIN-TOP: 3px
+}
+.login FORM UL {
+	PADDING-LEFT: 35px; ZOOM: 1
+}
+.login FORM UL LI {
+	PADDING-BOTTOM: 7px; LINE-HEIGHT: 30px; ZOOM: 1; HEIGHT: auto; CLEAR: both; OVERFLOW: hidden
+}
+.login FORM UL LI .l {
+	WIDTH: 60px; DISPLAY: block; FLOAT: left; FONT-SIZE: 14px
+}
+.login FORM UL LI .r {
+	LINE-HEIGHT: 26px; WIDTH: 350px; FLOAT: left
+}
+.login FORM UL LI A {
+	LINE-HEIGHT: 22px; MARGIN: 4px 0px 0px 10px; DISPLAY: inline; WHITE-SPACE: nowrap; FLOAT: left
+}
+.login FORM UL LI INPUT {
+	BORDER-BOTTOM: #7ab5dd 1px solid; BORDER-LEFT: #7ab5dd 1px solid; PADDING-BOTTOM: 0px; MARGIN-TOP: 1px; PADDING-LEFT: 5px; WIDTH: 228px; PADDING-RIGHT: 5px; FLOAT: left; HEIGHT: 20px; BORDER-TOP: #7ab5dd 1px solid; BORDER-RIGHT: #7ab5dd 1px solid; PADDING-TOP: 4px
+}
+.login FORM UL LI INPUT.wid50 {
+	WIDTH: 108px; MARGIN-RIGHT: 8px
+}
+.login FORM UL LI .r .img_yzm {
+	MARGIN: 0px
+}
+.login FORM UL LI .r .mar-lr8.img_yzm {
+	WIDTH: 70px; FLOAT: left; HEIGHT: 26px; OVERFLOW: hidden
+}
+.login FORM UL LI .r .mar-lr8.img_yzm IMG {
+	MARGIN: -4px 5px 0px -10px; DISPLAY: inline; HEIGHT: 40px
+}
+.login FORM UL LI INPUT.mar-r8 {
+	BORDER-RIGHT-WIDTH: 0px; MARGIN: 3px 5px 0px 60px; WIDTH: auto; FLOAT: left; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; VERTICAL-ALIGN: middle; BORDER-LEFT-WIDTH: 0px
+}
+.login FORM UL .l_link_xn {
+	LINE-HEIGHT: 35px; MARGIN-TOP: 5px; HEIGHT: 35px
+}
+.login FORM UL .l_link_xn SPAN {
+	FLOAT: left; COLOR: #343434; MARGIN-RIGHT: 10px
+}
+.login FORM UL .l_link_xn IMG {
+	FLOAT: left
+}
+.login FORM UL .error {
+	PADDING-BOTTOM: 0px; MARGIN-TOP: 3px; HEIGHT: 34px; COLOR: #cc0000
+}
+.login FORM UL .error SPAN {
+	BORDER-BOTTOM: #e5c2c6 1px solid; BORDER-LEFT: #e5c2c6 1px solid; LINE-HEIGHT: 24px; BACKGROUND-COLOR: #ffebea; PADDING-LEFT: 10px; DISPLAY: block; HEIGHT: 24px; COLOR: #cb0101; BORDER-TOP: #e5c2c6 1px solid; BORDER-RIGHT: #e5c2c6 1px solid
+}
+.login FORM UL LI .r #email {
+	
+}
+.login FORM UL .pad-tb33 .r .inp_btn {
+	BORDER-RIGHT-WIDTH: 0px; MARGIN: 0px 0px 0px 60px; WIDTH: 110px; BACKGROUND: url(../images/login_bg110603.gif) no-repeat -110px -27px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 32px; BORDER-LEFT-WIDTH: 0px; CURSOR: pointer
+}
+.lrbox .bd {
+	MARGIN-TOP: 3px; WIDTH: 494px; HEIGHT: 31px; CLEAR: both
+}
+.lrbox .bd_l {
+	WIDTH: 3px; BACKGROUND: url(../images/login_bg110603.gif) no-repeat -7px -62px; FLOAT: left; HEIGHT: 31px
+}
+.lrbox .bd_c {
+	BORDER-BOTTOM: #d7d7d7 1px solid; BORDER-LEFT: #d7d7d7 0px solid; LINE-HEIGHT: 29px; BACKGROUND-COLOR: #f0f2f2; WIDTH: 488px; FLOAT: left; HEIGHT: 29px; BORDER-TOP: #d7d7d7 1px solid; BORDER-RIGHT: #d7d7d7 0px solid
+}
+.lrbox .bd_c SPAN {
+	DISPLAY: block; FLOAT: left
+}
+.lrbox .bd_c .rr {
+	PADDING-LEFT: 23px; WIDTH: 100px; DISPLAY: inline; BACKGROUND: url(../images/login_bg110603.gif) no-repeat -216px -67px; MARGIN-LEFT: 36px
+}
+.lrbox .bd_c .qq {
+	PADDING-LEFT: 23px; WIDTH: 100px; DISPLAY: inline; BACKGROUND: url(../images/login_bg110603.gif) no-repeat -25px -67px; MARGIN-LEFT: 15px
+}
+.lrbox .bd_c .line {
+	WIDTH: 2px; BACKGROUND: url(../images/login_bg110603.gif) no-repeat 0px -61px; HEIGHT: 29px
+}
+.lrbox .bd_r {
+	WIDTH: 3px; BACKGROUND: url(../images/login_bg110603.gif) no-repeat -11px -62px; FLOAT: left; HEIGHT: 31px
+}
+.login FORM UL .pad-tb22.bor-gray {
+	FONT-SIZE: 12px
+}
+.login FORM UL .pad-tb22.bor-gray LABEL {
+	FLOAT: left; MARGIN-LEFT: 20px
+}
+.login FORM UL .pad-tb22.bor-gray LABEL SPAN {
+	MARGIN: 4px 0px 0px; FLOAT: left
+}
+.login FORM UL .pad-tb22.bor-gray LABEL A {
+	MARGIN: 6px 0px 0px
+}
+.register {
+	MARGIN: 0px 8px; ZOOM: 1; DISPLAY: none; HEIGHT: auto; OVERFLOW: hidden
+}
+.register H2 {
+	HEIGHT: 35px; FONT-SIZE: 14px
+}
+.register H2 #ajaxinfo {
+	MARGIN-LEFT: 10px; FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+.register UL {
+	MARGIN-TOP: 12px; ZOOM: 1; HEIGHT: auto; OVERFLOW: hidden
+}
+.register UL LI {
+	PADDING-BOTTOM: 2px; LINE-HEIGHT: 28px; ZOOM: 1; HEIGHT: auto; CLEAR: both; OVERFLOW: hidden
+}
+.register UL LI .l {
+	TEXT-ALIGN: right; WIDTH: 80px; DISPLAY: block; FLOAT: left; FONT-SIZE: 14px
+}
+.register UL LI .r {
+	LINE-HEIGHT: 25px; WIDTH: 413px; FLOAT: left; COLOR: #999
+}
+.register UL LI .input {
+	BORDER-BOTTOM: #7ab5dc 1px solid; BORDER-LEFT: #7ab5dc 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; WIDTH: 228px; PADDING-RIGHT: 5px; FLOAT: left; HEIGHT: 20px; BORDER-TOP: #7ab5dc 1px solid; MARGIN-RIGHT: 5px; BORDER-RIGHT: #7ab5dc 1px solid; PADDING-TOP: 4px
+}
+.register UL LI .wid50 {
+	WIDTH: 70px
+}
+.t_right {
+	PADDING-LEFT: 20px; WIDTH: 132px; BACKGROUND: url(../images/login_bg110603.gif) no-repeat -216px 5px; FLOAT: left; HEIGHT: 26px; COLOR: #0b9816
+}
+.t_wrong {
+	BORDER-BOTTOM: #e5c3c4 1px solid; BORDER-LEFT: #e5c3c4 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 24px; BACKGROUND-COLOR: #ffeaea; PADDING-LEFT: 5px; WIDTH: 156px; PADDING-RIGHT: 5px; FLOAT: left; HEIGHT: 24px; COLOR: #cc0000; BORDER-TOP: #e5c3c4 1px solid; BORDER-RIGHT: #e5c3c4 1px solid; PADDING-TOP: 0px
+}
+.register UL LI .r .ht {
+	FLOAT: left; MARGIN-RIGHT: 35px
+}
+.register UL LI .r .img_yzm {
+	MARGIN: 0px
+}
+.register UL LI .r .mar-lr8.img_yzm {
+	MARGIN: 0px 5px 0px 0px; WIDTH: 70px; DISPLAY: block; FLOAT: left; HEIGHT: 26px; OVERFLOW: hidden
+}
+.register UL LI .r .mar-lr8.img_yzm IMG {
+	MARGIN: -4px 0px 0px -10px; DISPLAY: inline; HEIGHT: 40px
+}
+.register UL LI A.r {
+	LINE-HEIGHT: 22px; WIDTH: auto; WHITE-SPACE: nowrap; FLOAT: left; COLOR: #0268cd; MARGIN-LEFT: 80px; CLEAR: left
+}
+.register UL .pad-tb22 .r #btnReg {
+	BORDER-RIGHT-WIDTH: 0px; WIDTH: 110px; BACKGROUND: url(../images/login_bg110603.gif) no-repeat 0px -27px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 32px; BORDER-LEFT-WIDTH: 0px; CURSOR: pointer
+}
+.register UL .fwtk {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 80px; PADDING-RIGHT: 0px; VERTICAL-ALIGN: middle; PADDING-TOP: 0px; _padding: 0px 0 5px 80px
+}
+.register UL .fwtk .r {
+	COLOR: #000
+}
+.register UL .fwtk INPUT {
+	MARGIN: 2px 10px 0px 0px; FLOAT: left
+}
+.register UL .fwtk LABEL {
+	FLOAT: left
+}
+.register UL .fwtk A {
+	
+}
+.register UL .pad-tb22 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 80px; PADDING-RIGHT: 0px; PADDING-TOP: 2px; _padding-top: 0 zoom:1
+}
+.register UL .pad-tb22 P {
+	PADDING-LEFT: 42px; WIDTH: 235px; BACKGROUND: url(../images/login_bg110603.gif) no-repeat -201px 10px; FLOAT: left; COLOR: #000
+}
+#content .register UL .pad-tb22 P {
+	PADDING-BOTTOM: 0px; MARGIN-TOP: 3px; PADDING-LEFT: 42px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+.register UL .pad-tb22 INPUT {
+	FLOAT: left
+}
+.login FORM UL LI .r .mar-lr8.img_yzm IMG {
+	MARGIN: 3px 0px 0px; WIDTH: 60px; HEIGHT: 21px
+}
+.register UL LI .r .mar-lr8.img_yzm IMG {
+	MARGIN: 3px 0px 0px; WIDTH: 60px; HEIGHT: 21px
+}
